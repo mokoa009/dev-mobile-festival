@@ -1,0 +1,626 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5E36AB5C299B774E00BAFE63 /* mobile_mviApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB5B299B774E00BAFE63 /* mobile_mviApp.swift */; };
+		5E36AB5E299B774E00BAFE63 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB5D299B774E00BAFE63 /* ContentView.swift */; };
+		5E36AB60299B775000BAFE63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E36AB5F299B775000BAFE63 /* Assets.xcassets */; };
+		5E36AB63299B775000BAFE63 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E36AB62299B775000BAFE63 /* Preview Assets.xcassets */; };
+		5E36AB6D299B775000BAFE63 /* mobile_mviTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB6C299B775000BAFE63 /* mobile_mviTests.swift */; };
+		5E36AB77299B775000BAFE63 /* mobile_mviUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB76299B775000BAFE63 /* mobile_mviUITests.swift */; };
+		5E36AB79299B775000BAFE63 /* mobile_mviUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB78299B775000BAFE63 /* mobile_mviUITestsLaunchTests.swift */; };
+		5E36AB86299B77AD00BAFE63 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB85299B77AD00BAFE63 /* TrackViewModel.swift */; };
+		5E36AB88299B799C00BAFE63 /* TrackIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB87299B799C00BAFE63 /* TrackIntent.swift */; };
+		5E36AB8A299B7A3D00BAFE63 /* TrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB89299B7A3D00BAFE63 /* TrackModel.swift */; };
+		5E36AB8C299B7CDE00BAFE63 /* TrackModelObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB8B299B7CDE00BAFE63 /* TrackModelObserver.swift */; };
+		5E36AB8F299B7D3600BAFE63 /* TrackListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB8D299B7D3600BAFE63 /* TrackListViewModel.swift */; };
+		5E36AB90299B7D3600BAFE63 /* TrackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB8E299B7D3600BAFE63 /* TrackListView.swift */; };
+		5E36AB92299B7DCB00BAFE63 /* TrackItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB91299B7DCB00BAFE63 /* TrackItemView.swift */; };
+		5E36AB94299B7DD900BAFE63 /* TrackUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB93299B7DD900BAFE63 /* TrackUIView.swift */; };
+		5E36AB96299B821D00BAFE63 /* TrackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB95299B821D00BAFE63 /* TrackState.swift */; };
+		C240B21929C269BE002C34AA /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C240B21829C269BD002C34AA /* UserDTO.swift */; };
+		C24E31B529C4549C00CFF330 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24E31B429C4549B00CFF330 /* JSONHelper.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5E36AB69299B775000BAFE63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E36AB50299B774E00BAFE63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E36AB57299B774E00BAFE63;
+			remoteInfo = "mobile-mvi";
+		};
+		5E36AB73299B775000BAFE63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E36AB50299B774E00BAFE63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E36AB57299B774E00BAFE63;
+			remoteInfo = "mobile-mvi";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5E36AB58299B774E00BAFE63 /* mobile-mvi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mobile-mvi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E36AB5B299B774E00BAFE63 /* mobile_mviApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mobile_mviApp.swift; sourceTree = "<group>"; };
+		5E36AB5D299B774E00BAFE63 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5E36AB5F299B775000BAFE63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5E36AB62299B775000BAFE63 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5E36AB68299B775000BAFE63 /* mobile-mviTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mobile-mviTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E36AB6C299B775000BAFE63 /* mobile_mviTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mobile_mviTests.swift; sourceTree = "<group>"; };
+		5E36AB72299B775000BAFE63 /* mobile-mviUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mobile-mviUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E36AB76299B775000BAFE63 /* mobile_mviUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mobile_mviUITests.swift; sourceTree = "<group>"; };
+		5E36AB78299B775000BAFE63 /* mobile_mviUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mobile_mviUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5E36AB85299B77AD00BAFE63 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
+		5E36AB87299B799C00BAFE63 /* TrackIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackIntent.swift; sourceTree = "<group>"; };
+		5E36AB89299B7A3D00BAFE63 /* TrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModel.swift; sourceTree = "<group>"; };
+		5E36AB8B299B7CDE00BAFE63 /* TrackModelObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModelObserver.swift; sourceTree = "<group>"; };
+		5E36AB8D299B7D3600BAFE63 /* TrackListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackListViewModel.swift; sourceTree = "<group>"; };
+		5E36AB8E299B7D3600BAFE63 /* TrackListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackListView.swift; sourceTree = "<group>"; };
+		5E36AB91299B7DCB00BAFE63 /* TrackItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackItemView.swift; sourceTree = "<group>"; };
+		5E36AB93299B7DD900BAFE63 /* TrackUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackUIView.swift; sourceTree = "<group>"; };
+		5E36AB95299B821D00BAFE63 /* TrackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackState.swift; sourceTree = "<group>"; };
+		C240B21829C269BD002C34AA /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		C24E31B429C4549B00CFF330 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5E36AB55299B774E00BAFE63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E36AB65299B775000BAFE63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E36AB6F299B775000BAFE63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5E36AB4F299B774E00BAFE63 = {
+			isa = PBXGroup;
+			children = (
+				5E36AB5A299B774E00BAFE63 /* mobile-mvi */,
+				5E36AB6B299B775000BAFE63 /* mobile-mviTests */,
+				5E36AB75299B775000BAFE63 /* mobile-mviUITests */,
+				5E36AB59299B774E00BAFE63 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5E36AB59299B774E00BAFE63 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5E36AB58299B774E00BAFE63 /* mobile-mvi.app */,
+				5E36AB68299B775000BAFE63 /* mobile-mviTests.xctest */,
+				5E36AB72299B775000BAFE63 /* mobile-mviUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5E36AB5A299B774E00BAFE63 /* mobile-mvi */ = {
+			isa = PBXGroup;
+			children = (
+				5E36AB8E299B7D3600BAFE63 /* TrackListView.swift */,
+				5E36AB93299B7DD900BAFE63 /* TrackUIView.swift */,
+				5E36AB91299B7DCB00BAFE63 /* TrackItemView.swift */,
+				5E36AB8D299B7D3600BAFE63 /* TrackListViewModel.swift */,
+				5E36AB5B299B774E00BAFE63 /* mobile_mviApp.swift */,
+				5E36AB5D299B774E00BAFE63 /* ContentView.swift */,
+				5E36AB5F299B775000BAFE63 /* Assets.xcassets */,
+				5E36AB61299B775000BAFE63 /* Preview Content */,
+				5E36AB85299B77AD00BAFE63 /* TrackViewModel.swift */,
+				5E36AB87299B799C00BAFE63 /* TrackIntent.swift */,
+				5E36AB89299B7A3D00BAFE63 /* TrackModel.swift */,
+				5E36AB8B299B7CDE00BAFE63 /* TrackModelObserver.swift */,
+				5E36AB95299B821D00BAFE63 /* TrackState.swift */,
+				C240B21829C269BD002C34AA /* UserDTO.swift */,
+				C24E31B429C4549B00CFF330 /* JSONHelper.swift */,
+			);
+			path = "mobile-mvi";
+			sourceTree = "<group>";
+		};
+		5E36AB61299B775000BAFE63 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5E36AB62299B775000BAFE63 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5E36AB6B299B775000BAFE63 /* mobile-mviTests */ = {
+			isa = PBXGroup;
+			children = (
+				5E36AB6C299B775000BAFE63 /* mobile_mviTests.swift */,
+			);
+			path = "mobile-mviTests";
+			sourceTree = "<group>";
+		};
+		5E36AB75299B775000BAFE63 /* mobile-mviUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5E36AB76299B775000BAFE63 /* mobile_mviUITests.swift */,
+				5E36AB78299B775000BAFE63 /* mobile_mviUITestsLaunchTests.swift */,
+			);
+			path = "mobile-mviUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5E36AB57299B774E00BAFE63 /* mobile-mvi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E36AB7C299B775000BAFE63 /* Build configuration list for PBXNativeTarget "mobile-mvi" */;
+			buildPhases = (
+				5E36AB54299B774E00BAFE63 /* Sources */,
+				5E36AB55299B774E00BAFE63 /* Frameworks */,
+				5E36AB56299B774E00BAFE63 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "mobile-mvi";
+			productName = "mobile-mvi";
+			productReference = 5E36AB58299B774E00BAFE63 /* mobile-mvi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5E36AB67299B775000BAFE63 /* mobile-mviTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E36AB7F299B775000BAFE63 /* Build configuration list for PBXNativeTarget "mobile-mviTests" */;
+			buildPhases = (
+				5E36AB64299B775000BAFE63 /* Sources */,
+				5E36AB65299B775000BAFE63 /* Frameworks */,
+				5E36AB66299B775000BAFE63 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E36AB6A299B775000BAFE63 /* PBXTargetDependency */,
+			);
+			name = "mobile-mviTests";
+			productName = "mobile-mviTests";
+			productReference = 5E36AB68299B775000BAFE63 /* mobile-mviTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5E36AB71299B775000BAFE63 /* mobile-mviUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E36AB82299B775000BAFE63 /* Build configuration list for PBXNativeTarget "mobile-mviUITests" */;
+			buildPhases = (
+				5E36AB6E299B775000BAFE63 /* Sources */,
+				5E36AB6F299B775000BAFE63 /* Frameworks */,
+				5E36AB70299B775000BAFE63 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E36AB74299B775000BAFE63 /* PBXTargetDependency */,
+			);
+			name = "mobile-mviUITests";
+			productName = "mobile-mviUITests";
+			productReference = 5E36AB72299B775000BAFE63 /* mobile-mviUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5E36AB50299B774E00BAFE63 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					5E36AB57299B774E00BAFE63 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					5E36AB67299B775000BAFE63 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 5E36AB57299B774E00BAFE63;
+					};
+					5E36AB71299B775000BAFE63 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 5E36AB57299B774E00BAFE63;
+					};
+				};
+			};
+			buildConfigurationList = 5E36AB53299B774E00BAFE63 /* Build configuration list for PBXProject "mobile-mvi" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5E36AB4F299B774E00BAFE63;
+			productRefGroup = 5E36AB59299B774E00BAFE63 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5E36AB57299B774E00BAFE63 /* mobile-mvi */,
+				5E36AB67299B775000BAFE63 /* mobile-mviTests */,
+				5E36AB71299B775000BAFE63 /* mobile-mviUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5E36AB56299B774E00BAFE63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E36AB63299B775000BAFE63 /* Preview Assets.xcassets in Resources */,
+				5E36AB60299B775000BAFE63 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E36AB66299B775000BAFE63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E36AB70299B775000BAFE63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5E36AB54299B774E00BAFE63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E36AB94299B7DD900BAFE63 /* TrackUIView.swift in Sources */,
+				5E36AB8F299B7D3600BAFE63 /* TrackListViewModel.swift in Sources */,
+				5E36AB5E299B774E00BAFE63 /* ContentView.swift in Sources */,
+				5E36AB96299B821D00BAFE63 /* TrackState.swift in Sources */,
+				5E36AB92299B7DCB00BAFE63 /* TrackItemView.swift in Sources */,
+				5E36AB90299B7D3600BAFE63 /* TrackListView.swift in Sources */,
+				C240B21929C269BE002C34AA /* UserDTO.swift in Sources */,
+				5E36AB8C299B7CDE00BAFE63 /* TrackModelObserver.swift in Sources */,
+				C24E31B529C4549C00CFF330 /* JSONHelper.swift in Sources */,
+				5E36AB86299B77AD00BAFE63 /* TrackViewModel.swift in Sources */,
+				5E36AB5C299B774E00BAFE63 /* mobile_mviApp.swift in Sources */,
+				5E36AB8A299B7A3D00BAFE63 /* TrackModel.swift in Sources */,
+				5E36AB88299B799C00BAFE63 /* TrackIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E36AB64299B775000BAFE63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E36AB6D299B775000BAFE63 /* mobile_mviTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E36AB6E299B775000BAFE63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E36AB77299B775000BAFE63 /* mobile_mviUITests.swift in Sources */,
+				5E36AB79299B775000BAFE63 /* mobile_mviUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5E36AB6A299B775000BAFE63 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E36AB57299B774E00BAFE63 /* mobile-mvi */;
+			targetProxy = 5E36AB69299B775000BAFE63 /* PBXContainerItemProxy */;
+		};
+		5E36AB74299B775000BAFE63 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E36AB57299B774E00BAFE63 /* mobile-mvi */;
+			targetProxy = 5E36AB73299B775000BAFE63 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5E36AB7A299B775000BAFE63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5E36AB7B299B775000BAFE63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5E36AB7D299B775000BAFE63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"mobile-mvi/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ocean.mobile-mvi";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5E36AB7E299B775000BAFE63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"mobile-mvi/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ocean.mobile-mvi";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5E36AB80299B775000BAFE63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ocean.mobile-mviTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mobile-mvi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/mobile-mvi";
+			};
+			name = Debug;
+		};
+		5E36AB81299B775000BAFE63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ocean.mobile-mviTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mobile-mvi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/mobile-mvi";
+			};
+			name = Release;
+		};
+		5E36AB83299B775000BAFE63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ocean.mobile-mviUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "mobile-mvi";
+			};
+			name = Debug;
+		};
+		5E36AB84299B775000BAFE63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ocean.mobile-mviUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "mobile-mvi";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5E36AB53299B774E00BAFE63 /* Build configuration list for PBXProject "mobile-mvi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E36AB7A299B775000BAFE63 /* Debug */,
+				5E36AB7B299B775000BAFE63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E36AB7C299B775000BAFE63 /* Build configuration list for PBXNativeTarget "mobile-mvi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E36AB7D299B775000BAFE63 /* Debug */,
+				5E36AB7E299B775000BAFE63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E36AB7F299B775000BAFE63 /* Build configuration list for PBXNativeTarget "mobile-mviTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E36AB80299B775000BAFE63 /* Debug */,
+				5E36AB81299B775000BAFE63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E36AB82299B775000BAFE63 /* Build configuration list for PBXNativeTarget "mobile-mviUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E36AB83299B775000BAFE63 /* Debug */,
+				5E36AB84299B775000BAFE63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5E36AB50299B774E00BAFE63 /* Project object */;
+}
