@@ -8,7 +8,8 @@
 import Foundation
 
 struct UserDTO: Codable, Hashable{
-    let id: Int?
+    var idObject = UUID()
+    let id: Int
     let nom: String
     let prenom: String
     let email: String
