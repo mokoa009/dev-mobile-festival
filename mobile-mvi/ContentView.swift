@@ -11,7 +11,13 @@ struct ContentView : View {
     
     var body: some View {
         Text("TEST OUIIIII")
-        UserListView()
+            .padding()
+            .onAppear(){
+                debugPrint("AHHHHHHHHHHHHHHHHHHHHHHHHHHHh")
+            }
+     
+        UserListView(viewModel: UserListViewModel(users: []))
+        
     }
     
 }

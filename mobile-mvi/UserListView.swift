@@ -9,11 +9,17 @@ import SwiftUI
 
 struct UserListView : View {
     
-    @ObservedObject var users = UserListViewModel(users: [])
-    var userIntent = UserIntent()
+    @ObservedObject var users : UserListViewModel
+    var userIntent : UserIntent
+    
+    init(viewModel : UserListViewModel){
+        self.users = viewModel
+        self.userIntent = UserIntent(model: viewModel)
+    }
     
     
     var body : some View {
+        Text("BOBOBLO")
         NavigationStack{
             VStack {
                 List{
@@ -21,14 +27,17 @@ struct UserListView : View {
                         NavigationLink(value: user){
                             UserItemView(user: user)
                         }
-                    }.onAppear(){
-                        debugPrint("chargement data ?")
-                        Task{
-                            await userIntent.getUsers(of: users)
-                        }
                     }
                 }
             }
+        //}.onAppear(){
+          //  debugPrint("chargement data ?")
+          //  Task{
+           //     await userIntent.getUsers(of: users)
+         //   }
+        }.task {
+            debugPrint("chargement data ?")
+                await userIntent.getUsers()
         }
     }
 }

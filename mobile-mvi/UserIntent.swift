@@ -11,16 +11,18 @@ import SwiftUI
 
 
 struct UserIntent {
-    /*
-    @ObservedObject private var model : TrackViewModel
-    
-    init(track: TrackViewModel){
-        self.model = track
-    }*/
     
     
-    func getUsers(of model : UserListViewModel) async {
-        model.state = .loadingUsers
+    @ObservedObject private var model : UserListViewModel
+    
+    init(model: UserListViewModel){
+        self.model = model
+    }
+    
+   // @ObservedObject private var state : UserListViewModel
+    
+    func getUsers() async {
+        self.model.state = .loadingUsers
         
         guard let url = URL(string: "https://awi-festival-api.cluster-ig4.igpolytech.fr/utilisateurs") else {
             debugPrint("bad url getUser")
