@@ -42,7 +42,7 @@ class UserViewModel : ObservableObject, Hashable, Equatable{//, UserModelObserve
     }
     
     init(user : UserDTO) {
-        self.id = user.id
+        self.id = user.idUtilisateur
         self.nom = user.nom
         self.prenom = user.prenom
         self.email = user.email

@@ -43,18 +43,22 @@ struct UserIntent {
             }
             let (data, response) = try await URLSession.shared.upload(for: requete, from: encoded)*/
             let (data, response) = try await URLSession.shared.data(from: url)
+            debugPrint("data normal")
+            debugPrint(data)
             let sdata = String(data: data, encoding: .utf8)!
             let httpresponse = response as! HTTPURLResponse
             if httpresponse.statusCode == 200{
-                debugPrint("result: \(sdata)")
-                guard let decoded : ResponseUser = await JSONHelper.decode(data: data) else{
+               // model.state = .loadedUsers([UserDTO(idUtilisateur: 11, nom: "truc", prenom: "mgd", email: "ege", mdp: "fefe", isAdmin: 1)])
+                debugPrint("je suis conne")
+                debugPrint("\(sdata)")
+                guard let decoded : [UserDTO] = await JSONHelper.decode(data: data) else{
                     debugPrint("mauvaise récup données")
                     return
                 }
                 
                 debugPrint("donneees decodeess")
-                debugPrint(decoded.data)
-               // model.state = .loadedUsers(decoded.data)
+                debugPrint(decoded)
+                model.state = .loadedUsers(decoded)
                 
             }
             else{

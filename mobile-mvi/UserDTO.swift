@@ -8,15 +8,16 @@
 import Foundation
 
 struct UserDTO: Codable, Hashable{
-    var idObject = UUID()
-    let id: Int
+    let idUtilisateur: Int
     let nom: String
     let prenom: String
     let email: String
+    let mdp: String
+    let isAdmin: Int
 }
 
 struct ResponseUser: Decodable{
-    var data : UserDTO
+    var result : [UserDTO]
 }
 
 

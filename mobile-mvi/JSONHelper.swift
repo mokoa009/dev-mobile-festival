@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+/*
 extension URLSession{
     //pour décoder le json récupérer de l'api
     func getJSON<T: Decodable>(from url:URL) async throws -> T{
@@ -15,14 +15,33 @@ extension URLSession{
         let decoded = try decoder.decode(T.self,from: data)
         return decoded
     }
-}
+}*/
 struct JSONHelper{
     static func decode<T : Decodable>(data: Data) async -> T?{
         let decoder = JSONDecoder()
-        guard let decoded = try? decoder.decode(T.self, from: data) else{
+       // debugPrint("format data")
+       // debugPrint(data)
+        /*guard let decoded = try? decoder.decode(T.self, from: data) else{
+            
+            debugPrint("errerur deco")
+            return nil
+        }*/
+        do {
+            let decoded = try decoder.decode(T.self, from: data)
+            debugPrint("dans le do")
+            debugPrint(decoded)
+            return decoded
+        } catch {
+            debugPrint("error euh")
+            debugPrint(error)
+            debugPrint(error.localizedDescription)
             return nil
         }
-        return decoded
+      //  debugPrint("DECODED")
+       // return decoded
+        //debugPrint(decoded)
+        //return decoded
+     //   return nil
     }
     
     static func encode<T : Encodable>(data: T) async -> Data?{
