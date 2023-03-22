@@ -114,20 +114,16 @@
 		5E36AB5A299B774E00BAFE63 /* mobile-mvi */ = {
 			isa = PBXGroup;
 			children = (
-				5E36AB93299B7DD900BAFE63 /* UserFormView.swift */,
-				5E36AB91299B7DCB00BAFE63 /* UserItemView.swift */,
-				C21CC85629C88BAD005A16AC /* UserListViewModel.swift */,
+				C2476F1029CB12ED0000A875 /* view */,
+				C2476F1129CB12F80000A875 /* modelView */,
 				5E36AB5B299B774E00BAFE63 /* mobile_mviApp.swift */,
-				5E36AB5D299B774E00BAFE63 /* ContentView.swift */,
 				5E36AB5F299B775000BAFE63 /* Assets.xcassets */,
 				5E36AB61299B775000BAFE63 /* Preview Content */,
-				5E36AB85299B77AD00BAFE63 /* UserViewModel.swift */,
-				5E36AB87299B799C00BAFE63 /* UserIntent.swift */,
-				5E36AB95299B821D00BAFE63 /* UserState.swift */,
-				C240B21829C269BD002C34AA /* UserDTO.swift */,
-				C24E31B429C4549B00CFF330 /* JSONHelper.swift */,
-				C21CC85829C88DAF005A16AC /* UserModelObserver.swift */,
-				C21CC85A29C8F45C005A16AC /* UserListView.swift */,
+				C2476F1529CB13200000A875 /* intent */,
+				C2476F1229CB12FF0000A875 /* DTO */,
+				C2476F1A29CB13BE0000A875 /* state */,
+				C2476F1429CB13140000A875 /* modelObserver */,
+				C2476F1329CB130A0000A875 /* utilitaires */,
 			);
 			path = "mobile-mvi";
 			sourceTree = "<group>";
@@ -155,6 +151,114 @@
 				5E36AB78299B775000BAFE63 /* mobile_mviUITestsLaunchTests.swift */,
 			);
 			path = "mobile-mviUITests";
+			sourceTree = "<group>";
+		};
+		C2476F1029CB12ED0000A875 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				C2476F1629CB13490000A875 /* user */,
+				5E36AB5D299B774E00BAFE63 /* ContentView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		C2476F1129CB12F80000A875 /* modelView */ = {
+			isa = PBXGroup;
+			children = (
+				C2476F1729CB13670000A875 /* user */,
+			);
+			path = modelView;
+			sourceTree = "<group>";
+		};
+		C2476F1229CB12FF0000A875 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				C2476F1929CB139C0000A875 /* user */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		C2476F1329CB130A0000A875 /* utilitaires */ = {
+			isa = PBXGroup;
+			children = (
+				C24E31B429C4549B00CFF330 /* JSONHelper.swift */,
+			);
+			path = utilitaires;
+			sourceTree = "<group>";
+		};
+		C2476F1429CB13140000A875 /* modelObserver */ = {
+			isa = PBXGroup;
+			children = (
+				C2476F1C29CB13E60000A875 /* user */,
+			);
+			path = modelObserver;
+			sourceTree = "<group>";
+		};
+		C2476F1529CB13200000A875 /* intent */ = {
+			isa = PBXGroup;
+			children = (
+				C2476F1829CB13850000A875 /* user */,
+			);
+			path = intent;
+			sourceTree = "<group>";
+		};
+		C2476F1629CB13490000A875 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				5E36AB91299B7DCB00BAFE63 /* UserItemView.swift */,
+				5E36AB93299B7DD900BAFE63 /* UserFormView.swift */,
+				C21CC85A29C8F45C005A16AC /* UserListView.swift */,
+			);
+			path = user;
+			sourceTree = "<group>";
+		};
+		C2476F1729CB13670000A875 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				5E36AB85299B77AD00BAFE63 /* UserViewModel.swift */,
+				C21CC85629C88BAD005A16AC /* UserListViewModel.swift */,
+			);
+			path = user;
+			sourceTree = "<group>";
+		};
+		C2476F1829CB13850000A875 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				5E36AB87299B799C00BAFE63 /* UserIntent.swift */,
+			);
+			path = user;
+			sourceTree = "<group>";
+		};
+		C2476F1929CB139C0000A875 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				C240B21829C269BD002C34AA /* UserDTO.swift */,
+			);
+			path = user;
+			sourceTree = "<group>";
+		};
+		C2476F1A29CB13BE0000A875 /* state */ = {
+			isa = PBXGroup;
+			children = (
+				C2476F1B29CB13D00000A875 /* user */,
+			);
+			path = state;
+			sourceTree = "<group>";
+		};
+		C2476F1B29CB13D00000A875 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				5E36AB95299B821D00BAFE63 /* UserState.swift */,
+			);
+			path = user;
+			sourceTree = "<group>";
+		};
+		C2476F1C29CB13E60000A875 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				C21CC85829C88DAF005A16AC /* UserModelObserver.swift */,
+			);
+			path = user;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
