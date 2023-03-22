@@ -22,6 +22,11 @@
 		B7A8E90A29CB19CA0072FE1A /* FestivalModelObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8E90929CB19CA0072FE1A /* FestivalModelObserver.swift */; };
 		B7A8E90C29CB1A110072FE1A /* FestivalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8E90B29CB1A110072FE1A /* FestivalState.swift */; };
 		B7A8E90E29CB1A570072FE1A /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8E90D29CB1A570072FE1A /* Festival.swift */; };
+		B7A8E91029CB1FF40072FE1A /* FestivalIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8E90F29CB1FF40072FE1A /* FestivalIntent.swift */; };
+		B7A8E91229CB21ED0072FE1A /* FestivalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8E91129CB21ED0072FE1A /* FestivalViewModel.swift */; };
+		B7A8E91429CB23330072FE1A /* FestivalListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8E91329CB23330072FE1A /* FestivalListViewModel.swift */; };
+		B7A8E91629CB23870072FE1A /* FestivalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8E91529CB23870072FE1A /* FestivalListView.swift */; };
+		B7A8E91829CB23D60072FE1A /* FestivalItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8E91729CB23D60072FE1A /* FestivalItemView.swift */; };
 		C21CC85729C88BAD005A16AC /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CC85629C88BAD005A16AC /* UserListViewModel.swift */; };
 		C21CC85929C88DAF005A16AC /* UserModelObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CC85829C88DAF005A16AC /* UserModelObserver.swift */; };
 		C21CC85B29C8F45C005A16AC /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CC85A29C8F45C005A16AC /* UserListView.swift */; };
@@ -65,6 +70,11 @@
 		B7A8E90929CB19CA0072FE1A /* FestivalModelObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalModelObserver.swift; sourceTree = "<group>"; };
 		B7A8E90B29CB1A110072FE1A /* FestivalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalState.swift; sourceTree = "<group>"; };
 		B7A8E90D29CB1A570072FE1A /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
+		B7A8E90F29CB1FF40072FE1A /* FestivalIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalIntent.swift; sourceTree = "<group>"; };
+		B7A8E91129CB21ED0072FE1A /* FestivalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalViewModel.swift; sourceTree = "<group>"; };
+		B7A8E91329CB23330072FE1A /* FestivalListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalListViewModel.swift; sourceTree = "<group>"; };
+		B7A8E91529CB23870072FE1A /* FestivalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalListView.swift; sourceTree = "<group>"; };
+		B7A8E91729CB23D60072FE1A /* FestivalItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalItemView.swift; sourceTree = "<group>"; };
 		C21CC85629C88BAD005A16AC /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		C21CC85829C88DAF005A16AC /* UserModelObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelObserver.swift; sourceTree = "<group>"; };
 		C21CC85A29C8F45C005A16AC /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
@@ -162,6 +172,8 @@
 		B7A8E90329CB19330072FE1A /* festival */ = {
 			isa = PBXGroup;
 			children = (
+				B7A8E91529CB23870072FE1A /* FestivalListView.swift */,
+				B7A8E91729CB23D60072FE1A /* FestivalItemView.swift */,
 			);
 			path = festival;
 			sourceTree = "<group>";
@@ -169,6 +181,8 @@
 		B7A8E90429CB195B0072FE1A /* festival */ = {
 			isa = PBXGroup;
 			children = (
+				B7A8E91129CB21ED0072FE1A /* FestivalViewModel.swift */,
+				B7A8E91329CB23330072FE1A /* FestivalListViewModel.swift */,
 			);
 			path = festival;
 			sourceTree = "<group>";
@@ -176,6 +190,7 @@
 		B7A8E90529CB196B0072FE1A /* festival */ = {
 			isa = PBXGroup;
 			children = (
+				B7A8E90F29CB1FF40072FE1A /* FestivalIntent.swift */,
 			);
 			path = festival;
 			sourceTree = "<group>";
@@ -448,21 +463,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7A8E91229CB21ED0072FE1A /* FestivalViewModel.swift in Sources */,
 				5E36AB94299B7DD900BAFE63 /* UserFormView.swift in Sources */,
 				B7A8E90C29CB1A110072FE1A /* FestivalState.swift in Sources */,
 				B7A8E90A29CB19CA0072FE1A /* FestivalModelObserver.swift in Sources */,
 				5E36AB5E299B774E00BAFE63 /* ContentView.swift in Sources */,
 				C21CC85B29C8F45C005A16AC /* UserListView.swift in Sources */,
+				B7A8E91429CB23330072FE1A /* FestivalListViewModel.swift in Sources */,
 				C21CC85729C88BAD005A16AC /* UserListViewModel.swift in Sources */,
 				5E36AB96299B821D00BAFE63 /* UserState.swift in Sources */,
 				5E36AB92299B7DCB00BAFE63 /* UserItemView.swift in Sources */,
 				B7A8E90E29CB1A570072FE1A /* Festival.swift in Sources */,
+				B7A8E91629CB23870072FE1A /* FestivalListView.swift in Sources */,
 				C240B21929C269BE002C34AA /* UserDTO.swift in Sources */,
+				B7A8E91829CB23D60072FE1A /* FestivalItemView.swift in Sources */,
 				C21CC85929C88DAF005A16AC /* UserModelObserver.swift in Sources */,
 				C24E31B529C4549C00CFF330 /* JSONHelper.swift in Sources */,
 				5E36AB86299B77AD00BAFE63 /* UserViewModel.swift in Sources */,
 				5E36AB5C299B774E00BAFE63 /* mobile_mviApp.swift in Sources */,
 				5E36AB88299B799C00BAFE63 /* UserIntent.swift in Sources */,
+				B7A8E91029CB1FF40072FE1A /* FestivalIntent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
