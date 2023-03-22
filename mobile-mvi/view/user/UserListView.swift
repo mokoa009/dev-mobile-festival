@@ -17,27 +17,40 @@ struct UserListView : View {
         self.userIntent = UserIntent(model: viewModel)
     }
     
+    func supprimerUser(id : Int) async{
+        debugPrint("utilisateur supprimé")
+        await userIntent.deleteUser(id: id)
+    }
     
+    
+    
+    func modifierUser(){
+        debugPrint("modifier utilisateur")
+    }
     var body : some View {
         Text("BOBOBLO")
         NavigationStack{
             VStack {
                 List{
                     ForEach(users.users, id: \.self) { user in
-                        NavigationLink(value: user){
-                            UserItemView(user: user)
+                        NavigationLink(destination: UserItemView(user: user)){
+                            Text("Utilisateur n° \(user.id)")
+                            Text("Nom : " + user.nom)
+                            Text("Prenom : "+user.prenom)
+                            HStack{
+                                Button("Supprimer", action: {
+                                    Task{
+                                        await supprimerUser(id: user.id)
+                                    }
+                                })
+                                Button("Modifer", action: modifierUser)
+                            }.buttonStyle(.bordered)
                         }
                     }
                 }
             }
-        //}.onAppear(){
-          //  debugPrint("chargement data ?")
-          //  Task{
-           //     await userIntent.getUsers(of: users)
-         //   }
         }.task {
-            debugPrint("chargement data ?")
-                await userIntent.getUsers()
+            await userIntent.getUsers()
         }
     }
 }
