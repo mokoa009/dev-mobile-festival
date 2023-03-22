@@ -19,10 +19,14 @@
 		5E36AB92299B7DCB00BAFE63 /* UserItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB91299B7DCB00BAFE63 /* UserItemView.swift */; };
 		5E36AB94299B7DD900BAFE63 /* UserFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB93299B7DD900BAFE63 /* UserFormView.swift */; };
 		5E36AB96299B821D00BAFE63 /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB95299B821D00BAFE63 /* UserState.swift */; };
+		C204B5BC29CBA71200EE9BC2 /* ConnexionIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204B5BB29CBA71200EE9BC2 /* ConnexionIntent.swift */; };
+		C204B5BE29CBA7F100EE9BC2 /* ConnexionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204B5BD29CBA7F100EE9BC2 /* ConnexionState.swift */; };
 		C21CC85729C88BAD005A16AC /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CC85629C88BAD005A16AC /* UserListViewModel.swift */; };
 		C21CC85929C88DAF005A16AC /* UserModelObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CC85829C88DAF005A16AC /* UserModelObserver.swift */; };
 		C21CC85B29C8F45C005A16AC /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CC85A29C8F45C005A16AC /* UserListView.swift */; };
 		C240B21929C269BE002C34AA /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C240B21829C269BD002C34AA /* UserDTO.swift */; };
+		C2476F1E29CB2FC20000A875 /* ConnexionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2476F1D29CB2FC20000A875 /* ConnexionView.swift */; };
+		C2476F2029CB32980000A875 /* ConnexionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2476F1F29CB32980000A875 /* ConnexionViewModel.swift */; };
 		C24E31B529C4549C00CFF330 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24E31B429C4549B00CFF330 /* JSONHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,10 +63,14 @@
 		5E36AB91299B7DCB00BAFE63 /* UserItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserItemView.swift; sourceTree = "<group>"; };
 		5E36AB93299B7DD900BAFE63 /* UserFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFormView.swift; sourceTree = "<group>"; };
 		5E36AB95299B821D00BAFE63 /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
+		C204B5BB29CBA71200EE9BC2 /* ConnexionIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnexionIntent.swift; sourceTree = "<group>"; };
+		C204B5BD29CBA7F100EE9BC2 /* ConnexionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnexionState.swift; sourceTree = "<group>"; };
 		C21CC85629C88BAD005A16AC /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		C21CC85829C88DAF005A16AC /* UserModelObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelObserver.swift; sourceTree = "<group>"; };
 		C21CC85A29C8F45C005A16AC /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		C240B21829C269BD002C34AA /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		C2476F1D29CB2FC20000A875 /* ConnexionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnexionView.swift; sourceTree = "<group>"; };
+		C2476F1F29CB32980000A875 /* ConnexionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnexionViewModel.swift; sourceTree = "<group>"; };
 		C24E31B429C4549B00CFF330 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,6 +216,7 @@
 				5E36AB91299B7DCB00BAFE63 /* UserItemView.swift */,
 				5E36AB93299B7DD900BAFE63 /* UserFormView.swift */,
 				C21CC85A29C8F45C005A16AC /* UserListView.swift */,
+				C2476F1D29CB2FC20000A875 /* ConnexionView.swift */,
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -217,6 +226,7 @@
 			children = (
 				5E36AB85299B77AD00BAFE63 /* UserViewModel.swift */,
 				C21CC85629C88BAD005A16AC /* UserListViewModel.swift */,
+				C2476F1F29CB32980000A875 /* ConnexionViewModel.swift */,
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -225,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				5E36AB87299B799C00BAFE63 /* UserIntent.swift */,
+				C204B5BB29CBA71200EE9BC2 /* ConnexionIntent.swift */,
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -249,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				5E36AB95299B821D00BAFE63 /* UserState.swift */,
+				C204B5BD29CBA7F100EE9BC2 /* ConnexionState.swift */,
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -391,6 +403,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2476F2029CB32980000A875 /* ConnexionViewModel.swift in Sources */,
+				C204B5BE29CBA7F100EE9BC2 /* ConnexionState.swift in Sources */,
 				5E36AB94299B7DD900BAFE63 /* UserFormView.swift in Sources */,
 				5E36AB5E299B774E00BAFE63 /* ContentView.swift in Sources */,
 				C21CC85B29C8F45C005A16AC /* UserListView.swift in Sources */,
@@ -399,8 +413,10 @@
 				5E36AB92299B7DCB00BAFE63 /* UserItemView.swift in Sources */,
 				C240B21929C269BE002C34AA /* UserDTO.swift in Sources */,
 				C21CC85929C88DAF005A16AC /* UserModelObserver.swift in Sources */,
+				C204B5BC29CBA71200EE9BC2 /* ConnexionIntent.swift in Sources */,
 				C24E31B529C4549C00CFF330 /* JSONHelper.swift in Sources */,
 				5E36AB86299B77AD00BAFE63 /* UserViewModel.swift in Sources */,
+				C2476F1E29CB2FC20000A875 /* ConnexionView.swift in Sources */,
 				5E36AB5C299B774E00BAFE63 /* mobile_mviApp.swift in Sources */,
 				5E36AB88299B799C00BAFE63 /* UserIntent.swift in Sources */,
 			);

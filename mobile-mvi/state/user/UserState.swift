@@ -9,10 +9,10 @@ import Foundation
 
 enum UserState {//}: Equatable {//: CustomStringConvertible {//, Equatable {
     case ready
-    case changingName(String)
     case error
     case loadingUsers
     case loadedUsers([UserDTO])
+    case deleteUser
     //var description: String{ ... }
     
     //static func == (lhs: Self, rhs: Self) -> Bool {
