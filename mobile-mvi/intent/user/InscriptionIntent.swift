@@ -1,5 +1,5 @@
 //
-//  ConnexionIntent.swift
+//  InscriptionIntent.swift
 //  mobile-mvi
 //
 //  Created by garcy on 22/03/2023.
@@ -8,20 +8,19 @@
 import Foundation
 import SwiftUI
 
-struct ConnexionIntent {
+struct InscriptionIntent {
     
-    @ObservedObject private var model : ConnexionViewModel
+    @ObservedObject private var model : InscriptionViewModel
     
-    init(model: ConnexionViewModel){
+    init(model: InscriptionViewModel){
         self.model = model
     }
     
-    func connexion() async {
-        self.model.state = .authentification
+    func inscription() async {
+        self.model.state = .demandeInscription
         
-        guard let url = URL(string:"https://awi-festival-api.cluster-ig4.igpolytech.fr/utilisateurs/connexion") else {
+        guard let url = URL(string:"https://awi-festival-api.cluster-ig4.igpolytech.fr/utilisateurs/create") else {
             debugPrint("bad url getUser")
-            self.model.state = .error
             return
         }
         do{
@@ -30,13 +29,10 @@ struct ConnexionIntent {
             //append a value to a field
             requete.addValue("application/json", forHTTPHeaderField: "Content-Type")
             
-            let body = [
-                "email":model.email,
-                "mdp":model.mdp
-            ]
+            let body = UserDTO(idUtilisateur: -1, nom: model.nom, prenom: model.prenom, email: model.email, mdp: model.mdp, isAdmin: model.isAdmin)
+            
             guard let encoded = await JSONHelper.encode(data: body) else {
                 print("pb encodage")
-                self.model.state = .error
                 return
             }
             requete.httpBody = encoded
@@ -47,18 +43,15 @@ struct ConnexionIntent {
             let httpresponse = response as! HTTPURLResponse
             if httpresponse.statusCode == 200{
                 debugPrint("\(sdata)")
-                model.state = .authentified
-                //mettre le token quelque part
+                model.state = .inscription
                 model.state = .ready
             }
             else{
                 debugPrint("error \(httpresponse.statusCode):\(HTTPURLResponse.localizedString(forStatusCode: httpresponse.statusCode))")
-                self.model.state = .error
             }
         }
         catch{
             debugPrint("bad request")
-            self.model.state = .error
         }
     }
 }

@@ -15,6 +15,9 @@ struct ContentView : View {
                 NavigationLink(destination: ConnexionView(viewModel: ConnexionViewModel())){
                     Text("Connexion")
                 }
+                NavigationLink(destination: InscriptionView(viewModel: InscriptionViewModel())){
+                    Text("Inscription")
+                }
                 UserListView(viewModel: UserListViewModel(users: []))
             }
         }
