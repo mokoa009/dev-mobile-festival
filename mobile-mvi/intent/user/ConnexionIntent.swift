@@ -19,7 +19,7 @@ struct ConnexionIntent {
     func connexion() async {
         self.model.state = .authentification
         
-        guard let url = URL(string:"https://awi-festival-api.cluster-ig4.igpolytech.fr/utilisateurs/connexion") else {
+        guard let url = URL(string:"https://dev-festival-api.cluster-ig4.igpolytech.fr/utilisateurs/connexion") else {
             debugPrint("bad url getUser")
             self.model.state = .error
             return
@@ -41,14 +41,24 @@ struct ConnexionIntent {
             }
             requete.httpBody = encoded
             let (data, response) = try await URLSession.shared.data(for: requete)
-            debugPrint("data normal")
-            debugPrint(data)
-            let sdata = String(data: data, encoding: .utf8)!
             let httpresponse = response as! HTTPURLResponse
+            
             if httpresponse.statusCode == 200{
+                debugPrint("data normal")
+                debugPrint(data)
+                let sdata = String(data: data, encoding: .utf8)!
                 debugPrint("\(sdata)")
                 model.state = .authentified
-                //mettre le token quelque part
+                //stockage token
+                UserDefaults.standard.set(sdata,forKey: "token")
+               // UserDefaults.standard.synchronize()
+                debugPrint("token store")
+                if let token = UserDefaults.standard.object(forKey: "token") as? String {
+                    debugPrint("Token: \(token)")
+                }else{
+                    debugPrint("token non trouvé")
+                }
+                
                 model.state = .ready
             }
             else{

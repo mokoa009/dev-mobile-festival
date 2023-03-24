@@ -20,7 +20,7 @@ struct UserIntent {
     func getUsers() async {
         self.model.state = .loadingUsers
         
-        guard let url = URL(string: "https://awi-festival-api.cluster-ig4.igpolytech.fr/utilisateurs") else {
+        guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/utilisateurs") else {
             debugPrint("bad url getUser")
             self.model.state = .error
             return
@@ -56,7 +56,7 @@ struct UserIntent {
     func deleteUser(id: Int) async {
         self.model.state = .deleteUser
         
-        guard let url = URL(string: "https://awi-festival-api.cluster-ig4.igpolytech.fr/utilisateurs/delete") else {
+        guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/utilisateurs/delete") else {
             debugPrint("bad url getUser")
             return
         }
@@ -65,40 +65,33 @@ struct UserIntent {
             requete.httpMethod = "DELETE"
             //append a value to a field
             requete.addValue("application/json", forHTTPHeaderField: "Content-Type")
-             
-            //set (replace) a value to a field
-            //requete.setValue(<#T##value: String?##String?#>, forHTTPHeaderField: <#T##String#>)
-            /*
-            guard let encoded = await JSONHelper.encode(data: self.user) else {
+            requete.addValue("Bearer "+UserDefaults.standard.string(forKey: "token")!,forHTTPHeaderField:"Authorization")
+            requete.addValue("*/*",forHTTPHeaderField: "Accept")
+            
+            let body = [
+                "idUtilisateur":id
+            ]
+            guard let encoded = await JSONHelper.encode(data: body) else {
                 print("pb encodage")
+                self.model.state = .error
                 return
             }
-            let (data, response) = try await URLSession.shared.upload(for: requete, from: encoded)*/
-            let (data, response) = try await URLSession.shared.data(from: url)
-            debugPrint("data normal")
-            debugPrint(data)
+            requete.httpBody = encoded
+            let (data, response) = try await URLSession.shared.data(for: requete)
             let sdata = String(data: data, encoding: .utf8)!
             let httpresponse = response as! HTTPURLResponse
             if httpresponse.statusCode == 200{
-               // model.state = .loadedUsers([UserDTO(idUtilisateur: 11, nom: "truc", prenom: "mgd", email: "ege", mdp: "fefe", isAdmin: 1)])
-                debugPrint("je suis conne")
-                debugPrint("\(sdata)")
-                guard let decoded : [UserDTO] = await JSONHelper.decode(data: data) else{
-                    debugPrint("mauvaise récup données")
-                    return
-                }
-                
-                debugPrint("donneees decodeess")
-                debugPrint(decoded)
-                model.state = .loadedUsers(decoded)
-                
+                model.state = .deleted
+                model.state = .ready
             }
             else{
                 debugPrint("error \(httpresponse.statusCode):\(HTTPURLResponse.localizedString(forStatusCode: httpresponse.statusCode))")
+                self.model.state = .error
             }
         }
         catch{
             debugPrint("bad request")
+            self.model.state = .error
         }
     }
 }

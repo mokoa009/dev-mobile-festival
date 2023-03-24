@@ -18,7 +18,6 @@ struct UserListView : View {
     }
     
     func supprimerUser(id : Int) async{
-        debugPrint("utilisateur supprimé")
         await userIntent.deleteUser(id: id)
     }
     
@@ -28,7 +27,6 @@ struct UserListView : View {
         debugPrint("modifier utilisateur")
     }
     var body : some View {
-        Text("BOBOBLO")
         NavigationStack{
             VStack {
                 List{

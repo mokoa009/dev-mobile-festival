@@ -13,6 +13,7 @@ enum UserState {//}: Equatable {//: CustomStringConvertible {//, Equatable {
     case loadingUsers
     case loadedUsers([UserDTO])
     case deleteUser
+    case deleted
     //var description: String{ ... }
     
     //static func == (lhs: Self, rhs: Self) -> Bool {
