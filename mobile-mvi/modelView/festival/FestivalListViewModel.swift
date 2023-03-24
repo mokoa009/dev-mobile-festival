@@ -9,10 +9,10 @@ import Foundation
 
 class FestivalListViewModel : ObservableObject, FestivalModelObserver {
     
-    @Published var Festivals : [FestivalViewModel]
+    @Published var festivals : [FestivalViewModel]
     
-    init(Festivals: [FestivalViewModel]) {
-        self.Festivals = Festivals
+    init(festivals: [FestivalViewModel]) {
+        self.festivals = festivals
     }
     
     func change(name: String) {
@@ -20,12 +20,12 @@ class FestivalListViewModel : ObservableObject, FestivalModelObserver {
     }
     
     func remove(atOffsets indexSet : IndexSet) {
-        self.Festivals.remove(atOffsets: indexSet)
+        self.festivals.remove(atOffsets: indexSet)
         self.objectWillChange.send()
     }
     
     func move(fromOffsets indexSet : IndexSet, toOffset index: Int) {
-        self.Festivals.move(fromOffsets: indexSet, toOffset: index)
+        self.festivals.move(fromOffsets: indexSet, toOffset: index)
         self.objectWillChange.send()
     }
     @Published var state : FestivalState = .ready {
@@ -35,7 +35,7 @@ class FestivalListViewModel : ObservableObject, FestivalModelObserver {
                 debugPrint("state loading FestivalVM")
             case .loadedFestivals(let newFestivals):
                 //transformation FestivalDTO en FestivalViewModel
-                self.Festivals = newFestivals.map{ Festival in FestivalViewModel(Festival: Festival)}
+                self.festivals = newFestivals.map{ festival in FestivalViewModel(festival: festival)}
                 debugPrint("jai charge les donnees")
                 self.state = .ready
             case .error:

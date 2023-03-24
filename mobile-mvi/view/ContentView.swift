@@ -17,6 +17,7 @@ struct ContentView : View {
             }
      
         UserListView(viewModel: UserListViewModel(users: []))
+        FestivalListView(viewModel: FestivalListViewModel(festivals: []))
         
     }
     

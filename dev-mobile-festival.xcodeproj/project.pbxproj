@@ -67,6 +67,7 @@
 		5E36AB91299B7DCB00BAFE63 /* UserItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserItemView.swift; sourceTree = "<group>"; };
 		5E36AB93299B7DD900BAFE63 /* UserFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFormView.swift; sourceTree = "<group>"; };
 		5E36AB95299B821D00BAFE63 /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
+		B71477F829CDE40000954319 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B7A8E90929CB19CA0072FE1A /* FestivalModelObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalModelObserver.swift; sourceTree = "<group>"; };
 		B7A8E90B29CB1A110072FE1A /* FestivalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalState.swift; sourceTree = "<group>"; };
 		B7A8E90D29CB1A570072FE1A /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
@@ -130,6 +131,7 @@
 		5E36AB5A299B774E00BAFE63 /* mobile-mvi */ = {
 			isa = PBXGroup;
 			children = (
+				B71477F829CDE40000954319 /* Info.plist */,
 				C2476F1029CB12ED0000A875 /* view */,
 				C2476F1129CB12F80000A875 /* modelView */,
 				5E36AB5B299B774E00BAFE63 /* mobile_mviApp.swift */,
@@ -643,6 +645,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"mobile-mvi/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "mobile-mvi/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -671,6 +674,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"mobile-mvi/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "mobile-mvi/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

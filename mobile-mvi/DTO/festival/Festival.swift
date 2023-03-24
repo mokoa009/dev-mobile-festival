@@ -10,9 +10,9 @@ import Foundation
 struct FestivalDTO: Codable, Hashable{
     let idFestival: Int
     let nom: String
-    let annee: String
+    let annee: Int
     let nbJours: Int
-    let cloture: Bool
+    let cloture: Int
 }
 
 struct ResponseFestival: Decodable{

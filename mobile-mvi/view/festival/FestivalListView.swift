@@ -10,23 +10,24 @@ import SwiftUI
 
 struct FestivalListView : View {
     
-    @ObservedObject var Festivals : FestivalListViewModel
-    var FestivalIntent : FestivalIntent
+    @ObservedObject var festivals : FestivalListViewModel
+    var festivalIntent : FestivalIntent
     
     init(viewModel : FestivalListViewModel){
-        self.Festivals = viewModel
-        self.FestivalIntent = FestivalIntent(model: viewModel)
+        self.festivals = viewModel
+        self.festivalIntent = FestivalIntent(model: viewModel)
     }
     
     
     var body : some View {
-        Text("BOBOBLO")
+        Text("Festivals")
+        
         NavigationStack{
             VStack {
                 List{
-                    ForEach(Festivals.Festivals, id: \.self) { Festival in
-                        NavigationLink(value: Festival){
-                            FestivalItemView(Festival: Festival)
+                    ForEach(festivals.festivals, id: \.self) { festival in
+                        NavigationLink(value: festival){
+                            FestivalItemView(festival: festival)
                         }
                     }
                 }
@@ -38,7 +39,7 @@ struct FestivalListView : View {
          //   }
         }.task {
             debugPrint("chargement data ?")
-                await FestivalIntent.getFestivals()
+                await festivalIntent.getFestivals()
         }
     }
 }

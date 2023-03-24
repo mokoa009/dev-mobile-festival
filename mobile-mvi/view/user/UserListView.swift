@@ -19,7 +19,14 @@ struct UserListView : View {
     
     
     var body : some View {
-        Text("BOBOBLO")
+        
+        ZStack{
+            Rectangle()
+                        .fill(Gradient(colors: [.indigo, .purple]))
+                        .ignoresSafeArea()
+            Text("BOBOBLO").foregroundColor(Color.white)
+        }
+        
         NavigationStack{
             VStack {
                 List{
@@ -29,7 +36,7 @@ struct UserListView : View {
                         }
                     }
                 }
-            }
+            }.environment(\.colorScheme, .dark)
         //}.onAppear(){
           //  debugPrint("chargement data ?")
           //  Task{

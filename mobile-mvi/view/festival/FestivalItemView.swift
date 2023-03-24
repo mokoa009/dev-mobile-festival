@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct FestivalItemView: View {
-    @ObservedObject var Festival: FestivalViewModel
+    @ObservedObject var festival: FestivalViewModel
     
-    init(Festival: FestivalViewModel) {
-        self.Festival = Festival
+    init(festival: FestivalViewModel) {
+        self.festival = festival
     }
     
     var body: some View {
-        Text(Festival.nom)
-        //rajouter attributs Festival
+        Text(festival.nom)
+        Text(festival.annee)
+        Text(String(festival.nbJours))
     }
 }

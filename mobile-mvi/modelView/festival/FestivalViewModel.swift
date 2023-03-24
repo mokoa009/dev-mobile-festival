@@ -40,11 +40,11 @@ class FestivalViewModel : ObservableObject, Hashable, Equatable{//, FestivalMode
         hasher.combine(self.id)
     }
     
-    init(Festival : FestivalDTO) {
-        self.id = Festival.idFestival
-        self.nom = Festival.nom
-        self.annee = Festival.annee
-        self.nbJours = Festival.nbJours
-        self.cloture = Festival.cloture
+    init(festival : FestivalDTO) {
+        self.id = festival.idFestival
+        self.nom = festival.nom
+        self.annee = String(festival.annee)
+        self.nbJours = festival.nbJours
+        self.cloture = (festival.cloture == 1)
     }
 }
