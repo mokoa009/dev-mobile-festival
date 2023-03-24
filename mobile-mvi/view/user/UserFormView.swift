@@ -21,7 +21,9 @@ struct UserFormView : View {
         self.name = track.trackName
         
     }*/
-    
+    init(){
+        
+    }
     var body: some View {
         VStack(alignment: .leading) {
            Text("test")

@@ -42,7 +42,7 @@ class UserListViewModel : ObservableObject, UserModelObserver {
                 debugPrint("error")
                 self.state = .ready
             case .ready:
-                debugPrint("TrackViewModel: ready state")
+                debugPrint("UserListViewModel: ready state")
                 debugPrint("--------------------------------------")
             default:
                 break

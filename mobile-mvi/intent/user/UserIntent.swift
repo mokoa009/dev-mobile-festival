@@ -9,9 +9,7 @@ import Foundation
 import SwiftUI
 
 
-
 struct UserIntent {
-    
     
     @ObservedObject private var model : UserListViewModel
     
@@ -19,21 +17,55 @@ struct UserIntent {
         self.model = model
     }
     
-   // @ObservedObject private var state : UserListViewModel
-    
     func getUsers() async {
         self.model.state = .loadingUsers
         
         guard let url = URL(string: "https://awi-festival-api.cluster-ig4.igpolytech.fr/utilisateurs") else {
             debugPrint("bad url getUser")
+            self.model.state = .error
             return
         }
         do{
-            /*var requete = URLRequest(url: url)
+            var requete = URLRequest(url: url)
             requete.httpMethod = "GET"
             //append a value to a field
             requete.addValue("application/json", forHTTPHeaderField: "Content-Type")
-             */
+            
+            let (data, response) = try await URLSession.shared.data(for: requete)
+            let httpresponse = response as! HTTPURLResponse
+            if httpresponse.statusCode == 200{
+                guard let decoded : [UserDTO] = await JSONHelper.decode(data: data) else{
+                    debugPrint("mauvaise récup données")
+                    self.model.state = .error
+                    return
+                }
+                model.state = .loadedUsers(decoded)
+            }
+            else{
+                debugPrint("error \(httpresponse.statusCode):\(HTTPURLResponse.localizedString(forStatusCode: httpresponse.statusCode))")
+                self.model.state = .error
+            }
+        }
+        catch{
+            debugPrint("bad request")
+            self.model.state = .error
+        }
+    }
+
+
+    func deleteUser(id: Int) async {
+        self.model.state = .deleteUser
+        
+        guard let url = URL(string: "https://awi-festival-api.cluster-ig4.igpolytech.fr/utilisateurs/delete") else {
+            debugPrint("bad url getUser")
+            return
+        }
+        do{
+            var requete = URLRequest(url: url)
+            requete.httpMethod = "DELETE"
+            //append a value to a field
+            requete.addValue("application/json", forHTTPHeaderField: "Content-Type")
+             
             //set (replace) a value to a field
             //requete.setValue(<#T##value: String?##String?#>, forHTTPHeaderField: <#T##String#>)
             /*
@@ -68,6 +100,7 @@ struct UserIntent {
         catch{
             debugPrint("bad request")
         }
-    }}
+    }
+}
 
 

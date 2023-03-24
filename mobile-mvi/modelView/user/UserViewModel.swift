@@ -16,6 +16,12 @@ class UserViewModel : ObservableObject, Hashable, Equatable{//, UserModelObserve
   //  @Published var isAdmin : String
   //  @Published var mdp : String
     
+    init(user : UserDTO) {
+        self.id = user.idUtilisateur
+        self.nom = user.nom
+        self.prenom = user.prenom
+        self.email = user.email
+    }
     // -----------------------------------------------------------
     // State Intent management
     @Published var state : UserState = .ready {
@@ -39,12 +45,5 @@ class UserViewModel : ObservableObject, Hashable, Equatable{//, UserModelObserve
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(self.id)
-    }
-    
-    init(user : UserDTO) {
-        self.id = user.idUtilisateur
-        self.nom = user.nom
-        self.prenom = user.prenom
-        self.email = user.email
     }
 }
