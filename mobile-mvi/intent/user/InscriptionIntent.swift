@@ -19,7 +19,7 @@ struct InscriptionIntent {
     func inscription() async {
         self.model.state = .demandeInscription
         
-        guard let url = URL(string:"https://awi-festival-api.cluster-ig4.igpolytech.fr/utilisateurs/create") else {
+        guard let url = URL(string:"https://dev-festival-api.cluster-ig4.igpolytech.fr/utilisateurs/create") else {
             debugPrint("bad url getUser")
             return
         }

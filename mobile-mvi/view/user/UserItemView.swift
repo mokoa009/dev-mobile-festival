@@ -1,8 +1,7 @@
 //
-//  TrackItemView.swift
-//  coursmobile
+//  UserItemView.swift
 //
-//  Created by Oce on 13/02/2023.
+//  Created by garcy on 13/02/2023.
 //
 
 import SwiftUI

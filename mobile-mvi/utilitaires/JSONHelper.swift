@@ -22,13 +22,8 @@ struct JSONHelper{
 
         do {
             let decoded = try decoder.decode(T.self, from: data)
-            debugPrint("dans le do")
-            debugPrint(decoded)
             return decoded
         } catch {
-            debugPrint("error euh")
-            debugPrint(error)
-            debugPrint(error.localizedDescription)
             return nil
         }
     }

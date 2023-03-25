@@ -13,14 +13,12 @@ class UserViewModel : ObservableObject, Hashable, Equatable{//, UserModelObserve
     @Published var nom : String
     @Published var prenom : String
     @Published var email : String
-  //  @Published var isAdmin : String
-  //  @Published var mdp : String
     
-    init(user : UserDTO) {
-        self.id = user.idUtilisateur
-        self.nom = user.nom
-        self.prenom = user.prenom
-        self.email = user.email
+    init(id: Int, nom: String, prenom: String, email: String) {
+        self.id = id
+        self.nom = nom
+        self.prenom = prenom
+        self.email = email
     }
     // -----------------------------------------------------------
     // State Intent management

@@ -1,8 +1,8 @@
 //
-//  TrackUIView.swift
+//  InscriptionView.swift
 //  coursmobile
 //
-//  Created by Oce on 06/02/2023.
+//  Created by garcy on 06/02/2023.
 //
 
 import Foundation

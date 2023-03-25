@@ -2,21 +2,29 @@
 //  ContentView.swift
 //  mobile-mvi
 //
-//  Created by Oce on 14/02/2023.
+//  Created by garcy on 14/02/2023.
 //
 
 import SwiftUI
+
 
 struct ContentView : View {
     
     var body: some View {
         NavigationStack{
             VStack {
-                NavigationLink(destination: ConnexionView(viewModel: ConnexionViewModel())){
-                    Text("Connexion")
-                }
-                NavigationLink(destination: InscriptionView(viewModel: InscriptionViewModel())){
-                    Text("Inscription")
+                if (Token.isConnected()) {
+                    NavigationLink(destination: ProfilView(viewModel: ProfilViewModel(id: Token.getIdUtilisateur()))){
+                        Text("Profil")
+                   }
+                    Button("Déconnexion", action :Token.deconnexion)
+                }else{
+                    NavigationLink(destination: ConnexionView(viewModel: ConnexionViewModel())){
+                        Text("Connexion")
+                    }
+                    NavigationLink(destination: InscriptionView(viewModel: InscriptionViewModel())){
+                        Text("Inscription")
+                    }
                 }
                 UserListView(viewModel: UserListViewModel(users: []))
             }

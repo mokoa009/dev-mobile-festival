@@ -32,6 +32,11 @@
 		C21CC85B29C8F45C005A16AC /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CC85A29C8F45C005A16AC /* UserListView.swift */; };
 		C240B21929C269BE002C34AA /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C240B21829C269BD002C34AA /* UserDTO.swift */; };
 		C24E31B529C4549C00CFF330 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24E31B429C4549B00CFF330 /* JSONHelper.swift */; };
+		C2AF9FEB29CEF20C000A2593 /* ProfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AF9FEA29CEF20C000A2593 /* ProfilView.swift */; };
+		C2AF9FED29CEF20C000A2593 /* ProfilViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AF9FEC29CEF20C000A2593 /* ProfilViewModel.swift */; };
+		C2AF9FEF29CEF20C000A2593 /* ProfilIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AF9FEE29CEF20C000A2593 /* ProfilIntent.swift */; };
+		C2AF9FF229CF129C000A2593 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = C2AF9FF129CF129C000A2593 /* JWTDecode */; };
+		C2AF9FF529CF1592000A2593 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AF9FF429CF1592000A2593 /* Token.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +86,10 @@
 		C21CC85A29C8F45C005A16AC /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		C240B21829C269BD002C34AA /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		C24E31B429C4549B00CFF330 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
+		C2AF9FEA29CEF20C000A2593 /* ProfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilView.swift; sourceTree = "<group>"; };
+		C2AF9FEC29CEF20C000A2593 /* ProfilViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilViewModel.swift; sourceTree = "<group>"; };
+		C2AF9FEE29CEF20C000A2593 /* ProfilIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilIntent.swift; sourceTree = "<group>"; };
+		C2AF9FF429CF1592000A2593 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2AF9FF229CF129C000A2593 /* JWTDecode in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +141,7 @@
 		5E36AB5A299B774E00BAFE63 /* mobile-mvi */ = {
 			isa = PBXGroup;
 			children = (
+				C2AF9FF329CF14AE000A2593 /* middleware */,
 				B71477F829CDE40000954319 /* Info.plist */,
 				C2476F1029CB12ED0000A875 /* view */,
 				C2476F1129CB12F80000A875 /* modelView */,
@@ -281,6 +292,8 @@
 				5E36AB91299B7DCB00BAFE63 /* UserItemView.swift */,
 				5E36AB93299B7DD900BAFE63 /* UserFormView.swift */,
 				C21CC85A29C8F45C005A16AC /* UserListView.swift */,
+				C2476F1D29CB2FC20000A875 /* ConnexionView.swift */,
+				C2AF9FEA29CEF20C000A2593 /* ProfilView.swift */,
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -290,6 +303,10 @@
 			children = (
 				5E36AB85299B77AD00BAFE63 /* UserViewModel.swift */,
 				C21CC85629C88BAD005A16AC /* UserListViewModel.swift */,
+				C2476F1F29CB32980000A875 /* ConnexionViewModel.swift */,
+				C204B5BF29CBBDFA00EE9BC2 /* InscriptionViewModel.swift */,
+				C2AF9FEC29CEF20C000A2593 /* ProfilViewModel.swift */,
+
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -298,6 +315,9 @@
 			isa = PBXGroup;
 			children = (
 				5E36AB87299B799C00BAFE63 /* UserIntent.swift */,
+				C204B5BB29CBA71200EE9BC2 /* ConnexionIntent.swift */,
+				C204B5C329CBBFD800EE9BC2 /* InscriptionIntent.swift */,
+				C2AF9FEE29CEF20C000A2593 /* ProfilIntent.swift */,
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -335,6 +355,14 @@
 			path = user;
 			sourceTree = "<group>";
 		};
+		C2AF9FF329CF14AE000A2593 /* middleware */ = {
+			isa = PBXGroup;
+			children = (
+				C2AF9FF429CF1592000A2593 /* Token.swift */,
+			);
+			path = middleware;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -351,6 +379,9 @@
 			dependencies = (
 			);
 			name = "mobile-mvi";
+			packageProductDependencies = (
+				C2AF9FF129CF129C000A2593 /* JWTDecode */,
+			);
 			productName = "mobile-mvi";
 			productReference = 5E36AB58299B774E00BAFE63 /* mobile-mvi.app */;
 			productType = "com.apple.product-type.application";
@@ -423,6 +454,9 @@
 				Base,
 			);
 			mainGroup = 5E36AB4F299B774E00BAFE63;
+			packageReferences = (
+				C2AF9FF029CF129C000A2593 /* XCRemoteSwiftPackageReference "JWTDecode" */,
+			);
 			productRefGroup = 5E36AB59299B774E00BAFE63 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -465,6 +499,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2476F2029CB32980000A875 /* ConnexionViewModel.swift in Sources */,
+				C2AF9FEF29CEF20C000A2593 /* ProfilIntent.swift in Sources */,
+				C2AF9FEB29CEF20C000A2593 /* ProfilView.swift in Sources */,
+				C204B5BE29CBA7F100EE9BC2 /* ConnexionState.swift in Sources */,
+				C204B5C429CBBFD800EE9BC2 /* InscriptionIntent.swift in Sources */,
+				5E36AB94299B7DD900BAFE63 /* InscriptionView.swift in Sources */,
 				B7A8E91229CB21ED0072FE1A /* FestivalViewModel.swift in Sources */,
 				5E36AB94299B7DD900BAFE63 /* UserFormView.swift in Sources */,
 				B7A8E90C29CB1A110072FE1A /* FestivalState.swift in Sources */,
@@ -481,6 +521,8 @@
 				B7A8E91829CB23D60072FE1A /* FestivalItemView.swift in Sources */,
 				C21CC85929C88DAF005A16AC /* UserModelObserver.swift in Sources */,
 				C24E31B529C4549C00CFF330 /* JSONHelper.swift in Sources */,
+				C2AF9FF529CF1592000A2593 /* Token.swift in Sources */,
+				C2AF9FED29CEF20C000A2593 /* ProfilViewModel.swift in Sources */,
 				5E36AB86299B77AD00BAFE63 /* UserViewModel.swift in Sources */,
 				5E36AB5C299B774E00BAFE63 /* mobile_mviApp.swift in Sources */,
 				5E36AB88299B799C00BAFE63 /* UserIntent.swift in Sources */,
@@ -805,6 +847,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C2AF9FF029CF129C000A2593 /* XCRemoteSwiftPackageReference "JWTDecode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/JWTDecode.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C2AF9FF129CF129C000A2593 /* JWTDecode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2AF9FF029CF129C000A2593 /* XCRemoteSwiftPackageReference "JWTDecode" */;
+			productName = JWTDecode;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5E36AB50299B774E00BAFE63 /* Project object */;
 }
