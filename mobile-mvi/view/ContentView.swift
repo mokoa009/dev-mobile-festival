@@ -28,7 +28,10 @@ struct ContentView : View {
                 }
                 UserListView(viewModel: UserListViewModel(users: []))
             }
-        }
+     
+        UserListView(viewModel: UserListViewModel(users: []))
+        FestivalListView(viewModel: FestivalListViewModel(festivals: []))
+        
     }
 }
 struct ContentViewList_Previews: PreviewProvider {

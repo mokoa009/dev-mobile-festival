@@ -19,6 +19,7 @@ struct ConnexionView: View {
     var body: some View {
         VStack{
             Text("Connexion")
+            Text("test")
             TextField(text: $identifiant.email){
                 Text("Email : *")
             }.textFieldStyle(RoundedBorderTextFieldStyle()).padding()
