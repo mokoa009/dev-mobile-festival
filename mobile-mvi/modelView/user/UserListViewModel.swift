@@ -35,7 +35,7 @@ class UserListViewModel : ObservableObject, UserModelObserver {
                 debugPrint("state loading UserVM")
             case .loadedUsers(let newUsers):
                 //transformation UserDTO en UserViewModel
-                self.users = newUsers.map{ user in UserViewModel(user: user)}
+                self.users = newUsers.map{ user in user.convertToUserVM()}
                 debugPrint("jai charge les donnees")
                 self.state = .ready
             case .error:

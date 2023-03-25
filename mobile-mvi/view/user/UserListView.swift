@@ -31,10 +31,11 @@ struct UserListView : View {
             VStack {
                 List{
                     ForEach(users.users, id: \.self) { user in
-                        NavigationLink(destination: UserItemView(user: user)){
+                        VStack{
                             Text("Utilisateur n° \(user.id)")
                             Text("Nom : " + user.nom)
                             Text("Prenom : "+user.prenom)
+                            Text("Email : "+user.email)
                             HStack{
                                 Button("Supprimer", action: {
                                     Task{

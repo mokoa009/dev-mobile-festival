@@ -65,7 +65,7 @@ struct UserIntent {
             requete.httpMethod = "DELETE"
             //append a value to a field
             requete.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            requete.addValue("Bearer "+UserDefaults.standard.string(forKey: "token")!,forHTTPHeaderField:"Authorization")
+            requete.addValue("Bearer "+Token.getToken(),forHTTPHeaderField:"Authorization")
             requete.addValue("*/*",forHTTPHeaderField: "Accept")
             
             let body = [
@@ -77,8 +77,7 @@ struct UserIntent {
                 return
             }
             requete.httpBody = encoded
-            let (data, response) = try await URLSession.shared.data(for: requete)
-            let sdata = String(data: data, encoding: .utf8)!
+            let (_, response) = try await URLSession.shared.data(for: requete)
             let httpresponse = response as! HTTPURLResponse
             if httpresponse.statusCode == 200{
                 model.state = .deleted

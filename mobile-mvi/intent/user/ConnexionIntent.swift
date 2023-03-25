@@ -42,23 +42,11 @@ struct ConnexionIntent {
             requete.httpBody = encoded
             let (data, response) = try await URLSession.shared.data(for: requete)
             let httpresponse = response as! HTTPURLResponse
-            
             if httpresponse.statusCode == 200{
-                debugPrint("data normal")
-                debugPrint(data)
-                let sdata = String(data: data, encoding: .utf8)!
-                debugPrint("\(sdata)")
                 model.state = .authentified
                 //stockage token
-                UserDefaults.standard.set(sdata,forKey: "token")
+                UserDefaults.standard.set(data,forKey: "token")
                // UserDefaults.standard.synchronize()
-                debugPrint("token store")
-                if let token = UserDefaults.standard.object(forKey: "token") as? String {
-                    debugPrint("Token: \(token)")
-                }else{
-                    debugPrint("token non trouvé")
-                }
-                
                 model.state = .ready
             }
             else{
