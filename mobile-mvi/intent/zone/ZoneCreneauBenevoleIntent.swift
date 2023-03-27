@@ -1,27 +1,26 @@
 //
-//  ZoneIntent.swift
+//  ZoneCreneauBenevoleIntent.swift
 //  mobile-mvi
 //
-//  Created by garcy on 26/03/2023.
+//  Created by garcy on 27/03/2023.
 //
-
 
 import Foundation
 import SwiftUI
 
 
-struct ZoneIntent {
+struct ZoneCreneauBenevoleIntent {
     
-    @ObservedObject private var model : ZoneListViewModel
+    @ObservedObject private var model : ZoneCreneauBenevoleListViewModel
     
-    init(model: ZoneListViewModel){
+    init(model: ZoneCreneauBenevoleListViewModel){
         self.model = model
     }
     
-    func getZones(idFestival: Int) async {
-        self.model.state = .loadingZones
+    func getBenevoles() async {
+        self.model.state = .loadingBenevoles
         
-        guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/affectationFZ/festival/"+String(idFestival)) else {
+        guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/affectationBC/zone/"+String(self.model.idZone)+"/creneau/"+String(self.model.idCreneau)) else {
             debugPrint("bad url getUser")
             self.model.state = .error
             return
@@ -36,15 +35,15 @@ struct ZoneIntent {
             let httpresponse = response as! HTTPURLResponse
             if httpresponse.statusCode == 200{
                 let sdata = String(data: data, encoding: .utf8)!
-                debugPrint("les data >ZONE")
+                debugPrint("les data >ZONECRENEAU BENE")
                 debugPrint(sdata)
                 
-                guard let decoded : [ZoneDTO] = await JSONHelper.decode(data: data) else{
+                guard let decoded : [ZoneCreneauBenevoleDTO] = await JSONHelper.decode(data: data) else{
                     debugPrint("mauvaise récup données")
                     self.model.state = .error
                     return
                 }
-                model.state = .loadedZones(decoded)
+                model.state = .loadedBenevoles(decoded)
             }
             else{
                 debugPrint("error \(httpresponse.statusCode):\(HTTPURLResponse.localizedString(forStatusCode: httpresponse.statusCode))")
@@ -58,8 +57,8 @@ struct ZoneIntent {
     }
 
 
-    func deleteZone(id: Int) async {
-        self.model.state = .deleteZone
+    func deleteZoneCreneauBenevole(idBenevole: Int) async {
+        self.model.state = .deleteBenevole
         
         guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/affectationFZ/delete") else {
             debugPrint("bad url getUser")
@@ -74,8 +73,9 @@ struct ZoneIntent {
             requete.addValue("*/*",forHTTPHeaderField: "Accept")
             
             let body = [
-                "idZone":id,
-                "idFestival":self.model.idFestival
+                "idZone":self.model.idZone,
+                "idCreneau":self.model.idCreneau,
+                "idBenevole": idBenevole
             ]
             guard let encoded = await JSONHelper.encode(data: body) else {
                 print("pb encodage")
@@ -100,5 +100,3 @@ struct ZoneIntent {
         }
     }
 }
-
-
