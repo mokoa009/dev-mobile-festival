@@ -32,23 +32,36 @@ struct FestivalListView : View {
             VStack {
                 List{
                     ForEach(festivals.festivals, id: \.self) { festival in
-                        VStack{
-                            Text("Festival n° \(festival.id)")
-                            Text("Nom : " + festival.nom)
-                            Text("Annee : " + String(festival.annee))
-                            Text("nbJours : \(festival.nbJours)")
-                            HStack{
-                                Button("Supprimer", action: {
-                                    Task{
-                                        await supprimerFestival(id: festival.id)
+                        HStack {
+                            Spacer()
+                            VStack(){
+                                Text("Festival n° \(festival.id)").font(Font.title)
+                                Image(systemName: "gamecontroller.fill").foregroundColor(.green).font(.title)
+                                Text("Nom : " + festival.nom)
+                                Text("Annee : " + String(festival.annee))
+                                Text("Durée : \(festival.nbJours)")
+                                HStack{
+                                    Spacer()
+                                    Button(action: {
+                                        Task{
+                                            await supprimerFestival(id: festival.id)
+                                        }
+                                    }){
+                                        Image(systemName: "trash").foregroundColor(.green)
                                     }
-                                })
-                                Button("Modifer", action: modifierFestival)
-                            }.buttonStyle(.bordered)
+                                    Spacer()
+                                    Button(action: modifierFestival){
+                                        Image(systemName: "pencil").foregroundColor(.green)
+                                    }
+                                    Spacer()
+                                }.buttonStyle(.bordered)
+                            }.foregroundColor(Color.white)
+                            Spacer()
+                            
                         }
-                    }
+                    }.listRowBackground(Color.black)
                 }
-            }
+            }.background(.red)
         }.task {
             await festivalIntent.getFestivals()
         }
