@@ -23,6 +23,7 @@ struct ProfilView : View {
     var body: some View {
         VStack{
             Text("Profil")
+            Button("Déconnexion", action :Token.deconnexion)
             TextField(text: $user.nom){
                 Text("Nom :")
             }.textFieldStyle(RoundedBorderTextFieldStyle()).padding()

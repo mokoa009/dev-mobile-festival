@@ -1,31 +1,33 @@
 //
-//  TrackViewModel.swift
+//  ZoneViewModel.swift
 //  mobile-mvi
 //
-//  Created by Oce on 14/02/2023.
+//  Created by garcy on 26/03/2023.
 //
 
 import Foundation
 
-class UserViewModel : ObservableObject, Hashable, Equatable{//, UserModelObserver {
+class ZoneViewModel : ObservableObject, Hashable, Equatable{//, UserModelObserver {
     
     @Published var id : Int
     @Published var nom : String
-    @Published var prenom : String
-    @Published var email : String
-  //  @Published var isAdmin : String
-  //  @Published var mdp : String
+    @Published var nbBenevoles : Int
     
+    init(id: Int, nom: String, nbBenevoles: Int) {
+        self.id = id
+        self.nom = nom
+        self.nbBenevoles = nbBenevoles
+    }
     // -----------------------------------------------------------
     // State Intent management
-    @Published var state : UserState = .ready {
+    @Published var state : ZoneState = .ready {
         didSet {
             switch state {
             case .error:
                 debugPrint("error")
                 self.state = .ready
             case .ready:
-                debugPrint("UserViewModel: ready state")
+                debugPrint("ZoneViewModel: ready state")
                 debugPrint("--------------------------------------")
             default:
                 break
@@ -33,18 +35,11 @@ class UserViewModel : ObservableObject, Hashable, Equatable{//, UserModelObserve
         }
     }
     
-    static func == (lhs: UserViewModel, rhs: UserViewModel) -> Bool {
+    static func == (lhs: ZoneViewModel, rhs: ZoneViewModel) -> Bool {
         return lhs.id == rhs.id
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(self.id)
-    }
-    
-    init(user : UserDTO) {
-        self.id = user.idUtilisateur
-        self.nom = user.nom
-        self.prenom = user.prenom
-        self.email = user.email
     }
 }
