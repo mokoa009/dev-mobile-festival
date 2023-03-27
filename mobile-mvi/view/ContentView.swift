@@ -16,7 +16,7 @@ struct ContentView : View {
                 .tabItem{
                     Label("Accueil", systemImage: "house.fill")
                 }
-            ZoneListView(viewModel: ZoneListViewModel(zones: [],idFestival:1))
+            ZoneCreneauBenevoleListView(viewModel: ZoneCreneauBenevoleListViewModel(benevoles: [], idZone: 4, idCreneau: 8))
                 .tabItem{
                     Label("Festivals", systemImage: "gamecontroller.fill")
                 }
