@@ -22,7 +22,9 @@ struct FestivalListView : View {
         await festivalIntent.deleteFestival(id: id)
     }
     
-    
+    func cloturerFestival(id : Int) async{
+        await festivalIntent.clotureFestival(id: id)
+    }
     
     func modifierFestival(){
         debugPrint("modifier festival")
@@ -40,21 +42,39 @@ struct FestivalListView : View {
                                 Text("Nom : " + festival.nom)
                                 Text("Annee : " + String(festival.annee))
                                 Text("Durée : \(festival.nbJours)")
-                                HStack{
-                                    Spacer()
-                                    Button(action: {
-                                        Task{
-                                            await supprimerFestival(id: festival.id)
+                                if (Token.isAdmin()) {
+                                    HStack{
+                                        Spacer()
+                                        Button(action: {
+                                            Task{
+                                                await supprimerFestival(id: festival.id)
+                                            }
+                                        }){
+                                            Image(systemName: "trash").foregroundColor(.green)
                                         }
-                                    }){
-                                        Image(systemName: "trash").foregroundColor(.green)
-                                    }
-                                    Spacer()
-                                    Button(action: modifierFestival){
-                                        Image(systemName: "pencil").foregroundColor(.green)
-                                    }
-                                    Spacer()
-                                }.buttonStyle(.bordered)
+                                        Spacer()
+                                        if (!festival.cloture){
+                                            Button(action: modifierFestival){
+                                                Image(systemName: "square.and.pencil").foregroundColor(.green)
+                                            }
+                                            Spacer()
+                                            Button(action: {
+                                                Task{
+                                                    await cloturerFestival(id: festival.id)
+                                                }
+                                            }){
+                                                Image(systemName: "xmark").foregroundColor(.green)
+                                            }
+                                        } else {
+                                            Button(action : {}){
+                                                Text("CLOTURÉ").foregroundColor(.red)
+                                            }
+                                        }
+                                        
+                                        Spacer()
+                                    }.buttonStyle(.bordered)
+                                }
+                                
                             }.foregroundColor(Color.white)
                             Spacer()
                             
