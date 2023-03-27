@@ -1,10 +1,10 @@
 //
-//  FestivalListView.swift
+//  FestivalList.swift
 //  mobile-mvi
 //
-//  Created by etud on 22/03/2023.
+//  Created by etud on 27/03/2023.
 //
-
+//
 import Foundation
 import SwiftUI
 
@@ -18,30 +18,39 @@ struct FestivalListView : View {
         self.festivalIntent = FestivalIntent(model: viewModel)
     }
     
+    func supprimerFestival(id : Int) async{
+        await festivalIntent.deleteFestival(id: id)
+    }
     
+    
+    
+    func modifierFestival(){
+        debugPrint("modifier festival")
+    }
     var body : some View {
-        Text("Festivals")
-        Text("test")
-        
         NavigationStack{
             VStack {
                 List{
                     ForEach(festivals.festivals, id: \.self) { festival in
-                        NavigationLink(value: festival){
-                            FestivalItemView(festival: festival)
+                        VStack{
+                            Text("Festival n° \(festival.id)")
+                            Text("Nom : " + festival.nom)
+                            Text("Annee : " + String(festival.annee))
+                            Text("nbJours : \(festival.nbJours)")
+                            HStack{
+                                Button("Supprimer", action: {
+                                    Task{
+                                        await supprimerFestival(id: festival.id)
+                                    }
+                                })
+                                Button("Modifer", action: modifierFestival)
+                            }.buttonStyle(.bordered)
                         }
                     }
                 }
             }
-        //}.onAppear(){
-          //  debugPrint("chargement data ?")
-          //  Task{
-           //     await FestivalIntent.getFestivals(of: Festivals)
-         //   }
         }.task {
-            debugPrint("chargement data ?")
-                await festivalIntent.getFestivals()
+            await festivalIntent.getFestivals()
         }
     }
 }
-

@@ -19,6 +19,11 @@
 		5E36AB92299B7DCB00BAFE63 /* UserItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB91299B7DCB00BAFE63 /* UserItemView.swift */; };
 		5E36AB94299B7DD900BAFE63 /* InscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB93299B7DD900BAFE63 /* InscriptionView.swift */; };
 		5E36AB96299B821D00BAFE63 /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB95299B821D00BAFE63 /* UserState.swift */; };
+		B79B82C429D18256003618C1 /* FestivalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B82C329D18256003618C1 /* FestivalListView.swift */; };
+		B79B82C629D182D1003618C1 /* FestivalListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B82C529D182D1003618C1 /* FestivalListViewModel.swift */; };
+		B79B82C829D182E7003618C1 /* FestivalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B82C729D182E7003618C1 /* FestivalViewModel.swift */; };
+		B79B82CA29D18373003618C1 /* FestivalIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B82C929D18373003618C1 /* FestivalIntent.swift */; };
+		B79B82CF29D18423003618C1 /* FestivalModelObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B82CE29D18423003618C1 /* FestivalModelObserver.swift */; };
 		C204B5BC29CBA71200EE9BC2 /* ConnexionIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204B5BB29CBA71200EE9BC2 /* ConnexionIntent.swift */; };
 		C204B5BE29CBA7F100EE9BC2 /* ConnexionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204B5BD29CBA7F100EE9BC2 /* ConnexionState.swift */; };
 		C204B5C029CBBDFA00EE9BC2 /* InscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204B5BF29CBBDFA00EE9BC2 /* InscriptionViewModel.swift */; };
@@ -100,6 +105,11 @@
 		5E36AB91299B7DCB00BAFE63 /* UserItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserItemView.swift; sourceTree = "<group>"; };
 		5E36AB93299B7DD900BAFE63 /* InscriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InscriptionView.swift; sourceTree = "<group>"; };
 		5E36AB95299B821D00BAFE63 /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
+		B79B82C329D18256003618C1 /* FestivalListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestivalListView.swift; sourceTree = "<group>"; };
+		B79B82C529D182D1003618C1 /* FestivalListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestivalListViewModel.swift; sourceTree = "<group>"; };
+		B79B82C729D182E7003618C1 /* FestivalViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestivalViewModel.swift; sourceTree = "<group>"; };
+		B79B82C929D18373003618C1 /* FestivalIntent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestivalIntent.swift; sourceTree = "<group>"; };
+		B79B82CE29D18423003618C1 /* FestivalModelObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FestivalModelObserver.swift; path = "mobile-mvi/modelObserver/festival/FestivalModelObserver.swift"; sourceTree = SOURCE_ROOT; };
 		C204B5BB29CBA71200EE9BC2 /* ConnexionIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnexionIntent.swift; sourceTree = "<group>"; };
 		C204B5BD29CBA7F100EE9BC2 /* ConnexionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnexionState.swift; sourceTree = "<group>"; };
 		C204B5BF29CBBDFA00EE9BC2 /* InscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionViewModel.swift; sourceTree = "<group>"; };
@@ -236,6 +246,14 @@
 			path = "mobile-mviUITests";
 			sourceTree = "<group>";
 		};
+		B79B82CD29D18413003618C1 /* festival */ = {
+			isa = PBXGroup;
+			children = (
+				B79B82CE29D18423003618C1 /* FestivalModelObserver.swift */,
+			);
+			path = festival;
+			sourceTree = "<group>";
+		};
 		C2476F1029CB12ED0000A875 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +304,7 @@
 		C2476F1429CB13140000A875 /* modelObserver */ = {
 			isa = PBXGroup;
 			children = (
+				B79B82CD29D18413003618C1 /* festival */,
 				C2476F1C29CB13E60000A875 /* user */,
 			);
 			path = modelObserver;
@@ -371,6 +390,7 @@
 		C275C1BA29CFA2C70023D132 /* festival */ = {
 			isa = PBXGroup;
 			children = (
+				B79B82C329D18256003618C1 /* FestivalListView.swift */,
 				C275C1C729CFBDD20023D132 /* FestivalListJourView.swift */,
 				C275C1C529CFB7C20023D132 /* FestivalItemView.swift */,
 				C27A0F6F29D0993900A36D69 /* FestivalListCreneauView.swift */,
@@ -389,6 +409,8 @@
 		C275C1C929CFC0920023D132 /* festival */ = {
 			isa = PBXGroup;
 			children = (
+				B79B82C729D182E7003618C1 /* FestivalViewModel.swift */,
+				B79B82C529D182D1003618C1 /* FestivalListViewModel.swift */,
 				C275C1CA29CFC0D10023D132 /* FestivalListJourViewModel.swift */,
 				C275C1CC29CFC1340023D132 /* FestivalJourViewModel.swift */,
 				C27A0F7129D09A4A00A36D69 /* FestivalListCreneauViewModel.swift */,
@@ -408,6 +430,7 @@
 		C275C1D329CFC4C80023D132 /* festival */ = {
 			isa = PBXGroup;
 			children = (
+				B79B82C929D18373003618C1 /* FestivalIntent.swift */,
 				C275C1D429CFC4E30023D132 /* FestivalJourIntent.swift */,
 				C27A0F7729D0A11300A36D69 /* FestivalCreneauIntent.swift */,
 			);
@@ -631,6 +654,7 @@
 				C27A0F8029D0DC1B00A36D69 /* ZoneListView.swift in Sources */,
 				C204B5BE29CBA7F100EE9BC2 /* ConnexionState.swift in Sources */,
 				C275C1C129CFA9430023D132 /* IndexState.swift in Sources */,
+				B79B82C429D18256003618C1 /* FestivalListView.swift in Sources */,
 				C204B5C429CBBFD800EE9BC2 /* InscriptionIntent.swift in Sources */,
 				C275C1CB29CFC0D10023D132 /* FestivalListJourViewModel.swift in Sources */,
 				5E36AB94299B7DD900BAFE63 /* InscriptionView.swift in Sources */,
@@ -645,9 +669,11 @@
 				C21CC85929C88DAF005A16AC /* UserModelObserver.swift in Sources */,
 				C275C1D229CFC3690023D132 /* JourDTO.swift in Sources */,
 				C27A0F8529D0E5A400A36D69 /* ZoneViewModel.swift in Sources */,
+				B79B82CA29D18373003618C1 /* FestivalIntent.swift in Sources */,
 				C204B5BC29CBA71200EE9BC2 /* ConnexionIntent.swift in Sources */,
 				C27A0F6C29D048C800A36D69 /* CreneauDTO.swift in Sources */,
 				C27A0F8A29D0E93600A36D69 /* ZoneDTO.swift in Sources */,
+				B79B82CF29D18423003618C1 /* FestivalModelObserver.swift in Sources */,
 				C27A0F7029D0993A00A36D69 /* FestivalListCreneauView.swift in Sources */,
 				C275C1B929CFA2BB0023D132 /* IndexView.swift in Sources */,
 				C204B5C029CBBDFA00EE9BC2 /* InscriptionViewModel.swift in Sources */,
@@ -656,10 +682,12 @@
 				C2AF9FF529CF1592000A2593 /* Token.swift in Sources */,
 				C275C1BD29CFA8EB0023D132 /* IndexViewModel.swift in Sources */,
 				C2AF9FED29CEF20C000A2593 /* ProfilViewModel.swift in Sources */,
+				B79B82C629D182D1003618C1 /* FestivalListViewModel.swift in Sources */,
 				C27A0F7629D09FC600A36D69 /* CreneauJourDTO.swift in Sources */,
 				C27A0F8829D0E72F00A36D69 /* ZoneIntent.swift in Sources */,
 				C27A0F8D29D0EB6300A36D69 /* ZoneState.swift in Sources */,
 				5E36AB86299B77AD00BAFE63 /* UserViewModel.swift in Sources */,
+				B79B82C829D182E7003618C1 /* FestivalViewModel.swift in Sources */,
 				C2476F1E29CB2FC20000A875 /* ConnexionView.swift in Sources */,
 				C275C1C429CFB57A0023D132 /* FestivalDTO.swift in Sources */,
 				C275C1D529CFC4E30023D132 /* FestivalJourIntent.swift in Sources */,

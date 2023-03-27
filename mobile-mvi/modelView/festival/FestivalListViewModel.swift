@@ -35,7 +35,7 @@ class FestivalListViewModel : ObservableObject, FestivalModelObserver {
                 debugPrint("state loading FestivalVM")
             case .loadedFestivals(let newFestivals):
                 //transformation FestivalDTO en FestivalViewModel
-                self.festivals = newFestivals.map{ festival in FestivalViewModel(festival: festival)}
+                self.festivals = newFestivals.map{ festival in  festival.convertToUserVM()}
                 debugPrint("jai charge les donnees")
                 self.state = .ready
             case .error:
@@ -50,4 +50,3 @@ class FestivalListViewModel : ObservableObject, FestivalModelObserver {
         }
     }
 }
-

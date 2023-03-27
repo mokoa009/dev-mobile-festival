@@ -18,6 +18,10 @@ struct ContentView : View {
                 }
             ZoneListView(viewModel: ZoneListViewModel(zones: [],idFestival:1))
                 .tabItem{
+                    Label("Zones", systemImage: "location.north.fill")
+                }
+            FestivalListView(viewModel: FestivalListViewModel(festivals: []))
+                .tabItem{
                     Label("Festivals", systemImage: "gamecontroller.fill")
                 }
             UserListView(viewModel: UserListViewModel(users: []))

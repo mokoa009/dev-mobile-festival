@@ -34,6 +34,7 @@ struct ZoneIntent {
             
             let (data, response) = try await URLSession.shared.data(for: requete)
             let httpresponse = response as! HTTPURLResponse
+            
             if httpresponse.statusCode == 200{
                 let sdata = String(data: data, encoding: .utf8)!
                 debugPrint("les data >ZONE")
