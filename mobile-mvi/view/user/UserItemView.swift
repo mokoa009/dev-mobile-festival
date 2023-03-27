@@ -3,7 +3,7 @@
 //
 //  Created by garcy on 13/02/2023.
 //
-
+import Foundation
 import SwiftUI
 
 struct UserItemView: View {

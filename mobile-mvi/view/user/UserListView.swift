@@ -22,16 +22,11 @@ struct UserListView : View {
     }
     
     
+    
     func modifierUser(){
         debugPrint("modifier utilisateur")
     }
     var body : some View {
-        ZStack{
-            Rectangle()
-                        .fill(Gradient(colors: [.indigo, .purple]))
-                        .ignoresSafeArea()
-            Text("BOBOBLO").foregroundColor(Color.white)
-        }
         NavigationStack{
             VStack {
                 List{
@@ -52,12 +47,7 @@ struct UserListView : View {
                         }
                     }
                 }
-            }.environment(\.colorScheme, .dark)
-        //}.onAppear(){
-          //  debugPrint("chargement data ?")
-          //  Task{
-           //     await userIntent.getUsers(of: users)
-         //   }
+            }
         }.task {
             await userIntent.getUsers()
         }

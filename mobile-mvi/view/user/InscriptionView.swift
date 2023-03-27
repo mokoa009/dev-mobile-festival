@@ -21,7 +21,6 @@ struct InscriptionView : View {
     var body: some View {
         VStack{
             Text("Inscription")
-            Text("test")
             TextField(text: $user.nom){
                 Text("Nom :")
             }.textFieldStyle(RoundedBorderTextFieldStyle()).padding()

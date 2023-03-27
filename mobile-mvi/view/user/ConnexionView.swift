@@ -4,7 +4,7 @@
 //
 //  Created by garcy on 22/03/2023.
 //
-
+import Foundation
 import SwiftUI
 
 struct ConnexionView: View {
@@ -19,7 +19,6 @@ struct ConnexionView: View {
     var body: some View {
         VStack{
             Text("Connexion")
-            Text("test")
             TextField(text: $identifiant.email){
                 Text("Email : *")
             }.textFieldStyle(RoundedBorderTextFieldStyle()).padding()
