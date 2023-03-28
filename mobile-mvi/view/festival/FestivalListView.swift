@@ -26,9 +26,6 @@ struct FestivalListView : View {
         await festivalIntent.clotureFestival(id: id)
     }
     
-    func modifierFestival(){
-        debugPrint("modifier festival")
-    }
     var body : some View {
         NavigationStack{
             VStack {
@@ -54,9 +51,9 @@ struct FestivalListView : View {
                                         }
                                         Spacer()
                                         if (!festival.cloture){
-                                            Button(action: modifierFestival){
+                                            Button(action: {}){
                                                 Image(systemName: "square.and.pencil").foregroundColor(.green)
-                                            }
+                                            }.navigationBarTitle(ModifFestivalItem(viewModel: ModifFestivalItemViewModel(id: festival.id)))
                                             Spacer()
                                             Button(action: {
                                                 Task{
@@ -72,7 +69,7 @@ struct FestivalListView : View {
                                         }
                                         
                                         Spacer()
-                                    }.buttonStyle(.bordered)
+                                    }
                                 }
                                 
                             }.foregroundColor(Color.white)
@@ -80,7 +77,15 @@ struct FestivalListView : View {
                             
                         }
                     }.listRowBackground(Color.black)
-                }
+                    HStack {
+                        Spacer()
+                        NavigationLink("Work Folder") {
+                            AjoutFestivalItem(viewModel: AjoutFestivalViewModel())
+                        }.foregroundColor(.green)
+                        Spacer()
+                    }.background(.black)
+                    
+                }.buttonStyle(.bordered).background(.black)
             }.background(.red)
         }.task {
             await festivalIntent.getFestivals()
