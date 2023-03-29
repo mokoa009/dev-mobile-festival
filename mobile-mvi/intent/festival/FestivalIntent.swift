@@ -69,7 +69,13 @@ struct FestivalIntent {
     }
     
     func deleteFestival(id: Int) async {
-        self.model.state = .deleteFestival
+        
+        for festival in model.festivals {
+            if id == festival.id {
+                self.model.state = .deleteFestival(FestivalDTO(festival: festival))
+                break
+            }
+        }
         
         guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/festivals/delete") else {
             debugPrint("bad url getUser")
@@ -110,7 +116,13 @@ struct FestivalIntent {
     }
     
     func clotureFestival(id: Int) async {
-        self.model.state = .clotureFestival
+        for festival in model.festivals {
+            if id == festival.id {
+                self.model.state = .clotureFestival(FestivalDTO(festival: festival))
+                break
+            }
+        }
+        
         
         guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/festivals/close") else {
             debugPrint("bad url getUser")

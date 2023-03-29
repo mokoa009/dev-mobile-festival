@@ -43,8 +43,6 @@ class ModifFestivalItemViewModel : ObservableObject{//, UserModelObserver {
                 self.annee = festival.annee
                 self.nbJours = festival.nbJours
                 self.state = .ready
-            default:
-                break
             }
         }
     }

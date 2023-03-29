@@ -16,9 +16,11 @@ enum FestivalState {//}: Equatable {//: CustomStringConvertible {//, Equatable {
     case loadedCreneaux([CreneauJourDTO])
     case loadingFestivals
     case loadedFestivals([FestivalDTO])
-    case deleteFestival
+    case deleteFestival(FestivalDTO)
     case deleted
-    case clotureFestival
+    case clotureFestival(FestivalDTO)
     case clotured
+    case addingFestival(FestivalDTO)
+    case added
 }
 

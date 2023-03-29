@@ -16,25 +16,33 @@ struct AjoutFestivalIntent {
         self.model = model
     }
     
-    func ajouterFestival(id: Int) async {
+    func ajouterFestival(nom : String, dateDebut : Date, dateFin : Date) async {
         self.model.state = .addingFestival
         
-        guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/festivals/close") else {
+        guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/festivals/create") else {
             debugPrint("bad url getUser")
             return
         }
         do{
             var requete = URLRequest(url: url)
-            requete.httpMethod = "PUT"
+            requete.httpMethod = "POST"
             //append a value to a field
             requete.addValue("application/json", forHTTPHeaderField: "Content-Type")
             requete.addValue("Bearer "+Token.getToken(),forHTTPHeaderField:"Authorization")
             requete.addValue("*/*",forHTTPHeaderField: "Accept")
             
-            let body = [
-                "id":id
-                //rajouter les bons arguments
-            ]
+            let yearFormatter = DateFormatter()
+            yearFormatter.dateFormat = "yyyy"
+            let year = yearFormatter.string(from : dateDebut)
+            
+            let differenceInSeconds = dateFin.timeIntervalSince(dateDebut)
+            let nbJours = differenceInSeconds/(3600*24)
+            
+            let body : FestivalDTO
+            body = FestivalDTO(idFestival: -1, nom: nom, annee: (year as NSString).integerValue, nbJours: Int(nbJours), cloture: -1)
+            
+            print(body)
+            
             guard let encoded = await JSONHelper.encode(data: body) else {
                 print("pb encodage")
                 self.model.state = .error

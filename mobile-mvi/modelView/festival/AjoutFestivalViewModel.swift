@@ -35,8 +35,6 @@ class AjoutFestivalViewModel : ObservableObject{
                 debugPrint("demande d'ajout festival")
             case .added:
                 debugPrint("ajout réussi")
-            default:
-                break
             }
         }
     }

@@ -22,6 +22,19 @@ struct FestivalDTO: Codable, Hashable{
         self.cloture = cloture
     }
     
+    init(festival: FestivalViewModel){
+        self.idFestival = festival.id
+        self.nom = festival.nom
+        self.annee = festival.annee
+        self.nbJours = festival.nbJours
+        if (festival.cloture) {
+            self.cloture = 1
+        }else {
+            self.cloture = 0
+        }
+        
+    }
+    
     func convertToFestival() -> Festival{
         let clotureBool : Bool
         

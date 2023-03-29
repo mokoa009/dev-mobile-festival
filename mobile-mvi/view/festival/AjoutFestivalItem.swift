@@ -12,7 +12,7 @@ struct AjoutFestivalItem : View{
     
     @ObservedObject var ajoutFestival : AjoutFestivalViewModel
     @State var dateDebut : Date  = Date()
-    @State var dateFin : Date  = Date()
+    @State var dateFin : Date = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
     var ajoutFestivalIntent : AjoutFestivalIntent
     
     init(viewModel: AjoutFestivalViewModel){
@@ -33,17 +33,20 @@ struct AjoutFestivalItem : View{
                 .background(Color.gray.opacity(0.1), in: RoundedRectangle(cornerRadius: 5))
                 .foregroundColor(.green).accentColor(.green)
             
-            DatePicker("  Date de fin", selection: $dateFin, displayedComponents: .date)
+            let lendemain = Calendar.current.date(byAdding: .day, value: 1, to: dateDebut)!
+            
+            DatePicker("  Date de fin", selection: $dateFin, in : lendemain..., displayedComponents: .date)
                 .padding(5)
                 .background(Color.gray.opacity(0.1), in: RoundedRectangle(cornerRadius: 5))
                 .foregroundColor(.green).accentColor(.green)
             
             Button("Envoyer", action : {
                 debugPrint(ajoutFestival.nom)
-                debugPrint(ajoutFestival.annee)
-//                Task{
-//                    await connexionIntent.connexion()
-//                }
+                Task{
+                    await ajoutFestivalIntent.ajouterFestival(nom: ajoutFestival.nom, dateDebut: dateDebut, dateFin: dateFin)
+                }
+                // Dismiss SwiftUI (env loc)
+
             })
         }.frame(maxHeight: .infinity).background(.black).foregroundColor(.green)
     }
