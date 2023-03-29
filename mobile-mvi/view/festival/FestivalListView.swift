@@ -51,9 +51,12 @@ struct FestivalListView : View {
                                         }
                                         Spacer()
                                         if (!festival.cloture){
-                                            Button(action: {}){
-                                                Image(systemName: "square.and.pencil").foregroundColor(.green)
-                                            }.navigationBarTitle(ModifFestivalItem(viewModel: ModifFestivalItemViewModel(id: festival.id)))
+                                            
+                                            NavigationLink(
+                                                destination: ModifFestivalItem(viewModel: ModifFestivalItemViewModel(id: festival.id)),
+                                                label: {Label("", systemImage:  "square.and.pencil")}
+                                            )
+
                                             Spacer()
                                             Button(action: {
                                                 Task{
@@ -77,13 +80,17 @@ struct FestivalListView : View {
                             
                         }
                     }.listRowBackground(Color.black)
-                    HStack {
-                        Spacer()
-                        NavigationLink("Work Folder") {
-                            AjoutFestivalItem(viewModel: AjoutFestivalViewModel())
-                        }.foregroundColor(.green)
-                        Spacer()
-                    }.background(.black)
+
+                    NavigationLink(destination: AjoutFestivalItem(viewModel: AjoutFestivalViewModel())) {
+
+                        HStack{
+                            Spacer()
+                            Text("  Ajouter festival").foregroundColor(.green)
+                            Spacer()
+                        }
+                        
+                    }.frame( maxWidth: .infinity ,maxHeight: .infinity).background(.black)
+
                     
                 }.buttonStyle(.bordered).background(.black)
             }.background(.red)

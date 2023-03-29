@@ -31,7 +31,7 @@ class AjoutFestivalViewModel : ObservableObject{
             case .ready:
                 debugPrint("ProfilViewModel: ready state")
                 debugPrint("--------------------------------------")
-            case .addFestival:
+            case .addingFestival:
                 debugPrint("demande d'ajout festival")
             case .added:
                 debugPrint("ajout réussi")
