@@ -10,6 +10,8 @@ import SwiftUI
 
 struct AjoutFestivalItem : View{
     
+    @Environment(\.dismiss) private var dismiss
+    
     @ObservedObject var ajoutFestival : AjoutFestivalViewModel
     @State var dateDebut : Date  = Date()
     @State var dateFin : Date = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
@@ -45,8 +47,7 @@ struct AjoutFestivalItem : View{
                 Task{
                     await ajoutFestivalIntent.ajouterFestival(nom: ajoutFestival.nom, dateDebut: dateDebut, dateFin: dateFin)
                 }
-                // Dismiss SwiftUI (env loc)
-
+                dismiss()
             })
         }.frame(maxHeight: .infinity).background(.black).foregroundColor(.green)
     }

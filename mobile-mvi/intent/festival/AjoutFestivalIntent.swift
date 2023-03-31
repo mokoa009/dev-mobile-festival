@@ -17,7 +17,22 @@ struct AjoutFestivalIntent {
     }
     
     func ajouterFestival(nom : String, dateDebut : Date, dateFin : Date) async {
-        self.model.state = .addingFestival
+        
+        if nom.isEmpty {
+            
+            return
+        }
+        
+        let yearFormatter = DateFormatter()
+        yearFormatter.dateFormat = "yyyy"
+        let year = yearFormatter.string(from : dateDebut)
+        
+        let differenceInSeconds = dateFin.timeIntervalSince(dateDebut)
+        let nbJours = differenceInSeconds/(3600*24)
+        
+        let festivalToAdd = FestivalDTO(idFestival: -1, nom: nom, annee: (year as NSString).integerValue, nbJours: Int(nbJours), cloture: -1)
+        
+        self.model.state = .addingFestival(festivalToAdd)
         
         guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/festivals/create") else {
             debugPrint("bad url getUser")
@@ -26,20 +41,14 @@ struct AjoutFestivalIntent {
         do{
             var requete = URLRequest(url: url)
             requete.httpMethod = "POST"
+            
             //append a value to a field
             requete.addValue("application/json", forHTTPHeaderField: "Content-Type")
             requete.addValue("Bearer "+Token.getToken(),forHTTPHeaderField:"Authorization")
             requete.addValue("*/*",forHTTPHeaderField: "Accept")
             
-            let yearFormatter = DateFormatter()
-            yearFormatter.dateFormat = "yyyy"
-            let year = yearFormatter.string(from : dateDebut)
-            
-            let differenceInSeconds = dateFin.timeIntervalSince(dateDebut)
-            let nbJours = differenceInSeconds/(3600*24)
-            
             let body : FestivalDTO
-            body = FestivalDTO(idFestival: -1, nom: nom, annee: (year as NSString).integerValue, nbJours: Int(nbJours), cloture: -1)
+            body = festivalToAdd
             
             print(body)
             
@@ -49,7 +58,11 @@ struct AjoutFestivalIntent {
                 return
             }
             requete.httpBody = encoded
+            
+            //Envoie requête
             let (_, response) = try await URLSession.shared.data(for: requete)
+            
+            //Réponse reequête
             let httpresponse = response as! HTTPURLResponse
             if httpresponse.statusCode == 200{
                 model.state = .added

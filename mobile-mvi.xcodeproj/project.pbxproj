@@ -222,13 +222,13 @@
 		5E36AB5A299B774E00BAFE63 /* mobile-mvi */ = {
 			isa = PBXGroup;
 			children = (
+				C2476F1529CB13200000A875 /* intent */,
+				C2476F1129CB12F80000A875 /* modelView */,
 				C2AF9FF329CF14AE000A2593 /* middleware */,
 				C2476F1029CB12ED0000A875 /* view */,
-				C2476F1129CB12F80000A875 /* modelView */,
 				5E36AB5B299B774E00BAFE63 /* mobile_mviApp.swift */,
 				5E36AB5F299B775000BAFE63 /* Assets.xcassets */,
 				5E36AB61299B775000BAFE63 /* Preview Content */,
-				C2476F1529CB13200000A875 /* intent */,
 				C2476F1229CB12FF0000A875 /* DTO */,
 				C2476F1A29CB13BE0000A875 /* state */,
 				C2476F1429CB13140000A875 /* modelObserver */,

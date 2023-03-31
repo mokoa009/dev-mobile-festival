@@ -24,6 +24,20 @@ class FestivalListViewModel : ObservableObject, FestivalModelObserver {
         self.objectWillChange.send()
     }
     
+    func remove(festival : FestivalDTO) {
+        let festivalVM = festival.convertToUserVM()
+        let index = self.festivals.firstIndex(of: festivalVM)
+        self.festivals.remove(at: index!)
+        self.objectWillChange.send()
+    }
+    
+    func cloture(festival : FestivalDTO) {
+        let festivalVM = festival.convertToUserVM()
+        let index = self.festivals.firstIndex(of: festivalVM)
+        self.festivals[index!].cloture = true
+        self.objectWillChange.send()
+    }
+    
     func move(fromOffsets indexSet : IndexSet, toOffset index: Int) {
         self.festivals.move(fromOffsets: indexSet, toOffset: index)
         self.objectWillChange.send()
@@ -41,6 +55,17 @@ class FestivalListViewModel : ObservableObject, FestivalModelObserver {
             case .error:
                 debugPrint("error")
                 self.state = .ready
+                
+            case .deleteFestival(let festival):
+                self.remove(festival: festival)
+                debugPrint("supression du festival")
+            case .deleted:
+                debugPrint("festival supprimé")
+            case .clotureFestival(let festival):
+                self.cloture(festival: festival)
+                debugPrint("clôturation du festival")
+            case .clotured:
+                debugPrint("festival clôturé")
             case .ready:
                 debugPrint("TrackViewModel: ready state")
                 debugPrint("--------------------------------------")
