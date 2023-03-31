@@ -10,7 +10,7 @@ import Foundation
 enum ModifFestivalState {//}: Equatable {//: CustomStringConvertible {//, Equatable {
     case ready
     case error
-    case updateFestival
+    case updatingFestival(FestivalDTO)
     case updated
     case loadFestival
     case loadedFestival(Festival)

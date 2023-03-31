@@ -13,11 +13,13 @@ class AjoutFestivalViewModel : ObservableObject{
     @Published var nom : String
     @Published var annee : Int
     @Published var nbJours : Int
+    var list : FestivalListViewModel
     
-    init() {
+    init(list : FestivalListViewModel) {
         self.nom = ""
         self.annee = 0
         self.nbJours = 0
+        self.list = list
     }
     
     // -----------------------------------------------------------
@@ -32,6 +34,7 @@ class AjoutFestivalViewModel : ObservableObject{
                 debugPrint("ProfilViewModel: ready state")
                 debugPrint("--------------------------------------")
             case .addingFestival(let festival):
+                self.list.festivals.append(festival.convertToUserVM())
                 debugPrint("demande d'ajout festival")
             case .added:
                 debugPrint("ajout réussi")

@@ -81,7 +81,7 @@ struct FestivalListView : View {
                         }
                     }.listRowBackground(Color.black)
 
-                    NavigationLink(destination: AjoutFestivalItem(viewModel: AjoutFestivalViewModel())) {
+                    NavigationLink(destination: AjoutFestivalItem(viewModel: AjoutFestivalViewModel(list: self.festivals))) {
 
                         HStack{
                             Spacer()

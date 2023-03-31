@@ -31,7 +31,7 @@ class ModifFestivalItemViewModel : ObservableObject{//, UserModelObserver {
             case .ready:
                 debugPrint("ProfilViewModel: ready state")
                 debugPrint("--------------------------------------")
-            case .updateFestival:
+            case .updatingFestival(let festival):
                 debugPrint("demande modification festival")
             case .updated:
                 debugPrint("modification réussie")
