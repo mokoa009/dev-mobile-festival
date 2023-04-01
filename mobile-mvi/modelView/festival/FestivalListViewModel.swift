@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FestivalListViewModel : ObservableObject, FestivalModelObserver {
+class FestivalListViewModel : ObservableObject {
     
     @Published var festivals : [FestivalViewModel]
     
@@ -56,18 +56,18 @@ class FestivalListViewModel : ObservableObject, FestivalModelObserver {
                 debugPrint("error")
                 self.state = .ready
                 
-            case .deleteFestival(let festival):
+            case .deletingFestival(let festival):
                 self.remove(festival: festival)
                 debugPrint("supression du festival")
             case .deleted:
                 debugPrint("festival supprimé")
-            case .clotureFestival(let festival):
+            case .cloturingFestival(let festival):
                 self.cloture(festival: festival)
                 debugPrint("clôturation du festival")
             case .clotured:
                 debugPrint("festival clôturé")
             case .ready:
-                debugPrint("TrackViewModel: ready state")
+                debugPrint("FestivalListViewModel: ready state")
                 debugPrint("--------------------------------------")
             default:
                 break

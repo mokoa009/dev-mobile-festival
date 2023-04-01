@@ -1,8 +1,8 @@
 //
-//  TrackViewModel.swift
+//  FestivalViewModel.swift
 //  mobile-mvi
 //
-//  Created by Oce on 14/02/2023.
+//  Created by garcy on 14/02/2023.
 //
 
 import Foundation

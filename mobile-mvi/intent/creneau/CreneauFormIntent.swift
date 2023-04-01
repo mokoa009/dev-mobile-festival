@@ -40,10 +40,8 @@ struct CreneauFormIntent {
                 let httpresponse = response as! HTTPURLResponse
                 if httpresponse.statusCode == 200{
                     model.state = .creneauCreated
-                    
                     //recupération idCreneau crée
                     await getIdCreneau(heureDebut: self.model.heureDebut, heureFin: self.model.heureFin,token: token!)
-                    
                     //affectation creaneau au jour
                     await affecterCreneauJour(idJour: idJour, token: token!)
                     model.state = .ready
@@ -135,7 +133,6 @@ struct CreneauFormIntent {
                 }
                 requete.httpBody = encoded
                 let (data, response) = try await URLSession.shared.data(for: requete)
-                let sdata = String(data: data, encoding: .utf8)!
                 let httpresponse = response as! HTTPURLResponse
                 if httpresponse.statusCode == 200{
                     guard let decoded : [IdCreneauDTO] = await JSONHelper.decode(data: data) else{

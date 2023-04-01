@@ -13,5 +13,5 @@ enum ModifFestivalState {//}: Equatable {//: CustomStringConvertible {//, Equata
     case updatingFestival(FestivalDTO)
     case updated
     case loadFestival
-    case loadedFestival(Festival)
+    case loadedFestival(FestivalDTO)
 }

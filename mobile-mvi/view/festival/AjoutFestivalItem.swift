@@ -10,6 +10,7 @@ import SwiftUI
 
 struct AjoutFestivalItem : View{
     
+    @EnvironmentObject var tokenManager : Token
     @Environment(\.dismiss) private var dismiss
     
     @ObservedObject var ajoutFestival : AjoutFestivalViewModel
@@ -45,7 +46,7 @@ struct AjoutFestivalItem : View{
             Button("Envoyer", action : {
                 debugPrint(ajoutFestival.nom)
                 Task{
-                    await ajoutFestivalIntent.ajouterFestival(nom: ajoutFestival.nom, dateDebut: dateDebut, dateFin: dateFin)
+                    await ajoutFestivalIntent.ajouterFestival(nom: ajoutFestival.nom, dateDebut: dateDebut, dateFin: dateFin,token: tokenManager.token?.string)
                 }
                 dismiss()
             })

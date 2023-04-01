@@ -10,6 +10,7 @@ import SwiftUI
 
 struct FestivalListView : View {
     
+    @EnvironmentObject var tokenManager : Token
     @ObservedObject var festivals : FestivalListViewModel
     var festivalIntent : FestivalIntent
     
@@ -19,11 +20,11 @@ struct FestivalListView : View {
     }
     
     func supprimerFestival(id : Int) async{
-        await festivalIntent.deleteFestival(id: id)
+        await festivalIntent.deleteFestival(id: id,token: tokenManager.token?.string)
     }
     
     func cloturerFestival(id : Int) async{
-        await festivalIntent.clotureFestival(id: id)
+        await festivalIntent.clotureFestival(id: id,token: tokenManager.token?.string)
     }
     
     var body : some View {
@@ -37,9 +38,13 @@ struct FestivalListView : View {
                                 Text("Festival n° \(festival.id)").font(Font.title)
                                 Image(systemName: "gamecontroller.fill").foregroundColor(.green).font(.title)
                                 Text("Nom : " + festival.nom)
-                                Text("Annee : " + String(festival.annee))
-                                Text("Durée : \(festival.nbJours)")
-                                if (Token.isAdmin()) {
+                                Text("Année : " + String(festival.annee))
+                                Text("Durée : \(festival.nbJours) jours")
+                                NavigationLink(
+                                    destination: FestivalListJourView(viewModel: FestivalListJourViewModel(jours: [], idFestival: festival.id)),
+                                    label: {Label("", systemImage:  "eye").foregroundColor(.green)}
+                                )
+                                if (tokenManager.isAdmin()) {
                                     HStack{
                                         Spacer()
                                         Button(action: {
@@ -51,11 +56,11 @@ struct FestivalListView : View {
                                         }
                                         Spacer()
                                         if (!festival.cloture){
-                                            
+                                            /*
                                             NavigationLink(
                                                 destination: ModifFestivalItem(viewModel: ModifFestivalItemViewModel(id: festival.id)),
                                                 label: {Label("", systemImage:  "square.and.pencil")}
-                                            )
+                                            )*/
 
                                             Spacer()
                                             Button(action: {
