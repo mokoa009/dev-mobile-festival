@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ProfilView : View {
     
+    @EnvironmentObject var tokenManager: Token
     @ObservedObject var user : ProfilViewModel
     var profilIntent : ProfilIntent
     @State var mdpConfirm : String
@@ -23,7 +24,7 @@ struct ProfilView : View {
     var body: some View {
         VStack{
             Text("Profil")
-            Button("Déconnexion", action :Token.deconnexion)
+            Button("Déconnexion", action :tokenManager.deconnexion)
             TextField(text: $user.nom){
                 Text("Nom :")
             }.textFieldStyle(RoundedBorderTextFieldStyle()).padding()
@@ -52,11 +53,11 @@ struct ProfilView : View {
                 debugPrint(user.nouveauMdp)
                 debugPrint(mdpConfirm)
                 Task{
-                    await profilIntent.update()
+                    await profilIntent.update(token: tokenManager.token?["token"].string)
                 }
             })
         }.task {
-            await profilIntent.getUserById(id: user.id)
+            await profilIntent.getUserById(id: user.id, token: tokenManager.token?["token"].string)
         }
     }
 }

@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+import JWTDecode
 
 class ConnexionViewModel : ObservableObject{//, UserModelObserver {
     
@@ -26,11 +28,13 @@ class ConnexionViewModel : ObservableObject{//, UserModelObserver {
                     self.state = .ready
                 case .ready:
                     debugPrint("ConnexionViewModel: ready state")
-                    debugPrint("--------------------------------------")
+                    debugPrint("-------------------------------")
                 case .connexion:
                     debugPrint("connexion")
                 case .authentification:
                     debugPrint("connexion en cours")
+                case .authentified:
+                    debugPrint("connecté")
                 default:
                     break
                 }

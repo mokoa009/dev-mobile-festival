@@ -10,13 +10,17 @@ import SwiftUI
 
 struct ZoneCreneauBenevoleListView : View {
     
+    @EnvironmentObject var tokenManager: Token
     @ObservedObject var zones : ZoneCreneauBenevoleListViewModel
     var zoneCreneauBenevoleIntent : ZoneCreneauBenevoleIntent
+    @State var benevoleSelect : UserViewModel
     
     init(viewModel : ZoneCreneauBenevoleListViewModel){
         self.zones = viewModel
         self.zoneCreneauBenevoleIntent = ZoneCreneauBenevoleIntent(model: viewModel)
+        self.benevoleSelect = UserViewModel(id: -1, nom: "", prenom: "", email: "")
     }
+    
     var body : some View {
         NavigationStack{
             VStack {
@@ -28,13 +32,30 @@ struct ZoneCreneauBenevoleListView : View {
                         HStack{
                             Button("Supprimer", action: {
                                 Task{
-                                    await zoneCreneauBenevoleIntent.deleteZoneCreneauBenevole(idBenevole:benevole.id)
+                                    await zoneCreneauBenevoleIntent.deleteZoneCreneauBenevole(idBenevole:benevole.id, token: tokenManager.token?["token"].string)
                                 }
                             })
                         }.buttonStyle(.bordered)
                     }
                 }
                 Text("Nbr bénévole actuel A REMPLIR : 2")
+                Text("Nbr bénévole manquant A REMPLIR : 2")
+               
+                Picker(selection: $benevoleSelect, label : Text("Bénévoles")){
+                    ForEach(zones.benevolesNonAffecte, id:\.self){ benevole in
+                        Text("Id : \(benevole.id), Nom : \(benevole.nom), Prenom : \(benevole.prenom), Email :  \(benevole.email)").tag(benevole)
+                        }
+                    }.task() {
+                            await zoneCreneauBenevoleIntent.getBenevolesNonAffect()
+                    }
+                    .onChange(of: benevoleSelect){ newBenevole in
+                        debugPrint("change change")
+                        debugPrint(benevoleSelect.email)
+                        debugPrint(newBenevole.email)
+                        Task{
+                            await zoneCreneauBenevoleIntent.affecterZoneCreneauBenevole(utilisateur: newBenevole,token: tokenManager.token?["token"].string)
+                        }
+                    }
             }
         }.task {
             await zoneCreneauBenevoleIntent.getBenevoles()

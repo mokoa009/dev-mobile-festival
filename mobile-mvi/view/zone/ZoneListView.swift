@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ZoneListView : View {
     
+    @EnvironmentObject var tokenManager: Token
     @ObservedObject var zones : ZoneListViewModel
     var zoneIntent : ZoneIntent
     
@@ -19,7 +20,7 @@ struct ZoneListView : View {
     }
     
     func supprimerZone(id : Int) async{
-        await zoneIntent.deleteZone(id: id)
+        await zoneIntent.deleteZone(id: id,token: tokenManager.token?["token"].string)
     }
     func modifierZone(){
         debugPrint("modifier zone")
