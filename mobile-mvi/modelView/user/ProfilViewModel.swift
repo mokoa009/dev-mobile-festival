@@ -36,7 +36,7 @@ class ProfilViewModel : ObservableObject{//, UserModelObserver {
                 case .ready:
                     debugPrint("ProfilViewModel: ready state")
                     debugPrint("--------------------------------------")
-                case .updateUser:
+                case .updatingUser:
                     debugPrint("demande modification user")
                 case .updated:
                     debugPrint("modification réussie")

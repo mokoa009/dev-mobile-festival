@@ -31,12 +31,12 @@ class AjoutFestivalViewModel : ObservableObject{
                 debugPrint("error")
                 self.state = .ready
             case .ready:
-                debugPrint("ProfilViewModel: ready state")
+                debugPrint("AjoutFestivalViewModel: ready state")
                 debugPrint("--------------------------------------")
-            case .addingFestival(let festival):
-                self.list.festivals.append(festival.convertToUserVM())
+            case .addingFestival:
                 debugPrint("demande d'ajout festival")
-            case .added:
+            case .added(let newFestival):
+                self.list.festivals.append(newFestival.convertToUserVM())
                 debugPrint("ajout réussi")
             }
         }

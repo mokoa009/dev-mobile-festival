@@ -24,7 +24,7 @@ struct ModifFestivalItem : View{
     
     var body: some View {
         VStack{
-            Text("Ajout Festival").font(.title)
+            Text("Modifier le Festival").font(.title)
             
             TextField(text: $modifFestival.nom){
                 Text("Nom du Festival : *")

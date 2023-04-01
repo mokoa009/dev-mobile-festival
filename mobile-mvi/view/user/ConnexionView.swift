@@ -39,8 +39,6 @@ struct ConnexionView: View {
                         }
                     }
                 })
-            }.onReceive(tokenManager.objectWillChange){
-                debugPrint("je suis co !!!")
             }
         }else{
             Text("Vous êtes déjà connecté ! ")

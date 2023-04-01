@@ -12,9 +12,9 @@ enum UserState {//}: Equatable {//: CustomStringConvertible {//, Equatable {
     case error
     case loadingUsers
     case loadedUsers([UserDTO])
-    case deleteUser
-    case deleted
-    case updateUser
+    case deletingUser
+    case deleted(UserViewModel)
+    case updatingUser
     case updated
     case loadUser
     case loadedUser(User)

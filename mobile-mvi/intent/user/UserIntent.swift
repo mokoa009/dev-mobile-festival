@@ -1,8 +1,8 @@
 //
-//  TrackIntent.swift
+//  UserIntent.swift
 //  mobile-mvi
 //
-//  Created by Oce on 14/02/2023.
+//  Created by garcy on 14/02/2023.
 //
 
 import Foundation
@@ -53,8 +53,8 @@ struct UserIntent {
     }
 
 
-    func deleteUser(id: Int, token: String?) async {
-        self.model.state = .deleteUser
+    func deleteUser(user : UserViewModel, token: String?) async {
+        self.model.state = .deletingUser
         if(token != nil){
             guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/utilisateurs/delete") else {
                 debugPrint("bad url getUser")
@@ -69,7 +69,7 @@ struct UserIntent {
                 requete.addValue("*/*",forHTTPHeaderField: "Accept")
                 
                 let body = [
-                    "idUtilisateur":id
+                    "idUtilisateur":user.id
                 ]
                 guard let encoded = await JSONHelper.encode(data: body) else {
                     print("pb encodage")
@@ -80,7 +80,7 @@ struct UserIntent {
                 let (_, response) = try await URLSession.shared.data(for: requete)
                 let httpresponse = response as! HTTPURLResponse
                 if httpresponse.statusCode == 200{
-                    model.state = .deleted
+                    model.state = .deleted(user)
                     // virer l'utilisateur dans le view model donc le retourner dans le case du VM
                     model.state = .ready
                 }

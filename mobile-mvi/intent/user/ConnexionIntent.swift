@@ -47,6 +47,8 @@ struct ConnexionIntent {
                 model.state = .authentified
                 model.state = .ready
                 let jwt = try decode(jwt: String(data:data, encoding: .utf8)!)
+                debugPrint("decode data to jwt")
+                debugPrint(jwt)
                 return jwt
             }
             else{

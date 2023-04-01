@@ -68,97 +68,105 @@ struct FestivalIntent {
         }
     }
     
-    func deleteFestival(id: Int) async {
-        
-        for festival in model.festivals {
-            if id == festival.id {
-                self.model.state = .deleteFestival(FestivalDTO(festival: festival))
-                break
+    func deleteFestival(id: Int,token : String?) async {
+        if(token != nil){
+            for festival in model.festivals {
+                if id == festival.id {
+                    self.model.state = .deletingFestival(FestivalDTO(festival: festival))
+                    break
+                }
             }
-        }
-        
-        guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/festivals/delete") else {
-            debugPrint("bad url getUser")
-            return
-        }
-        do{
-            var requete = URLRequest(url: url)
-            requete.httpMethod = "DELETE"
-            //append a value to a field
-            requete.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            requete.addValue("Bearer "+Token.getToken(),forHTTPHeaderField:"Authorization")
-            requete.addValue("*/*",forHTTPHeaderField: "Accept")
             
-            let body = [
-                "id":id
-            ]
-            guard let encoded = await JSONHelper.encode(data: body) else {
-                print("pb encodage")
-                self.model.state = .error
+            guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/festivals/delete") else {
+                debugPrint("bad url getUser")
                 return
             }
-            requete.httpBody = encoded
-            let (_, response) = try await URLSession.shared.data(for: requete)
-            let httpresponse = response as! HTTPURLResponse
-            if httpresponse.statusCode == 200{
-                model.state = .deleted
-                model.state = .ready
+            do{
+                var requete = URLRequest(url: url)
+                requete.httpMethod = "DELETE"
+                //append a value to a field
+                requete.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                requete.addValue("Bearer "+token!,forHTTPHeaderField:"Authorization")
+                requete.addValue("*/*",forHTTPHeaderField: "Accept")
+                
+                let body = [
+                    "id":id
+                ]
+                guard let encoded = await JSONHelper.encode(data: body) else {
+                    print("pb encodage")
+                    self.model.state = .error
+                    return
+                }
+                requete.httpBody = encoded
+                let (_, response) = try await URLSession.shared.data(for: requete)
+                let httpresponse = response as! HTTPURLResponse
+                if httpresponse.statusCode == 200{
+                    model.state = .deleted
+                    model.state = .ready
+                }
+                else{
+                    debugPrint("error \(httpresponse.statusCode):\(HTTPURLResponse.localizedString(forStatusCode: httpresponse.statusCode))")
+                    self.model.state = .error
+                }
             }
-            else{
-                debugPrint("error \(httpresponse.statusCode):\(HTTPURLResponse.localizedString(forStatusCode: httpresponse.statusCode))")
+            catch{
+                debugPrint("bad request")
                 self.model.state = .error
             }
-        }
-        catch{
-            debugPrint("bad request")
-            self.model.state = .error
+        }else{
+            debugPrint("Vous n'êtes pas co")
+            model.state = .error
         }
     }
     
-    func clotureFestival(id: Int) async {
-        for festival in model.festivals {
-            if id == festival.id {
-                self.model.state = .clotureFestival(FestivalDTO(festival: festival))
-                break
+    func clotureFestival(id: Int, token: String?) async {
+        if(token != nil){
+            for festival in model.festivals {
+                if id == festival.id {
+                    self.model.state = .cloturingFestival(FestivalDTO(festival: festival))
+                    break
+                }
             }
-        }
-        
-        
-        guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/festivals/close") else {
-            debugPrint("bad url getUser")
-            return
-        }
-        do{
-            var requete = URLRequest(url: url)
-            requete.httpMethod = "PUT"
-            //append a value to a field
-            requete.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            requete.addValue("Bearer "+Token.getToken(),forHTTPHeaderField:"Authorization")
-            requete.addValue("*/*",forHTTPHeaderField: "Accept")
             
-            let body = [
-                "id":id
-            ]
-            guard let encoded = await JSONHelper.encode(data: body) else {
-                print("pb encodage")
-                self.model.state = .error
+            guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/festivals/close") else {
+                debugPrint("bad url getUser")
                 return
             }
-            requete.httpBody = encoded
-            let (_, response) = try await URLSession.shared.data(for: requete)
-            let httpresponse = response as! HTTPURLResponse
-            if httpresponse.statusCode == 200{
-                model.state = .clotured
-                model.state = .ready
+            do{
+                var requete = URLRequest(url: url)
+                requete.httpMethod = "PUT"
+                //append a value to a field
+                requete.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                requete.addValue("Bearer "+token!,forHTTPHeaderField:"Authorization")
+                requete.addValue("*/*",forHTTPHeaderField: "Accept")
+                
+                let body = [
+                    "id":id
+                ]
+                guard let encoded = await JSONHelper.encode(data: body) else {
+                    print("pb encodage")
+                    self.model.state = .error
+                    return
+                }
+                requete.httpBody = encoded
+                let (_, response) = try await URLSession.shared.data(for: requete)
+                let httpresponse = response as! HTTPURLResponse
+                if httpresponse.statusCode == 200{
+                    model.state = .clotured
+                    model.state = .ready
+                }
+                else{
+                    debugPrint("error \(httpresponse.statusCode):\(HTTPURLResponse.localizedString(forStatusCode: httpresponse.statusCode))")
+                    self.model.state = .error
+                }
             }
-            else{
-                debugPrint("error \(httpresponse.statusCode):\(HTTPURLResponse.localizedString(forStatusCode: httpresponse.statusCode))")
+            catch{
+                debugPrint("bad request")
                 self.model.state = .error
             }
-        }
-        catch{
-            debugPrint("bad request")
-            self.model.state = .error
+        }else{
+            debugPrint("Vous n'êtes pas co")
+            model.state = .error
         }
     }
 }

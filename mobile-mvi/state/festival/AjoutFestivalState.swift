@@ -10,6 +10,6 @@ import Foundation
 enum AjoutFestivalState {//}: Equatable {//: CustomStringConvertible {//, Equatable {
     case ready
     case error
-    case addingFestival(FestivalDTO)
-    case added
+    case addingFestival
+    case added(FestivalDTO)
 }

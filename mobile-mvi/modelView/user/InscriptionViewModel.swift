@@ -40,6 +40,8 @@ class InscriptionViewModel : ObservableObject{//, UserModelObserver {
                     debugPrint("demande inscription")
                 case .inscription:
                     debugPrint("inscription réussie")
+                default:
+                    break
                 }
         }
     }

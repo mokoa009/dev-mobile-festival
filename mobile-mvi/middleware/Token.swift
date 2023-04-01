@@ -12,10 +12,8 @@ class Token: ObservableObject{
     
     @Published var token : JWT? {
         didSet{
-            if(token != nil){
-                if let data = token!.string.data(using: .utf8){
-                    UserDefaults.standard.set(data, forKey: "token")
-                }
+            if let data = token?.string.data(using: .utf8){
+                UserDefaults.standard.set(data, forKey: "token")
             }
         }
     }
@@ -23,7 +21,8 @@ class Token: ObservableObject{
     init(){
         if(UserDefaults.standard.object(forKey: "token") != nil){
             do{
-                self.token = try decode(jwt: String(data:UserDefaults.standard.object(forKey: "token") as! Data, encoding: .utf8)!)
+                let jwtDecoded = try decode(jwt: String(data:UserDefaults.standard.object(forKey: "token") as! Data, encoding: .utf8)!)
+                self.token = jwtDecoded
             }catch{
                 debugPrint(error)
                 debugPrint("error decodage JWT token")

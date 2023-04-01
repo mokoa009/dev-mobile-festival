@@ -10,6 +10,7 @@ import SwiftUI
 
 struct CreneauFormView : View {
     
+    @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var tokenManager: Token
     @ObservedObject var creneau : CreneauFormViewModel
     var creneauFormIntent : CreneauFormIntent
@@ -24,7 +25,7 @@ struct CreneauFormView : View {
     var body: some View {
         VStack{
             VStack{
-                Text("Création d'un créneau pour le jour 2/02/2000")
+                Text("Affectation d'un nouveau créneau")
                 TextField(text: $creneau.heureDebut){
                     Text("Heure début :")
                 }.textFieldStyle(RoundedBorderTextFieldStyle()).padding()
@@ -33,10 +34,9 @@ struct CreneauFormView : View {
                 }.textFieldStyle(RoundedBorderTextFieldStyle()).padding()
             }
             Button("Ajouter le créneau", action : {
-                debugPrint(creneau.heureDebut)
-                debugPrint(creneau.heureFin)
                 Task{
-                    await creneauFormIntent.createCreneauJour(idJour : self.idJour,token: tokenManager.token?["token"].string)
+                    await creneauFormIntent.createCreneauJour(idJour : self.idJour,token: tokenManager.token?.string)
+                    dismiss()
                 }
             })
         }

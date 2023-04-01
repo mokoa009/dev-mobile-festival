@@ -17,10 +17,6 @@ struct ContentView : View {
                 .tabItem{
                     Label("Accueil", systemImage: "house.fill")
                 }
-            ZoneCreneauBenevoleListView(viewModel: ZoneCreneauBenevoleListViewModel(benevoles: [], idZone: 4, idCreneau: 8, benevolesNonAffecte: []))
-                .tabItem{
-                    Label("Zones", systemImage: "location.north.fill")
-                }
             FestivalListView(viewModel: FestivalListViewModel(festivals: []))
                 .tabItem{
                     Label("Festivals", systemImage: "gamecontroller.fill")

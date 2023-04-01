@@ -32,7 +32,7 @@ struct ZoneCreneauBenevoleListView : View {
                         HStack{
                             Button("Supprimer", action: {
                                 Task{
-                                    await zoneCreneauBenevoleIntent.deleteZoneCreneauBenevole(idBenevole:benevole.id, token: tokenManager.token?["token"].string)
+                                    await zoneCreneauBenevoleIntent.deleteZoneCreneauBenevole(idBenevole:benevole.id, token: tokenManager.token?.string)
                                 }
                             })
                         }.buttonStyle(.bordered)
@@ -53,7 +53,7 @@ struct ZoneCreneauBenevoleListView : View {
                         debugPrint(benevoleSelect.email)
                         debugPrint(newBenevole.email)
                         Task{
-                            await zoneCreneauBenevoleIntent.affecterZoneCreneauBenevole(utilisateur: newBenevole,token: tokenManager.token?["token"].string)
+                            await zoneCreneauBenevoleIntent.affecterZoneCreneauBenevole(utilisateur: newBenevole,token: tokenManager.token?.string)
                         }
                     }
             }

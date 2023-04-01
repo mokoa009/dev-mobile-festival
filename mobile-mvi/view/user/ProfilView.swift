@@ -52,12 +52,13 @@ struct ProfilView : View {
                 debugPrint(user.isAdmin)
                 debugPrint(user.nouveauMdp)
                 debugPrint(mdpConfirm)
+
                 Task{
-                    await profilIntent.update(token: tokenManager.token?["token"].string)
+                    await profilIntent.update(token: tokenManager.token?.string)
                 }
             })
         }.task {
-            await profilIntent.getUserById(id: user.id, token: tokenManager.token?["token"].string)
+            await profilIntent.getUserById(id: user.id, token: tokenManager.token?.string)
         }
     }
 }

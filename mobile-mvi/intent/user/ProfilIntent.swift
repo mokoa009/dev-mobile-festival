@@ -15,9 +15,9 @@ struct ProfilIntent {
     init(model: ProfilViewModel){
         self.model = model
     }
-    
+   
     func update(token: String?) async {
-        self.model.state = .updateUser
+        self.model.state = .updatingUser
         if(token != nil){
             guard let url = URL(string:"https://dev-festival-api.cluster-ig4.igpolytech.fr/utilisateurs/update") else {
                 debugPrint("bad url getUser")

@@ -41,6 +41,11 @@ class UserListViewModel : ObservableObject, UserModelObserver {
             case .error:
                 debugPrint("error")
                 self.state = .ready
+            case .deletingUser:
+                debugPrint("demande delete user")
+            case .deleted(let userDeleted):
+                self.users.remove(at:self.users.firstIndex(of:userDeleted)!)
+                
             case .ready:
                 debugPrint("UserListViewModel: ready state")
                 debugPrint("--------------------------------------")
