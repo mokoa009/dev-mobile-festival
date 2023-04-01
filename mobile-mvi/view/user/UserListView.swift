@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UserListView : View {
     
+    @EnvironmentObject var tokenManager: Token
     @ObservedObject var users : UserListViewModel
     var userIntent : UserIntent
     
@@ -18,7 +19,7 @@ struct UserListView : View {
     }
     
     func supprimerUser(id : Int) async{
-        await userIntent.deleteUser(id: id)
+        await userIntent.deleteUser(id: id,token: tokenManager.token?["token"].string)
     }
     
     
@@ -36,14 +37,16 @@ struct UserListView : View {
                             Text("Nom : " + user.nom)
                             Text("Prenom : "+user.prenom)
                             Text("Email : "+user.email)
-                            HStack{
-                                Button("Supprimer", action: {
-                                    Task{
-                                        await supprimerUser(id: user.id)
-                                    }
-                                })
-                                Button("Modifer", action: modifierUser)
-                            }.buttonStyle(.bordered)
+                            if(tokenManager.isAdmin()){
+                                HStack{
+                                    Button("Supprimer", action: {
+                                        Task{
+                                            await supprimerUser(id: user.id)
+                                        }
+                                    })
+                                    Button("Modifer", action: modifierUser)
+                                }.buttonStyle(.bordered)
+                            }
                         }
                     }
                 }

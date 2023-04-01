@@ -16,7 +16,6 @@
 		5E36AB79299B775000BAFE63 /* mobile_mviUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB78299B775000BAFE63 /* mobile_mviUITestsLaunchTests.swift */; };
 		5E36AB86299B77AD00BAFE63 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB85299B77AD00BAFE63 /* UserViewModel.swift */; };
 		5E36AB88299B799C00BAFE63 /* UserIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB87299B799C00BAFE63 /* UserIntent.swift */; };
-		5E36AB92299B7DCB00BAFE63 /* UserItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB91299B7DCB00BAFE63 /* UserItemView.swift */; };
 		5E36AB94299B7DD900BAFE63 /* InscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB93299B7DD900BAFE63 /* InscriptionView.swift */; };
 		5E36AB96299B821D00BAFE63 /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36AB95299B821D00BAFE63 /* UserState.swift */; };
 		C204B5BC29CBA71200EE9BC2 /* ConnexionIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204B5BB29CBA71200EE9BC2 /* ConnexionIntent.swift */; };
@@ -27,6 +26,10 @@
 		C21CC85729C88BAD005A16AC /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CC85629C88BAD005A16AC /* UserListViewModel.swift */; };
 		C21CC85929C88DAF005A16AC /* UserModelObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CC85829C88DAF005A16AC /* UserModelObserver.swift */; };
 		C21CC85B29C8F45C005A16AC /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21CC85A29C8F45C005A16AC /* UserListView.swift */; };
+		C2258EF029D4877B0055BE90 /* UserNonAffecteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2258EEF29D4877A0055BE90 /* UserNonAffecteListView.swift */; };
+		C2258EF229D4E2200055BE90 /* UserNonAffecteIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2258EF129D4E21F0055BE90 /* UserNonAffecteIntent.swift */; };
+		C2258EF429D4E3AE0055BE90 /* UserNonAffecteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2258EF329D4E3AE0055BE90 /* UserNonAffecteViewModel.swift */; };
+		C2258EF629D4EBB90055BE90 /* UserNonAffecteState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2258EF529D4EBB90055BE90 /* UserNonAffecteState.swift */; };
 		C240B21929C269BE002C34AA /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C240B21829C269BD002C34AA /* UserDTO.swift */; };
 		C2476F1E29CB2FC20000A875 /* ConnexionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2476F1D29CB2FC20000A875 /* ConnexionView.swift */; };
 		C2476F2029CB32980000A875 /* ConnexionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2476F1F29CB32980000A875 /* ConnexionViewModel.swift */; };
@@ -61,13 +64,13 @@
 		C27A0F8A29D0E93600A36D69 /* ZoneDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A0F8929D0E93600A36D69 /* ZoneDTO.swift */; };
 		C27A0F8D29D0EB6300A36D69 /* ZoneState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A0F8C29D0EB6300A36D69 /* ZoneState.swift */; };
 		C27A0F8F29D1779E00A36D69 /* ZoneCreneauBenevoleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27A0F8E29D1779E00A36D69 /* ZoneCreneauBenevoleListView.swift */; };
+		C2A0FD7629D8534000EC3E02 /* UserItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0FD7529D8534000EC3E02 /* UserItemView.swift */; };
 		C2AF9FEB29CEF20C000A2593 /* ProfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AF9FEA29CEF20C000A2593 /* ProfilView.swift */; };
 		C2AF9FED29CEF20C000A2593 /* ProfilViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AF9FEC29CEF20C000A2593 /* ProfilViewModel.swift */; };
 		C2AF9FEF29CEF20C000A2593 /* ProfilIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AF9FEE29CEF20C000A2593 /* ProfilIntent.swift */; };
 		C2AF9FF229CF129C000A2593 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = C2AF9FF129CF129C000A2593 /* JWTDecode */; };
 		C2AF9FF529CF1592000A2593 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AF9FF429CF1592000A2593 /* Token.swift */; };
 		C2B44A0A29D1110200F33995 /* ZoneCreneauBenevoleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B44A0929D1110200F33995 /* ZoneCreneauBenevoleListViewModel.swift */; };
-		C2B44A0C29D1142D00F33995 /* ZoneCreneauBenevoleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B44A0B29D1142D00F33995 /* ZoneCreneauBenevoleViewModel.swift */; };
 		C2B44A0E29D115FF00F33995 /* ZoneCreneauBenevoleIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B44A0D29D115FF00F33995 /* ZoneCreneauBenevoleIntent.swift */; };
 		C2B44A1029D1167C00F33995 /* ZoneCreneauBenevoleDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B44A0F29D1167C00F33995 /* ZoneCreneauBenevoleDTO.swift */; };
 		C2B44A1229D1169300F33995 /* ZoneCreneauBenevoleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B44A1129D1169300F33995 /* ZoneCreneauBenevoleState.swift */; };
@@ -103,7 +106,6 @@
 		5E36AB78299B775000BAFE63 /* mobile_mviUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mobile_mviUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5E36AB85299B77AD00BAFE63 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		5E36AB87299B799C00BAFE63 /* UserIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIntent.swift; sourceTree = "<group>"; };
-		5E36AB91299B7DCB00BAFE63 /* UserItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserItemView.swift; sourceTree = "<group>"; };
 		5E36AB93299B7DD900BAFE63 /* InscriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InscriptionView.swift; sourceTree = "<group>"; };
 		5E36AB95299B821D00BAFE63 /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 		C204B5BB29CBA71200EE9BC2 /* ConnexionIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnexionIntent.swift; sourceTree = "<group>"; };
@@ -114,6 +116,10 @@
 		C21CC85629C88BAD005A16AC /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		C21CC85829C88DAF005A16AC /* UserModelObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelObserver.swift; sourceTree = "<group>"; };
 		C21CC85A29C8F45C005A16AC /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
+		C2258EEF29D4877A0055BE90 /* UserNonAffecteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNonAffecteListView.swift; sourceTree = "<group>"; };
+		C2258EF129D4E21F0055BE90 /* UserNonAffecteIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNonAffecteIntent.swift; sourceTree = "<group>"; };
+		C2258EF329D4E3AE0055BE90 /* UserNonAffecteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNonAffecteViewModel.swift; sourceTree = "<group>"; };
+		C2258EF529D4EBB90055BE90 /* UserNonAffecteState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNonAffecteState.swift; sourceTree = "<group>"; };
 		C240B21829C269BD002C34AA /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		C2476F1D29CB2FC20000A875 /* ConnexionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnexionView.swift; sourceTree = "<group>"; };
 		C2476F1F29CB32980000A875 /* ConnexionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnexionViewModel.swift; sourceTree = "<group>"; };
@@ -148,12 +154,12 @@
 		C27A0F8929D0E93600A36D69 /* ZoneDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneDTO.swift; sourceTree = "<group>"; };
 		C27A0F8C29D0EB6300A36D69 /* ZoneState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneState.swift; sourceTree = "<group>"; };
 		C27A0F8E29D1779E00A36D69 /* ZoneCreneauBenevoleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneCreneauBenevoleListView.swift; sourceTree = "<group>"; };
+		C2A0FD7529D8534000EC3E02 /* UserItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItemView.swift; sourceTree = "<group>"; };
 		C2AF9FEA29CEF20C000A2593 /* ProfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilView.swift; sourceTree = "<group>"; };
 		C2AF9FEC29CEF20C000A2593 /* ProfilViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilViewModel.swift; sourceTree = "<group>"; };
 		C2AF9FEE29CEF20C000A2593 /* ProfilIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilIntent.swift; sourceTree = "<group>"; };
 		C2AF9FF429CF1592000A2593 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		C2B44A0929D1110200F33995 /* ZoneCreneauBenevoleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneCreneauBenevoleListViewModel.swift; sourceTree = "<group>"; };
-		C2B44A0B29D1142D00F33995 /* ZoneCreneauBenevoleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneCreneauBenevoleViewModel.swift; sourceTree = "<group>"; };
 		C2B44A0D29D115FF00F33995 /* ZoneCreneauBenevoleIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneCreneauBenevoleIntent.swift; sourceTree = "<group>"; };
 		C2B44A0F29D1167C00F33995 /* ZoneCreneauBenevoleDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneCreneauBenevoleDTO.swift; sourceTree = "<group>"; };
 		C2B44A1129D1169300F33995 /* ZoneCreneauBenevoleState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneCreneauBenevoleState.swift; sourceTree = "<group>"; };
@@ -319,11 +325,12 @@
 		C2476F1629CB13490000A875 /* user */ = {
 			isa = PBXGroup;
 			children = (
-				5E36AB91299B7DCB00BAFE63 /* UserItemView.swift */,
+				C2258EEF29D4877A0055BE90 /* UserNonAffecteListView.swift */,
 				5E36AB93299B7DD900BAFE63 /* InscriptionView.swift */,
 				C21CC85A29C8F45C005A16AC /* UserListView.swift */,
 				C2476F1D29CB2FC20000A875 /* ConnexionView.swift */,
 				C2AF9FEA29CEF20C000A2593 /* ProfilView.swift */,
+				C2A0FD7529D8534000EC3E02 /* UserItemView.swift */,
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -331,6 +338,7 @@
 		C2476F1729CB13670000A875 /* user */ = {
 			isa = PBXGroup;
 			children = (
+				C2258EF329D4E3AE0055BE90 /* UserNonAffecteViewModel.swift */,
 				5E36AB85299B77AD00BAFE63 /* UserViewModel.swift */,
 				C21CC85629C88BAD005A16AC /* UserListViewModel.swift */,
 				C2476F1F29CB32980000A875 /* ConnexionViewModel.swift */,
@@ -343,6 +351,7 @@
 		C2476F1829CB13850000A875 /* user */ = {
 			isa = PBXGroup;
 			children = (
+				C2258EF129D4E21F0055BE90 /* UserNonAffecteIntent.swift */,
 				5E36AB87299B799C00BAFE63 /* UserIntent.swift */,
 				C204B5BB29CBA71200EE9BC2 /* ConnexionIntent.swift */,
 				C204B5C329CBBFD800EE9BC2 /* InscriptionIntent.swift */,
@@ -369,6 +378,7 @@
 				5E36AB95299B821D00BAFE63 /* UserState.swift */,
 				C204B5BD29CBA7F100EE9BC2 /* ConnexionState.swift */,
 				C204B5C129CBBF1A00EE9BC2 /* InscriptionState.swift */,
+				C2258EF529D4EBB90055BE90 /* UserNonAffecteState.swift */,
 			);
 			path = user;
 			sourceTree = "<group>";
@@ -466,7 +476,6 @@
 				C27A0F8229D0E2CF00A36D69 /* ZoneListViewModel.swift */,
 				C27A0F8429D0E5A400A36D69 /* ZoneViewModel.swift */,
 				C2B44A0929D1110200F33995 /* ZoneCreneauBenevoleListViewModel.swift */,
-				C2B44A0B29D1142D00F33995 /* ZoneCreneauBenevoleViewModel.swift */,
 			);
 			path = zone;
 			sourceTree = "<group>";
@@ -644,6 +653,7 @@
 				C27A0F5E29CFD3F500A36D69 /* NavBarView.swift in Sources */,
 				C27A0F7229D09A4A00A36D69 /* FestivalListCreneauViewModel.swift in Sources */,
 				C2AF9FEF29CEF20C000A2593 /* ProfilIntent.swift in Sources */,
+				C2258EF229D4E2200055BE90 /* UserNonAffecteIntent.swift in Sources */,
 				C2AF9FEB29CEF20C000A2593 /* ProfilView.swift in Sources */,
 				C27A0F7829D0A11300A36D69 /* FestivalCreneauIntent.swift in Sources */,
 				C27A0F6A29D0479C00A36D69 /* CreneauState.swift in Sources */,
@@ -658,10 +668,10 @@
 				5E36AB5E299B774E00BAFE63 /* ContentView.swift in Sources */,
 				C21CC85B29C8F45C005A16AC /* UserListView.swift in Sources */,
 				C27A0F8329D0E2CF00A36D69 /* ZoneListViewModel.swift in Sources */,
+				C2258EF029D4877B0055BE90 /* UserNonAffecteListView.swift in Sources */,
 				C27A0F8F29D1779E00A36D69 /* ZoneCreneauBenevoleListView.swift in Sources */,
 				C21CC85729C88BAD005A16AC /* UserListViewModel.swift in Sources */,
 				5E36AB96299B821D00BAFE63 /* UserState.swift in Sources */,
-				5E36AB92299B7DCB00BAFE63 /* UserItemView.swift in Sources */,
 				C240B21929C269BE002C34AA /* UserDTO.swift in Sources */,
 				C21CC85929C88DAF005A16AC /* UserModelObserver.swift in Sources */,
 				C2B44A1029D1167C00F33995 /* ZoneCreneauBenevoleDTO.swift in Sources */,
@@ -671,10 +681,13 @@
 				C27A0F6C29D048C800A36D69 /* CreneauDTO.swift in Sources */,
 				C27A0F8A29D0E93600A36D69 /* ZoneDTO.swift in Sources */,
 				C27A0F7029D0993A00A36D69 /* FestivalListCreneauView.swift in Sources */,
+				C2A0FD7629D8534000EC3E02 /* UserItemView.swift in Sources */,
 				C275C1B929CFA2BB0023D132 /* IndexView.swift in Sources */,
 				C204B5C029CBBDFA00EE9BC2 /* InscriptionViewModel.swift in Sources */,
 				C204B5C229CBBF1A00EE9BC2 /* InscriptionState.swift in Sources */,
 				C24E31B529C4549C00CFF330 /* JSONHelper.swift in Sources */,
+				C2258EF629D4EBB90055BE90 /* UserNonAffecteState.swift in Sources */,
+				C2258EF429D4E3AE0055BE90 /* UserNonAffecteViewModel.swift in Sources */,
 				C2AF9FF529CF1592000A2593 /* Token.swift in Sources */,
 				C275C1BD29CFA8EB0023D132 /* IndexViewModel.swift in Sources */,
 				C2AF9FED29CEF20C000A2593 /* ProfilViewModel.swift in Sources */,
@@ -688,7 +701,6 @@
 				5E36AB5C299B774E00BAFE63 /* mobile_mviApp.swift in Sources */,
 				C2B44A0E29D115FF00F33995 /* ZoneCreneauBenevoleIntent.swift in Sources */,
 				C27A0F6129D0448B00A36D69 /* CreneauFormView.swift in Sources */,
-				C2B44A0C29D1142D00F33995 /* ZoneCreneauBenevoleViewModel.swift in Sources */,
 				C275C1D029CFC2F30023D132 /* FestivalState.swift in Sources */,
 				5E36AB88299B799C00BAFE63 /* UserIntent.swift in Sources */,
 			);

@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import JWTDecode
 
 struct ConnexionIntent {
     
@@ -16,13 +17,13 @@ struct ConnexionIntent {
         self.model = model
     }
     
-    func connexion() async {
+    func connexion() async -> JWT?{
         self.model.state = .authentification
         
         guard let url = URL(string:"https://dev-festival-api.cluster-ig4.igpolytech.fr/utilisateurs/connexion") else {
             debugPrint("bad url getUser")
             self.model.state = .error
-            return
+            return nil
         }
         do{
             var requete = URLRequest(url: url)
@@ -37,17 +38,16 @@ struct ConnexionIntent {
             guard let encoded = await JSONHelper.encode(data: body) else {
                 print("pb encodage")
                 self.model.state = .error
-                return
+                return nil
             }
             requete.httpBody = encoded
             let (data, response) = try await URLSession.shared.data(for: requete)
             let httpresponse = response as! HTTPURLResponse
             if httpresponse.statusCode == 200{
                 model.state = .authentified
-                //stockage token
-                UserDefaults.standard.set(data,forKey: "token")
-               // UserDefaults.standard.synchronize()
                 model.state = .ready
+                let jwt = try decode(jwt: String(data:data, encoding: .utf8)!)
+                return jwt
             }
             else{
                 debugPrint("error \(httpresponse.statusCode):\(HTTPURLResponse.localizedString(forStatusCode: httpresponse.statusCode))")
@@ -58,5 +58,6 @@ struct ConnexionIntent {
             debugPrint("bad request")
             self.model.state = .error
         }
+        return nil
     }
 }

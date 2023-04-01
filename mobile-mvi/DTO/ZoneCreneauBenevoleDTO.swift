@@ -18,3 +18,4 @@ struct ZoneCreneauBenevoleDTO: Codable,Hashable{
         return UserViewModel(id: self.idUtilisateur, nom: self.nomUtilisateur, prenom: self.prenom, email: self.email)
     }
 }
+

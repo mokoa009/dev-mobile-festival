@@ -9,6 +9,7 @@ import SwiftUI
 
 
 struct ContentView : View {
+    @EnvironmentObject var tokenManager : Token
     
     var body: some View {
         TabView{
@@ -16,7 +17,7 @@ struct ContentView : View {
                 .tabItem{
                     Label("Accueil", systemImage: "house.fill")
                 }
-            ZoneCreneauBenevoleListView(viewModel: ZoneCreneauBenevoleListViewModel(benevoles: [], idZone: 4, idCreneau: 8))
+            ZoneCreneauBenevoleListView(viewModel: ZoneCreneauBenevoleListViewModel(benevoles: [], idZone: 4, idCreneau: 8, benevolesNonAffecte: []))
                 .tabItem{
                     Label("Festivals", systemImage: "gamecontroller.fill")
                 }
@@ -24,8 +25,8 @@ struct ContentView : View {
                 .tabItem{
                     Label("Utilisateurs", systemImage: "person.3.fill")
                 }
-            if (Token.isConnected()) {
-                ProfilView(viewModel: ProfilViewModel(id: Token.getIdUtilisateur()))
+            if (tokenManager.token != nil) {
+                ProfilView(viewModel: ProfilViewModel(id: tokenManager.getIdUtilisateur()))
                     .tabItem{
                         Label("Profil", systemImage: "person.circle")
                     }

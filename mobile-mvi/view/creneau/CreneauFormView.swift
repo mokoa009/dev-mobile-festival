@@ -10,6 +10,7 @@ import SwiftUI
 
 struct CreneauFormView : View {
     
+    @EnvironmentObject var tokenManager: Token
     @ObservedObject var creneau : CreneauFormViewModel
     var creneauFormIntent : CreneauFormIntent
     var idJour : Int
@@ -35,7 +36,7 @@ struct CreneauFormView : View {
                 debugPrint(creneau.heureDebut)
                 debugPrint(creneau.heureFin)
                 Task{
-                    await creneauFormIntent.createCreneauJour(idJour : self.idJour)
+                    await creneauFormIntent.createCreneauJour(idJour : self.idJour,token: tokenManager.token?["token"].string)
                 }
             })
         }
