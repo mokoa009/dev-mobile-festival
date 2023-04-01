@@ -34,7 +34,7 @@ struct UserNonAffecteListView : View {
                             
                             Button("+", action: {
                                 Task{
-                                    await  intent.affecterZoneCreneauBenevole(utilisateurSelect: user,token: tokenManager.token?["token"].string)
+                                    await  intent.affecterZoneCreneauBenevole(utilisateurSelect: user,token: tokenManager.token?.string)
                                 }
                                 debugPrint("tiens l'id select")
                                 dismiss()

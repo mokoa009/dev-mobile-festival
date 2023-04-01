@@ -36,7 +36,7 @@ struct CreneauFormView : View {
                 debugPrint(creneau.heureDebut)
                 debugPrint(creneau.heureFin)
                 Task{
-                    await creneauFormIntent.createCreneauJour(idJour : self.idJour,token: tokenManager.token?["token"].string)
+                    await creneauFormIntent.createCreneauJour(idJour : self.idJour,token: tokenManager.token?.string)
                 }
             })
         }

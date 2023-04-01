@@ -18,12 +18,6 @@ struct UserListView : View {
         self.userIntent = UserIntent(model: viewModel)
     }
     
-    func supprimerUser(id : Int) async{
-        await userIntent.deleteUser(id: id,token: tokenManager.token?["token"].string)
-    }
-    
-    
-    
     func modifierUser(){
         debugPrint("modifier utilisateur")
     }
@@ -41,7 +35,7 @@ struct UserListView : View {
                                 HStack{
                                     Button("Supprimer", action: {
                                         Task{
-                                            await supprimerUser(id: user.id)
+                                            await userIntent.deleteUser(user: user,token: tokenManager.token?.string)
                                         }
                                     })
                                     Button("Modifer", action: modifierUser)

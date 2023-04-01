@@ -20,7 +20,7 @@ struct ZoneListView : View {
     }
     
     func supprimerZone(id : Int) async{
-        await zoneIntent.deleteZone(id: id,token: tokenManager.token?["token"].string)
+        await zoneIntent.deleteZone(id: id,token: tokenManager.token?.string)
     }
     func modifierZone(){
         debugPrint("modifier zone")
