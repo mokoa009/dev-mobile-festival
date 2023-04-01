@@ -37,11 +37,8 @@ struct UserDTO: Codable, Hashable{
     func convertToUser() -> User{
         let isAdminBool : Bool
         
-        if(self.isAdmin == 1){
-            isAdminBool = true
-        }else{
-            isAdminBool = false
-        }
+        isAdminBool = self.isAdmin == 1
+        
         return User(idUtilisateur: self.idUtilisateur, nom: self.nom, prenom: self.prenom, email: self.email, isAdmin: isAdminBool)
     }
     
