@@ -11,7 +11,7 @@ class FestivalViewModel : ObservableObject, Hashable, Equatable{//, FestivalMode
     
     @Published var id : Int
     @Published var nom : String
-    @Published var annee : String
+    @Published var annee : Int
     @Published var nbJours : Int
     @Published var cloture : Bool
     
@@ -40,11 +40,11 @@ class FestivalViewModel : ObservableObject, Hashable, Equatable{//, FestivalMode
         hasher.combine(self.id)
     }
     
-    init(festival : FestivalDTO) {
-        self.id = festival.idFestival
-        self.nom = festival.nom
-        self.annee = String(festival.annee)
-        self.nbJours = festival.nbJours
-        self.cloture = (festival.cloture == 1)
+    init(id: Int, nom: String, annee: Int, cloture: Bool, nbJours: Int) {
+        self.id = id
+        self.nom = nom
+        self.annee = annee
+        self.cloture = cloture
+        self.nbJours = nbJours
     }
 }
