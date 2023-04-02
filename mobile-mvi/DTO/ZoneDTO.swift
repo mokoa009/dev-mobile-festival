@@ -27,3 +27,15 @@ struct FestivalZone: Codable, Hashable{
     let nom: String
     let cloture: Int
 }
+
+
+//------structures pour avoir juste les jours----
+struct ZoneAffectationDTO: Codable, Hashable{
+    let jour: Jour
+    let zone : Zone
+    
+    
+    func convertToFestivalZoneVM() -> FestivalZoneViewModel{
+        return FestivalZoneViewModel(idZone: self.zone.id, nom:self.zone.nom, nbBenevoles: self.zone.nbBenevoles)
+    }
+}

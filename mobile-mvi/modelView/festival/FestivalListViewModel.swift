@@ -50,7 +50,6 @@ class FestivalListViewModel : ObservableObject {
             case .loadedFestivals(let newFestivals):
                 //transformation FestivalDTO en FestivalViewModel
                 self.festivals = newFestivals.map{ festival in  festival.convertToUserVM()}
-                debugPrint("jai charge les donnees")
                 self.state = .ready
             case .error:
                 debugPrint("error")

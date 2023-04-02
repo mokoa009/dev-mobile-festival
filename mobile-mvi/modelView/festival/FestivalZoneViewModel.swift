@@ -1,5 +1,5 @@
 //
-//  FestivalCreneauViewModel.swift
+//  FestivalZoneViewModel.swift
 //  mobile-mvi
 //
 //  Created by garcy on 26/03/2023.
@@ -7,18 +7,16 @@
 
 import Foundation
 
-class FestivalCreneauViewModel : ObservableObject, Hashable, Equatable{//, UserModelObserver {
+class FestivalZoneViewModel : ObservableObject, Hashable, Equatable{//, UserModelObserver {
     
     @Published var idZone : Int
     @Published var nom : String
     @Published var nbBenevoles : Int
-    @Published var creneaux : [Creneau]
     
-    init(idZone: Int,nom:String,nbBenevoles:Int,creneaux: [Creneau]) {
+    init(idZone: Int, nom: String, nbBenevoles: Int) {
         self.idZone = idZone
         self.nom = nom
         self.nbBenevoles = nbBenevoles
-        self.creneaux = creneaux
     }
     // -----------------------------------------------------------
     // State Intent management
@@ -29,7 +27,7 @@ class FestivalCreneauViewModel : ObservableObject, Hashable, Equatable{//, UserM
                 debugPrint("error")
                 self.state = .ready
             case .ready:
-                debugPrint("FestivalCreneauViewModel: ready state")
+                debugPrint("FestivalZoneViewModel: ready state")
                 debugPrint("--------------------------------------")
             default:
                 break
@@ -37,7 +35,7 @@ class FestivalCreneauViewModel : ObservableObject, Hashable, Equatable{//, UserM
         }
     }
     
-    static func == (lhs: FestivalCreneauViewModel, rhs: FestivalCreneauViewModel) -> Bool {
+    static func == (lhs: FestivalZoneViewModel, rhs: FestivalZoneViewModel) -> Bool {
         return lhs.idZone == rhs.idZone
     }
     

@@ -25,8 +25,17 @@ class FestivalListJourViewModel : ObservableObject {
                 debugPrint("state loading JourVM")
             case .loadedJours(let newJours):
                 //transformation JourDTO en JourViewModel
-                self.jours = newJours.map{ jour in jour.convertToFestivalJourVM()}
-                debugPrint("jai charge les donnees")
+                //self.jours = newJours.map{ jour in jour.convertToFestivalJourVM()}
+                //self.jours = []
+                self.jours = newJours.map{jour in
+                   jour.convertToFestivalJourVM()
+                }
+                /*debugPrint("JOUR DONNEE NEWJOURS")
+                debugPrint(newJours)
+                debugPrint("---")
+                jours.map{ jour in
+                    debugPrint("\(jour.idJour), \(jour.nom), \(jour.fermeture)")
+                }*/
                 self.state = .ready
             case .error:
                 debugPrint("error")
