@@ -36,24 +36,14 @@ struct FestivalIntent {
              
 
             let (data, response) = try await URLSession.shared.data(from: url)
-            debugPrint("data normal")
-            debugPrint(data)
-            let sdata = String(data :data, encoding: .utf8)!
-            
             let httpresponse = response as! HTTPURLResponse
-            
             if httpresponse.statusCode == 200{
-                
-                debugPrint(sdata)
                 
                 guard let decoded : [FestivalDTO] = await JSONHelper.decode(data: data) else{
                     debugPrint("mauvaise récup données")
                     self.model.state = .error
                     return
                 }
-
-                debugPrint("donneees decodeess")
-                debugPrint(decoded)
                 model.state = .loadedFestivals(decoded)
 
             }

@@ -13,6 +13,7 @@ struct FestivalListView : View {
     @EnvironmentObject var tokenManager : Token
     @ObservedObject var festivals : FestivalListViewModel
     var festivalIntent : FestivalIntent
+    @State private var festivalSelected: FestivalViewModel?
     
     init(viewModel : FestivalListViewModel){
         self.festivals = viewModel
@@ -30,7 +31,7 @@ struct FestivalListView : View {
     var body : some View {
         NavigationStack{
             VStack {
-                List{
+                
                     ForEach(festivals.festivals, id: \.self) { festival in
                         HStack {
                             Spacer()
@@ -40,10 +41,10 @@ struct FestivalListView : View {
                                 Text("Nom : " + festival.nom)
                                 Text("Année : " + String(festival.annee))
                                 Text("Durée : \(festival.nbJours) jours")
-                                NavigationLink(
-                                    destination: FestivalListJourView(viewModel: FestivalListJourViewModel(jours: [], idFestival: festival.id)),
-                                    label: {Label("", systemImage:  "eye").foregroundColor(.green)}
-                                )
+                                NavigationLink(destination: FestivalListJourView(viewModel: FestivalListJourViewModel(jours: [], idFestival: festival.id))
+                                ){
+                                    Label("", systemImage:  "eye").foregroundColor(.green)
+                                }
                                 if (tokenManager.isAdmin()) {
                                     HStack{
                                         Spacer()
@@ -85,7 +86,6 @@ struct FestivalListView : View {
                             
                         }
                     }.listRowBackground(Color.black)
-
                     NavigationLink(destination: AjoutFestivalItem(viewModel: AjoutFestivalViewModel(list: self.festivals))) {
 
                         HStack{
@@ -97,8 +97,8 @@ struct FestivalListView : View {
                     }.frame( maxWidth: .infinity ,maxHeight: .infinity).background(.black)
 
                     
-                }.buttonStyle(.bordered).background(.black)
-            }.background(.red)
+                //}.buttonStyle(.bordered).background(.black)
+            }.buttonStyle(.bordered).background(.black)
         }.task {
             await festivalIntent.getFestivals()
         }

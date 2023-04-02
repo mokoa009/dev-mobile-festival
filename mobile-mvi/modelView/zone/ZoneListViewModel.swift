@@ -35,7 +35,6 @@ class ZoneListViewModel : ObservableObject{//, UserModelObserver {
             case .loadedZones(let newZones):
                 //transformation ZoneDTO en ZoneViewModel
                 self.zones = newZones.map{ zone in zone.convertToZoneVM()}
-                debugPrint("jai charge les donnees")
                 self.state = .ready
             case .error:
                 debugPrint("error")

@@ -35,6 +35,10 @@
 		C2476F1E29CB2FC20000A875 /* ConnexionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2476F1D29CB2FC20000A875 /* ConnexionView.swift */; };
 		C2476F2029CB32980000A875 /* ConnexionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2476F1F29CB32980000A875 /* ConnexionViewModel.swift */; };
 		C24E31B529C4549C00CFF330 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24E31B429C4549B00CFF330 /* JSONHelper.swift */; };
+		C268A7C229D8FB4200992268 /* FestivalListZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C268A7C129D8FB4100992268 /* FestivalListZoneView.swift */; };
+		C268A7C429D8FD0200992268 /* FestivalListZoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C268A7C329D8FD0200992268 /* FestivalListZoneViewModel.swift */; };
+		C268A7C629D8FDCA00992268 /* FestivalZoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C268A7C529D8FDCA00992268 /* FestivalZoneViewModel.swift */; };
+		C268A7C829D8FE8700992268 /* FestivalZoneIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C268A7C729D8FE8700992268 /* FestivalZoneIntent.swift */; };
 		C275C1B929CFA2BB0023D132 /* IndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275C1B829CFA2BB0023D132 /* IndexView.swift */; };
 		C275C1BD29CFA8EB0023D132 /* IndexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275C1BC29CFA8EB0023D132 /* IndexViewModel.swift */; };
 		C275C1BF29CFA9280023D132 /* IndexIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275C1BE29CFA9280023D132 /* IndexIntent.swift */; };
@@ -138,6 +142,10 @@
 		C2476F1D29CB2FC20000A875 /* ConnexionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnexionView.swift; sourceTree = "<group>"; };
 		C2476F1F29CB32980000A875 /* ConnexionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnexionViewModel.swift; sourceTree = "<group>"; };
 		C24E31B429C4549B00CFF330 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
+		C268A7C129D8FB4100992268 /* FestivalListZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalListZoneView.swift; sourceTree = "<group>"; };
+		C268A7C329D8FD0200992268 /* FestivalListZoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalListZoneViewModel.swift; sourceTree = "<group>"; };
+		C268A7C529D8FDCA00992268 /* FestivalZoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalZoneViewModel.swift; sourceTree = "<group>"; };
+		C268A7C729D8FE8700992268 /* FestivalZoneIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalZoneIntent.swift; sourceTree = "<group>"; };
 		C275C1B829CFA2BB0023D132 /* IndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexView.swift; sourceTree = "<group>"; };
 		C275C1BC29CFA8EB0023D132 /* IndexViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewModel.swift; sourceTree = "<group>"; };
 		C275C1BE29CFA9280023D132 /* IndexIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexIntent.swift; sourceTree = "<group>"; };
@@ -427,6 +435,7 @@
 				C2A0FDBD29D8E5D100EC3E02 /* AjoutFestivalItem.swift */,
 				C2A0FDBF29D8E60100EC3E02 /* FestivalListView.swift */,
 				C2A0FDC129D8E61100EC3E02 /* ModifFestivalItem.swift */,
+				C268A7C129D8FB4100992268 /* FestivalListZoneView.swift */,
 			);
 			path = festival;
 			sourceTree = "<group>";
@@ -451,6 +460,8 @@
 				C2A0FDC529D8E6D000EC3E02 /* ModifFestivalItemViewModel.swift */,
 				C2A0FDC729D8E6F800EC3E02 /* FestivalViewModel.swift */,
 				C2A0FDC929D8E70500EC3E02 /* FestivalListViewModel.swift */,
+				C268A7C329D8FD0200992268 /* FestivalListZoneViewModel.swift */,
+				C268A7C529D8FDCA00992268 /* FestivalZoneViewModel.swift */,
 			);
 			path = festival;
 			sourceTree = "<group>";
@@ -473,6 +484,7 @@
 				C2A0FDCB29D8E7DA00EC3E02 /* AjoutFestivalIntent.swift */,
 				C2A0FDCD29D8E7EE00EC3E02 /* ModifFestivalIntent.swift */,
 				C2A0FDCF29D8E80100EC3E02 /* FestivalIntent.swift */,
+				C268A7C729D8FE8700992268 /* FestivalZoneIntent.swift */,
 			);
 			path = festival;
 			sourceTree = "<group>";
@@ -682,11 +694,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C275C1CD29CFC1340023D132 /* FestivalJourViewModel.swift in Sources */,
+				C268A7C829D8FE8700992268 /* FestivalZoneIntent.swift in Sources */,
 				C275C1C829CFBDD20023D132 /* FestivalListJourView.swift in Sources */,
 				C27A0F7429D09C3900A36D69 /* FestivalCreneauViewModel.swift in Sources */,
 				C27A0F6429D0461600A36D69 /* CreneauFormViewModel.swift in Sources */,
 				C275C1BF29CFA9280023D132 /* IndexIntent.swift in Sources */,
 				C2B44A1229D1169300F33995 /* ZoneCreneauBenevoleState.swift in Sources */,
+				C268A7C629D8FDCA00992268 /* FestivalZoneViewModel.swift in Sources */,
 				C2476F2029CB32980000A875 /* ConnexionViewModel.swift in Sources */,
 				C27A0F6729D046C300A36D69 /* CreneauFormIntent.swift in Sources */,
 				C27A0F5E29CFD3F500A36D69 /* NavBarView.swift in Sources */,
@@ -705,6 +719,7 @@
 				C204B5C429CBBFD800EE9BC2 /* InscriptionIntent.swift in Sources */,
 				C275C1CB29CFC0D10023D132 /* FestivalListJourViewModel.swift in Sources */,
 				C2A0FDD029D8E80100EC3E02 /* FestivalIntent.swift in Sources */,
+				C268A7C429D8FD0200992268 /* FestivalListZoneViewModel.swift in Sources */,
 				5E36AB94299B7DD900BAFE63 /* InscriptionView.swift in Sources */,
 				C2A0FDC829D8E6F800EC3E02 /* FestivalViewModel.swift in Sources */,
 				C275C1C629CFB7C20023D132 /* FestivalItemView.swift in Sources */,
@@ -736,6 +751,7 @@
 				C24E31B529C4549C00CFF330 /* JSONHelper.swift in Sources */,
 				C2A0FDC629D8E6D000EC3E02 /* ModifFestivalItemViewModel.swift in Sources */,
 				C2258EF629D4EBB90055BE90 /* UserNonAffecteState.swift in Sources */,
+				C268A7C229D8FB4200992268 /* FestivalListZoneView.swift in Sources */,
 				C2258EF429D4E3AE0055BE90 /* UserNonAffecteViewModel.swift in Sources */,
 				C2AF9FF529CF1592000A2593 /* Token.swift in Sources */,
 				C275C1BD29CFA8EB0023D132 /* IndexViewModel.swift in Sources */,

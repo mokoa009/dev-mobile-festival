@@ -63,9 +63,6 @@ struct AjoutFestivalIntent {
                 //Réponse reequête
                 let httpresponse = response as! HTTPURLResponse
                 if httpresponse.statusCode == 200{
-                    let sdata = String(data :data, encoding: .utf8)!
-                    debugPrint("data efre")
-                    debugPrint(sdata)
                     guard let decoded : [LastIndexFestival] = await JSONHelper.decode(data: data) else{
                         debugPrint("mauvaise récup données")
                         self.model.state = .error

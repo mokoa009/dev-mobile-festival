@@ -10,6 +10,7 @@ import SwiftUI
 
 struct FestivalListJourView : View {
     
+    let id = UUID()
     @ObservedObject var jours : FestivalListJourViewModel
     var festivalJourIntent : FestivalJourIntent
 
@@ -29,31 +30,24 @@ struct FestivalListJourView : View {
         VStack {
                 ForEach(jours.jours, id: \.self) { jour in
                     VStack{
-                        Text("1/02/2000")
-                        Text(jour.nom)
-                        //list creneau
+                        Text("Nom: \(jour.nom)")
+                        Text("Heure ouverture : \(jour.ouverture)")
+                        Text("Heure fermeture : \(jour.fermeture)")
+                        //list zones
                         VStack{
-                            Text(jour.ouverture)
-                            VStack{
-                                FestivalListCreneauView(viewModel:FestivalListCreneauViewModel(creneaux: [], idJour: jour.idJour))
+                            NavigationLink(destination: FestivalListCreneauView(viewModel: FestivalListCreneauViewModel(zonesCreneaux: [], idJour: jour.idJour))
+                            ){
+                                Label("", systemImage:  "eye").foregroundColor(.green)
                             }
-                            Text(jour.fermeture)
                         }
                     }.padding()
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
-                                .stroke(.pink)
+                                .stroke(.green)
                         )
                 }
-                
             }.task {
                 await festivalJourIntent.getJours(id: jours.idFestival)
             }
-            Button("AJouter un créneau", action: {
-                debugPrint("ajout creneau")
-                /*Task{
-                    await supprimerUser(id: user.id)
-                }*/
-            })
     }
 }
