@@ -37,22 +37,10 @@ struct InscriptionView : View {
                 Text("Confirmation mot de passe : *")
             }.textFieldStyle(RoundedBorderTextFieldStyle()).padding()
             Button("Envoyer", action : {
-                debugPrint(user.nom)
-                debugPrint(user.prenom)
-                debugPrint(user.email)
-                debugPrint(user.mdp)
-                debugPrint(user.mdpConfirm)
                 Task{
                     await inscriptionIntent.inscription()
                 }
             })
-        }
-        VStack{
-            Text("Dejà inscrit ? ")
-            Button("Se connecter", action : {
-                debugPrint("afficher connexion page")
-            })
-            
         }
     }
 }

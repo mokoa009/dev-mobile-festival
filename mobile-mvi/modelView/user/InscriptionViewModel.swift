@@ -30,19 +30,19 @@ class InscriptionViewModel : ObservableObject{//, UserModelObserver {
     @Published var state : InscriptionState = .ready {
         didSet {
             switch state {
-                case .error:
-                    debugPrint("error")
-                    self.state = .ready
-                case .ready:
-                    debugPrint("InscriptionViewModel: ready state")
-                    debugPrint("--------------------------------------")
-                case .demandeInscription:
-                    debugPrint("demande inscription")
-                case .inscription:
-                    debugPrint("inscription réussie")
-                default:
-                    break
-                }
+            case .error:
+                debugPrint("error")
+                self.state = .ready
+            case .ready:
+                debugPrint("InscriptionViewModel: ready state")
+                debugPrint("--------------------------------------")
+            case .demandeInscription:
+                debugPrint("demande inscription")
+            case .inscription:
+                debugPrint("inscription réussie")
+            default:
+                break
+            }
         }
     }
 }

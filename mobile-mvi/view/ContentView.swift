@@ -12,36 +12,33 @@ struct ContentView : View {
     @EnvironmentObject var tokenManager : Token
     
     var body: some View {
-        TabView{
-            IndexView(viewModel: IndexViewModel())
-                .tabItem{
-                    Label("Accueil", systemImage: "house.fill")
-                }
-            FestivalListView(viewModel: FestivalListViewModel(festivals: []))
-                .tabItem{
-                    Label("Festivals", systemImage: "gamecontroller.fill")
-                }
-            UserListView(viewModel: UserListViewModel(users: []))
-                .tabItem{
-                    Label("Utilisateurs", systemImage: "person.3.fill")
-                }
-            if (tokenManager.token != nil) {
-                ProfilView(viewModel: ProfilViewModel(id: tokenManager.getIdUtilisateur()))
+            TabView{
+                FestivalListView(viewModel: FestivalListViewModel(festivals: []))
                     .tabItem{
-                        Label("Profil", systemImage: "person.circle")
+                        Label("Festivals", systemImage: "gamecontroller.fill").foregroundColor(.green)
                     }
-            }else{
-                ConnexionView(viewModel: ConnexionViewModel())
+                UserListView(viewModel: UserListViewModel(users: []))
                     .tabItem{
-                        Label("Connexion", systemImage: "person.circle.fill")
+                        Label("Utilisateurs", systemImage: "person.3.fill").foregroundColor(.green)
                     }
-                InscriptionView(viewModel: InscriptionViewModel())
-                    .tabItem{
-                        Label("Inscription", systemImage: "person.badge.plus")
-                    }
+                if (tokenManager.token != nil) {
+                    ProfilView(viewModel: ProfilViewModel(id: tokenManager.getIdUtilisateur()))
+                        .tabItem{
+                            Label("Profil", systemImage: "person.circle").foregroundColor(.green)
+                        }
+                }else{
+                    ConnexionView(viewModel: ConnexionViewModel())
+                        .tabItem{
+                            Label("Connexion", systemImage: "person.circle.fill").foregroundColor(.green)
+                        }
+                    InscriptionView(viewModel: InscriptionViewModel())
+                        .tabItem{
+                            Label("Inscription", systemImage: "person.badge.plus").foregroundColor(.green)
+                        }
+                }//.buttonStyle(.bordered).background(.black)
             }
-        }
     }
+        
 }
 struct ContentViewList_Previews: PreviewProvider {
     static var previews: some View {

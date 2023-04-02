@@ -18,9 +18,6 @@ struct UserListView : View {
         self.userIntent = UserIntent(model: viewModel)
     }
     
-    func modifierUser(){
-        debugPrint("modifier utilisateur")
-    }
     var body : some View {
         NavigationStack{
             VStack {
@@ -38,7 +35,6 @@ struct UserListView : View {
                                             await userIntent.deleteUser(user: user,token: tokenManager.token?.string)
                                         }
                                     })
-                                    Button("Modifer", action: modifierUser)
                                 }.buttonStyle(.bordered)
                             }
                         }

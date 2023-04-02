@@ -12,21 +12,20 @@ class ZoneCreneauBenevoleListViewModel : ObservableObject{//, UserModelObserver 
     @Published var benevoles : [UserViewModel]
     @Published var idZone : Int
     @Published var idCreneau: Int
+    @Published var idJour : Int
     @Published var benevolesNonAffecte: [UserViewModel]
     
-    init(benevoles: [UserViewModel],idZone: Int,idCreneau : Int, benevolesNonAffecte : [UserViewModel]) {
+    init(benevoles: [UserViewModel],idZone: Int,idCreneau : Int,idJour: Int, benevolesNonAffecte : [UserViewModel]) {
         self.benevoles = benevoles
         self.idZone = idZone
         self.idCreneau = idCreneau
+        self.idJour = idJour
         self.benevolesNonAffecte = benevolesNonAffecte
     }
     
     func updateBenevoles(benevoleSelect: UserViewModel) {
         self.benevoles.append(benevoleSelect)
         self.benevolesNonAffecte.remove(at:self.benevolesNonAffecte.firstIndex(of:benevoleSelect)!)
-        debugPrint("le vmodue")
-       
-        //self.objectWillChange.send()//notifie la vue qu'elle a changé
     }
     
     @Published var state : ZoneCreneauBenevoleState = .ready {

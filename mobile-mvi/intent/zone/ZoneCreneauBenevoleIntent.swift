@@ -20,7 +20,7 @@ struct ZoneCreneauBenevoleIntent {
     func getBenevoles() async {
         self.model.state = .loadingBenevoles
         
-        guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/affectationBC/zone/"+String(self.model.idZone)+"/creneau/"+String(self.model.idCreneau)) else {
+        guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/affectationBC/zone/"+String(self.model.idZone)+"/creneau/"+String(self.model.idCreneau)+"/jour/"+String(self.model.idJour)) else {
             debugPrint("bad url getUser")
             self.model.state = .error
             return
@@ -72,7 +72,8 @@ struct ZoneCreneauBenevoleIntent {
                 let body = [
                     "idZone":self.model.idZone,
                     "idCreneau":self.model.idCreneau,
-                    "idUtilisateur": idBenevole
+                    "idUtilisateur": idBenevole,
+                    "idJour":self.model.idJour
                 ]
                 guard let encoded = await JSONHelper.encode(data: body) else {
                     print("pb encodage")
@@ -121,7 +122,8 @@ struct ZoneCreneauBenevoleIntent {
                 let body = [
                     "idCreneau" : self.model.idCreneau,
                     "idUtilisateur": utilisateur.id,
-                    "idZone": self.model.idZone
+                    "idZone": self.model.idZone,
+                    "idJour": self.model.idJour
                 ]
                 
                 guard let encoded = await JSONHelper.encode(data: body) else {
@@ -135,7 +137,6 @@ struct ZoneCreneauBenevoleIntent {
                 if httpresponse.statusCode == 200{
                     model.state = .benevoleAffected(utilisateur)
                     model.state = .ready
-                    debugPrint("affected benevole")
                 }
                 else{
                     debugPrint("error \(httpresponse.statusCode):\(HTTPURLResponse.localizedString(forStatusCode: httpresponse.statusCode))")
@@ -153,7 +154,7 @@ struct ZoneCreneauBenevoleIntent {
     func getBenevolesNonAffect() async {
         self.model.state = .loadingBenevolesNonAffect
         
-        guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/affectationBC/zone-creneau/"+String(self.model.idZone)+"/"+String(self.model.idCreneau)) else {
+        guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/affectationBC/zone-creneau/"+String(self.model.idZone)+"/"+String(self.model.idCreneau)+"/"+String(self.model.idJour)) else {
             debugPrint("bad url getUser")
             self.model.state = .error
             return

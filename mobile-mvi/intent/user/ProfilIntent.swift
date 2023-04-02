@@ -39,11 +39,8 @@ struct ProfilIntent {
                 }
                 //creation body requete
                 let body : UserDTO
-                if(model.nouveauMdp != ""){
-                    body = UserDTO(idUtilisateur: model.id, nom: model.nom, prenom: model.prenom, email: model.email, mdp: model.nouveauMdp, isAdmin: isAdmin)
-                }else{
-                    body = UserDTO(idUtilisateur: model.id, nom: model.nom, prenom: model.prenom, email: model.email, isAdmin: isAdmin)
-                }
+                body = UserDTO(idUtilisateur: model.id, nom: model.nom, prenom: model.prenom, email: model.email, isAdmin: isAdmin)
+                
                 
                 guard let encoded = await JSONHelper.encode(data: body) else {
                     print("pb encodage")

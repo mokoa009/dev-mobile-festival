@@ -12,6 +12,7 @@ import SwiftUI
 struct FestivalListCreneauView : View {
     
     let id = UUID()
+    @EnvironmentObject var tokenManager : Token
     @ObservedObject var creneauxZones : FestivalListCreneauViewModel
     var festivalCreneauIntent : FestivalCreneauIntent
 
@@ -32,25 +33,31 @@ struct FestivalListCreneauView : View {
                         if(creneau.id != -1){
                             HStack{
                                 Text("\(creneau.heureDebut) h --  \(creneau.heureFin)h")
-                                Button("*", action: {
-                                    debugPrint("supprimer creneau")
-                                    /*Task{
-                                        await supprimerUser(id: user.id)
-                                    }*/
-                                })
-                                Button("+", action: {
-                                    debugPrint("voir benevole")
-                                    /*Task{
-                                        await supprimerUser(id: user.id)
-                                    }*/
-                                })
+                                if(tokenManager.isAdmin()){
+                                    Button(action: {
+                                        Task{
+                                            await festivalCreneauIntent.supprimerCreneau(creneau: creneau,idZone:zone.idZone,idJour:creneauxZones.idJour, token:tokenManager.token?.string)
+                                        }
+                                    }){
+                                        Image(systemName: "xmark").foregroundColor(.red)
+                                    }
+                                    NavigationLink(destination: ZoneCreneauBenevoleListView(viewModel: ZoneCreneauBenevoleListViewModel(benevoles: [], idZone: zone.idZone, idCreneau: creneau.id, idJour:creneauxZones.idJour, benevolesNonAffecte: []))
+                                    ){
+                                        Label("", systemImage:  "person.crop.circle").foregroundColor(.blue)
+                                    }
+                                }
                             }
                         }
                     }
-                }
+                }.padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(.black)
+                    )
+                    .foregroundColor(.black)
             }
         }.task() {
             await festivalCreneauIntent.getCreneauxZones(idJour: creneauxZones.idJour)
-        }//.buttonStyle(.bordered).background(.black)
+        }//.frame(maxHeight: .infinity).background(.black).foregroundColor(.green)
     }
 }
