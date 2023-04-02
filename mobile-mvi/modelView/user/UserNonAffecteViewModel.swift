@@ -7,12 +7,12 @@
 
 import Foundation
 
+//view pour avoir les bénévoles non affecté à un créneau
 class UserNonAffecteListViewModel : ObservableObject{
     
     @Published var users : [UserViewModel]
     @Published var idZone : Int
     @Published var idCreneau: Int
-    // @Published var userSelect : UserViewModel? = nil
     @Published var benevoles : [UserViewModel]
     
     init(users: [UserViewModel],idZone : Int, idCreneau : Int, benevoles: [UserViewModel]) {
@@ -20,8 +20,6 @@ class UserNonAffecteListViewModel : ObservableObject{
         self.idZone = idZone
         self.idCreneau = idCreneau
         self.benevoles = benevoles
-        debugPrint("benevolesLMUNA")
-        
     }
     
     func change(name: String) {
@@ -51,14 +49,12 @@ class UserNonAffecteListViewModel : ObservableObject{
                 debugPrint("benevoleAffeted")
                 //mettre à jour les users de l'autre model
                 self.benevoles.append(userSelected)
-                debugPrint("state bene")
-                debugPrint(self.benevoles)
                 self.state = .ready
             case .error:
                 debugPrint("error")
                 self.state = .ready
             case .ready:
-                debugPrint("UserListViewModel: ready state")
+                debugPrint("UserNonAffectViewModel: ready state")
                 debugPrint("--------------------------------------")
             default:
                 break

@@ -28,7 +28,7 @@ struct AjoutFestivalIntent {
             let year = yearFormatter.string(from : dateDebut)
             
             let differenceInSeconds = dateFin.timeIntervalSince(dateDebut)
-            let nbJours = differenceInSeconds/(3600*24)
+            let nbJours = (differenceInSeconds/(3600*24))
             
             let festivalToAdd = FestivalDTO(idFestival: -1, nom: nom, annee: (year as NSString).integerValue, nbJours: Int(nbJours), cloture: -1)
             

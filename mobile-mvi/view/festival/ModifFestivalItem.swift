@@ -33,23 +33,15 @@ struct ModifFestivalItem : View{
             DatePicker("  Date de début", selection: $dateDebut, displayedComponents: .date)
                 .padding(5)
                 .background(Color.gray.opacity(0.1), in: RoundedRectangle(cornerRadius: 5))
-                .foregroundColor(.green).accentColor(.green)
+                .foregroundColor(.black).accentColor(.red)
             
             let lendemain = Calendar.current.date(byAdding: .day, value: 1, to: dateDebut)!
             
             DatePicker("  Date de fin", selection: $dateFin, in : lendemain..., displayedComponents: .date)
                 .padding(5)
                 .background(Color.gray.opacity(0.1), in: RoundedRectangle(cornerRadius: 5))
-                .foregroundColor(.green).accentColor(.green)
-            
-            Button("Envoyer", action : {
-                debugPrint(modifFestival.nom)
-//                Task{
-//                    await modifFestivalIntent.ajouterFestival(nom: modifFestival.nom, dateDebut: dateDebut, dateFin: dateFin)
-//                }
-                dismiss()
-            })
-        }.frame(maxHeight: .infinity).background(.black).foregroundColor(.green)
+                .foregroundColor(.black).accentColor(.red)
+        }//.frame(maxHeight: .infinity).background(.black).foregroundColor(.green)
     }
 
 }

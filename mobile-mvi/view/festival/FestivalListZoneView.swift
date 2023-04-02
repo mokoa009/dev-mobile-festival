@@ -29,7 +29,12 @@ struct FestivalListZoneView : View {
                         Text("Zone n°\(zone.idZone)")
                         Text("Nom: \(zone.nom)")
                         Text("Nombres de bénévoles affectés sur la zone : \(zone.nbBenevoles)")
-                    }
+                    }.padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(.black)
+                        )
+                        .foregroundColor(.black)
                 }
             Button("AJouter une zone", action: {
                 debugPrint("ajout zone")
@@ -40,6 +45,6 @@ struct FestivalListZoneView : View {
                 
             }.task {
                 await festivalZoneIntent.getZones(id: zones.idJour)
-            }
+            }//.frame(maxHeight: .infinity).background(.black).foregroundColor(.green)
     }
 }

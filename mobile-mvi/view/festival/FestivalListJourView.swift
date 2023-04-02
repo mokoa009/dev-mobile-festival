@@ -19,12 +19,6 @@ struct FestivalListJourView : View {
         self.jours = viewModel
         self.festivalJourIntent = FestivalJourIntent(model: viewModel)
     }
-    
-    /*
-    func supprimerUser(id : Int) async{
-        await userIntent.deleteUser(id: id)
-    }*/
-    
 
     var body : some View {
         VStack {
@@ -37,17 +31,18 @@ struct FestivalListJourView : View {
                         VStack{
                             NavigationLink(destination: FestivalListCreneauView(viewModel: FestivalListCreneauViewModel(zonesCreneaux: [], idJour: jour.idJour))
                             ){
-                                Label("", systemImage:  "eye").foregroundColor(.green)
+                                Label("", systemImage:  "eye").foregroundColor(.blue)
                             }
                         }
                     }.padding()
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
-                                .stroke(.green)
+                                .stroke(.black)
                         )
+                        .foregroundColor(.black)
                 }
             }.task {
                 await festivalJourIntent.getJours(id: jours.idFestival)
-            }
+            }//.background(.black).foregroundColor(.green)
     }
 }

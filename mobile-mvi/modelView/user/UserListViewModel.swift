@@ -31,27 +31,27 @@ class UserListViewModel : ObservableObject, UserModelObserver {
     @Published var state : UserState = .ready {
         didSet {
             switch state {
-            case .loadingUsers:
-                debugPrint("state loading UserVM")
-            case .loadedUsers(let newUsers):
-                //transformation UserDTO en UserViewModel
-                self.users = newUsers.map{ user in user.convertToUserVM()}
-                debugPrint("jai charge les donnees")
-                self.state = .ready
-            case .error:
-                debugPrint("error")
-                self.state = .ready
-            case .deletingUser:
-                debugPrint("demande delete user")
-            case .deleted(let userDeleted):
-                self.users.remove(at:self.users.firstIndex(of:userDeleted)!)
-                
-            case .ready:
-                debugPrint("UserListViewModel: ready state")
-                debugPrint("--------------------------------------")
-            default:
-                break
-            }
+                case .loadingUsers:
+                    debugPrint("state loading UserVM")
+                case .loadedUsers(let newUsers):
+                    //transformation UserDTO en UserViewModel
+                    self.users = newUsers.map{ user in user.convertToUserVM()}
+                    self.state = .ready
+                case .error:
+                    debugPrint("error")
+                    self.state = .ready
+                case .deletingUser:
+                    debugPrint("demande delete user")
+                case .deleted(let userDeleted):
+                    //remove premiere occurence de l'user deleted
+                    self.users.remove(at:self.users.firstIndex(of:userDeleted)!)
+                    
+                case .ready:
+                    debugPrint("UserListViewModel: ready state")
+                    debugPrint("--------------------------------------")
+                default:
+                    break
+                }
         }
     }
 }

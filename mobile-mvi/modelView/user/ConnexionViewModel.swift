@@ -23,21 +23,21 @@ class ConnexionViewModel : ObservableObject{//, UserModelObserver {
     @Published var state : ConnexionState = .ready {
         didSet {
             switch state {
-                case .error:
-                    debugPrint("error")
-                    self.state = .ready
-                case .ready:
-                    debugPrint("ConnexionViewModel: ready state")
-                    debugPrint("-------------------------------")
-                case .connexion:
-                    debugPrint("connexion")
-                case .authentification:
-                    debugPrint("connexion en cours")
-                case .authentified:
-                    debugPrint("connecté")
-                default:
-                    break
-                }
+            case .error:
+                debugPrint("error")
+                self.state = .ready
+            case .ready:
+                debugPrint("ConnexionViewModel: ready state")
+                debugPrint("-------------------------------")
+            case .connexion:
+                debugPrint("connexion")
+            case .authentification:
+                debugPrint("connexion en cours")
+            case .authentified:
+                debugPrint("connecté")
+            default:
+                break
+            }
         }
     }
 }

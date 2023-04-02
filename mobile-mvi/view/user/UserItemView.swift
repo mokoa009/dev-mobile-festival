@@ -14,8 +14,10 @@ struct UserItemView: View {
     }
     
     var body: some View {
-        Text(user.nom)
-        Text(user.prenom)
-        Text(user.email)
+        VStack(alignment: .leading){
+            Text(user.nom)
+            Text(user.prenom)
+            Text(user.email)
+        }
     }
 }

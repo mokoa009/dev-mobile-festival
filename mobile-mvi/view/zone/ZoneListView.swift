@@ -22,9 +22,6 @@ struct ZoneListView : View {
     func supprimerZone(id : Int) async{
         await zoneIntent.deleteZone(id: id,token: tokenManager.token?.string)
     }
-    func modifierZone(){
-        debugPrint("modifier zone")
-    }
     
     var body : some View {
         NavigationStack{
@@ -42,7 +39,6 @@ struct ZoneListView : View {
                                         await supprimerZone(id: zone.id)
                                     }
                                 })
-                                Button("Modifer", action: modifierZone)
                             }.buttonStyle(.bordered)
                         }
                     }

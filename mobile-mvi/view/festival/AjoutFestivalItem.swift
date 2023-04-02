@@ -50,7 +50,7 @@ struct AjoutFestivalItem : View{
                 }
                 dismiss()
             })
-        }.frame(maxHeight: .infinity).background(.black).foregroundColor(.green)
+        }//.frame(maxHeight: .infinity).background(.black).foregroundColor(.green)
     }
 
 }

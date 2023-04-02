@@ -9,12 +9,14 @@ import Foundation
 
 class FestivalCreneauViewModel : ObservableObject, Hashable, Equatable{//, UserModelObserver {
     
+    let id : UUID
     @Published var idZone : Int
     @Published var nom : String
     @Published var nbBenevoles : Int
     @Published var creneaux : [Creneau]
     
-    init(idZone: Int,nom:String,nbBenevoles:Int,creneaux: [Creneau]) {
+    init(id: UUID,idZone: Int,nom:String,nbBenevoles:Int,creneaux: [Creneau]) {
+        self.id = id
         self.idZone = idZone
         self.nom = nom
         self.nbBenevoles = nbBenevoles

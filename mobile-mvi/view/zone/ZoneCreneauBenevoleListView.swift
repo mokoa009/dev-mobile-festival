@@ -25,7 +25,6 @@ struct ZoneCreneauBenevoleListView : View {
         NavigationStack{
             VStack {
                 Text("Affectation bénévoles")
-                Text("Vous avez sélectionné le créneau 15-17 pour la zone 2")
                 ForEach(zones.benevoles, id: \.self) { benevole in
                     VStack{
                         UserItemView(user: benevole)
@@ -36,10 +35,13 @@ struct ZoneCreneauBenevoleListView : View {
                                 }
                             })
                         }.buttonStyle(.bordered)
-                    }
+                    }.padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(.black)
+                        )
+                        .foregroundColor(.black)
                 }
-                Text("Nbr bénévole actuel A REMPLIR : 2")
-                Text("Nbr bénévole manquant A REMPLIR : 2")
                
                 Picker(selection: $benevoleSelect, label : Text("Bénévoles")){
                     ForEach(zones.benevolesNonAffecte, id:\.self){ benevole in
@@ -49,9 +51,6 @@ struct ZoneCreneauBenevoleListView : View {
                             await zoneCreneauBenevoleIntent.getBenevolesNonAffect()
                     }
                     .onChange(of: benevoleSelect){ newBenevole in
-                        debugPrint("change change")
-                        debugPrint(benevoleSelect.email)
-                        debugPrint(newBenevole.email)
                         Task{
                             await zoneCreneauBenevoleIntent.affecterZoneCreneauBenevole(utilisateur: newBenevole,token: tokenManager.token?.string)
                         }

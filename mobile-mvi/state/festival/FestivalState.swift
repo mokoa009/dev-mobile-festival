@@ -24,5 +24,9 @@ enum FestivalState {//}: Equatable {//: CustomStringConvertible {//, Equatable {
     case added
     case loadingZones
     case loadedZones([ZoneAffectationDTO])
+    case deletingCreneau
+    case deletedCreneau(Creneau,Int)
+    case deletingCreneauBenevole
+    case deletedCreneauBenevole
 }
 

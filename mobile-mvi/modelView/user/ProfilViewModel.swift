@@ -13,7 +13,6 @@ class ProfilViewModel : ObservableObject{//, UserModelObserver {
     @Published var nom : String
     @Published var prenom : String
     @Published var email : String
-    @Published var nouveauMdp : String
     @Published var isAdmin : Bool
     
     init(id : Int) {
@@ -21,7 +20,6 @@ class ProfilViewModel : ObservableObject{//, UserModelObserver {
         self.prenom = ""
         self.nom = ""
         self.email = ""
-        self.nouveauMdp = ""
         self.isAdmin = false
     }
 

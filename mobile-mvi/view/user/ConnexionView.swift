@@ -30,8 +30,6 @@ struct ConnexionView: View {
                     Text("Mot de passe : *")
                 }.textFieldStyle(RoundedBorderTextFieldStyle()).padding()
                 Button("Envoyer", action : {
-                    debugPrint(identifiant.email)
-                    debugPrint(identifiant.mdp)
                     Task{
                         let token : JWT? = await connexionIntent.connexion()
                         if(token != nil){
