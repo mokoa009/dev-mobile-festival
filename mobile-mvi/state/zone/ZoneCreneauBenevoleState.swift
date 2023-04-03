@@ -20,5 +20,6 @@ enum ZoneCreneauBenevoleState {//}: Equatable {//: CustomStringConvertible {//, 
     case benevoleAffected(UserViewModel)
     case loadingBenevolesNonAffect
     case loadedBenevolesNonAffect([UserDTO])
+    case benevoleNonAdminAffected(User?)
 }
 

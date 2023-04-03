@@ -20,29 +20,35 @@ struct UserListView : View {
     
     var body : some View {
         NavigationStack{
-            VStack {
-                List{
-                    ForEach(users.users, id: \.self) { user in
-                        VStack{
-                            Text("Utilisateur n° \(user.id)")
-                            Text("Nom : " + user.nom)
-                            Text("Prenom : "+user.prenom)
-                            Text("Email : "+user.email)
-                            if(tokenManager.isAdmin()){
-                                HStack{
-                                    Button("Supprimer", action: {
-                                        Task{
-                                            await userIntent.deleteUser(user: user,token: tokenManager.token?.string)
-                                        }
-                                    })
-                                }.buttonStyle(.bordered)
-                            }
+            ScrollView{
+                VStack(alignment: .center) {
+                        Text("Liste des bénévoles").font(.title)
+                        ForEach(users.users, id: \.self) { user in
+                            VStack{
+                                Text("Utilisateur n° \(user.id)")
+                                Text("Nom : " + user.nom)
+                                Text("Prenom : "+user.prenom)
+                                Text("Email : "+user.email)
+                                if(tokenManager.isAdmin()){
+                                    HStack{
+                                        Button("Supprimer", action: {
+                                            Task{
+                                                await userIntent.deleteUser(user: user,token: tokenManager.token?.string)
+                                            }
+                                        })
+                                    }.buttonStyle(.bordered)
+                                }
+                            }.padding()
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(.black)
+                                )
+                                .foregroundColor(.black)
                         }
-                    }
                 }
+            }.task {
+                await userIntent.getUsers()
             }
-        }.task {
-            await userIntent.getUsers()
         }
     }
 }
