@@ -30,74 +30,78 @@ struct FestivalListView : View {
     
     var body : some View {
         NavigationStack{
-            VStack {
-                    ForEach(festivals.festivals, id: \.self) { festival in
-                        HStack {
-                            Spacer()
-                            VStack(){
-                                Text("Festival n° \(festival.id)").font(Font.title)
-                                Image(systemName: "gamecontroller.fill").foregroundColor(.black).font(.title)
-                                Text("Nom : " + festival.nom)
-                                Text("Année : " + String(festival.annee))
-                                Text("Durée : \(festival.nbJours) jours")
-                                NavigationLink(destination: FestivalListJourView(viewModel: FestivalListJourViewModel(jours: [], idFestival: festival.id))
-                                ){
-                                    Label("", systemImage:  "eye").foregroundColor(.black)
-                                }
-                                if (tokenManager.isAdmin()) {
-                                    HStack{
-                                        Spacer()
-                                        Button(action: {
-                                            Task{
-                                                await supprimerFestival(id: festival.id)
-                                            }
-                                        }){
-                                            Image(systemName: "trash").foregroundColor(.black)
-                                        }
-                                        Spacer()
-                                        if (!festival.cloture){
+            ScrollView{
+                VStack(alignment: .center) {
+                        Text("ERIMA FESTIVALS").font(.title)
+                        ForEach(festivals.festivals, id: \.self) { festival in
+                            HStack {
+                                Spacer()
+                                VStack(){
+                                    Text("Festival n° \(festival.id)").font(Font.title)
+                                    Image(systemName: "gamecontroller.fill").foregroundColor(.black).font(.title)
+                                    Text("Nom : " + festival.nom)
+                                    Text("Année : " + String(festival.annee))
+                                    Text("Durée : \(festival.nbJours) jours")
+                                    NavigationLink(destination: FestivalListJourView(viewModel: FestivalListJourViewModel(jours: [], idFestival: festival.id))
+                                    ){
+                                        Label("", systemImage:  "eye").foregroundColor(.blue)
+                                    }
+                                    if (tokenManager.isAdmin()) {
+                                        HStack{
                                             Spacer()
                                             Button(action: {
                                                 Task{
-                                                    await cloturerFestival(id: festival.id)
+                                                    await supprimerFestival(id: festival.id)
                                                 }
                                             }){
-                                                Image(systemName: "xmark").foregroundColor(.black)
+                                                Image(systemName: "trash").foregroundColor(.black)
                                             }
-                                        } else {
-                                            Button(action : {}){
-                                                Text("CLOTURÉ").foregroundColor(.red)
+                                            Spacer()
+                                            if (!festival.cloture){
+                                                Spacer()
+                                                Button(action: {
+                                                    Task{
+                                                        await cloturerFestival(id: festival.id)
+                                                    }
+                                                }){
+                                                    Image(systemName: "xmark").foregroundColor(.black)
+                                                }
+                                            } else {
+                                                Button(action : {}){
+                                                    Text("CLOTURÉ").foregroundColor(.red)
+                                                }
                                             }
+                                            
+                                            Spacer()
                                         }
-                                        
-                                        Spacer()
                                     }
+                                    
+                                }.padding()
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(.black)
+                                    )
+                                    .foregroundColor(.black)
+                                Spacer()
+                                
+                            }
+                        }.listRowBackground(Color.black)
+                        if(tokenManager.isAdmin()){
+                            NavigationLink(destination: AjoutFestivalItem(viewModel: AjoutFestivalViewModel(list: self.festivals))) {
+
+                                HStack{
+                                    Spacer()
+                                    Text("  Ajouter festival")
+                                    Spacer()
                                 }
                                 
-                            }.padding()
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .stroke(.black)
-                                )
-                                .foregroundColor(.black)
-                            Spacer()
-                            
+                            }//.frame( maxWidth: .infinity ,maxHeight: .infinity).background(.black)
                         }
-                    }.listRowBackground(Color.black)
-                    if(tokenManager.isAdmin()){
-                        NavigationLink(destination: AjoutFestivalItem(viewModel: AjoutFestivalViewModel(list: self.festivals))) {
-
-                            HStack{
-                                Spacer()
-                                Text("  Ajouter festival")
-                                Spacer()
-                            }
-                            
-                        }//.frame( maxWidth: .infinity ,maxHeight: .infinity).background(.black)
-                    }
-            }//.buttonStyle(.bordered).background(.black)
-        }.task {
-            await festivalIntent.getFestivals()
-        }
+                }//.buttonStyle(.bordered).background(.black)
+            }.task {
+                await festivalIntent.getFestivals()
+            }
+            }
+            
     }
 }

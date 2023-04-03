@@ -23,23 +23,26 @@ struct FestivalListCreneauView : View {
     }
     
     var body : some View {
-        VStack {
-            ForEach(creneauxZones.zonesCreneaux, id: \.self) { zone in
-                VStack{
-                    Text("Zone n°\(zone.idZone)")
-                    Text("Nom: \(zone.nom)")
-                    Text("Nombres de bénévoles affectés :\(zone.nbBenevoles)")
-                    ForEach(zone.creneaux, id: \.self){ creneau in
-                        if(creneau.id != -1){
-                            HStack{
-                                Text("\(creneau.heureDebut) h --  \(creneau.heureFin)h")
-                                if(tokenManager.isAdmin()){
-                                    Button(action: {
-                                        Task{
-                                            await festivalCreneauIntent.supprimerCreneau(creneau: creneau,idZone:zone.idZone,idJour:creneauxZones.idJour, token:tokenManager.token?.string)
+        ScrollView{
+            VStack {
+                Text("Liste créneaux par zone disponible sur ce festival").font(.title)
+                ForEach(creneauxZones.zonesCreneaux, id: \.self) { zone in
+                    VStack{
+                        Text("Zone n°\(zone.idZone)")
+                        Text("Nom: \(zone.nom)")
+                        Text("Nombres de bénévoles affectés :\(zone.nbBenevoles)")
+                        ForEach(zone.creneaux, id: \.self){ creneau in
+                            if(creneau.id != -1){
+                                HStack{
+                                    Text("\(creneau.heureDebut) h --  \(creneau.heureFin)h")
+                                    if(tokenManager.isAdmin()){
+                                        Button(action: {
+                                            Task{
+                                                await festivalCreneauIntent.supprimerCreneau(creneau: creneau,idZone:zone.idZone,idJour:creneauxZones.idJour, token:tokenManager.token?.string)
+                                            }
+                                        }){
+                                            Image(systemName: "xmark").foregroundColor(.red)
                                         }
-                                    }){
-                                        Image(systemName: "xmark").foregroundColor(.red)
                                     }
                                     NavigationLink(destination: ZoneCreneauBenevoleListView(viewModel: ZoneCreneauBenevoleListViewModel(benevoles: [], idZone: zone.idZone, idCreneau: creneau.id, idJour:creneauxZones.idJour, benevolesNonAffecte: []))
                                     ){
@@ -48,16 +51,16 @@ struct FestivalListCreneauView : View {
                                 }
                             }
                         }
-                    }
-                }.padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 5)
-                            .stroke(.black)
-                    )
-                    .foregroundColor(.black)
-            }
-        }.task() {
-            await festivalCreneauIntent.getCreneauxZones(idJour: creneauxZones.idJour)
-        }//.frame(maxHeight: .infinity).background(.black).foregroundColor(.green)
+                    }.padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(.black)
+                        )
+                        .foregroundColor(.black)
+                }
+            }.task() {
+                await festivalCreneauIntent.getCreneauxZones(idJour: creneauxZones.idJour)
+            }//.frame(maxHeight: .infinity).background(.black).foregroundColor(.green)
+        }
     }
 }

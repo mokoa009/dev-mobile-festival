@@ -21,8 +21,8 @@ struct ConnexionView: View {
     
     var body: some View {
         if(tokenManager.token == nil){
-            VStack{
-                Text("Connexion")
+            VStack(alignment: .center){
+                Text("Connexion").font(.title)
                 TextField(text: $identifiant.email){
                     Text("Email : *")
                 }.textFieldStyle(RoundedBorderTextFieldStyle()).padding()
@@ -36,8 +36,13 @@ struct ConnexionView: View {
                             tokenManager.token = token
                         }
                     }
-                })
-            }
+                }).buttonStyle(.bordered)
+            }.padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: 5)
+                        .stroke(.black)
+                )
+                .foregroundColor(.black)
         }else{
             Text("Vous êtes déjà connecté ! ")
         }

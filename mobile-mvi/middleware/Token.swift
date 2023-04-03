@@ -58,6 +58,7 @@ class Token: ObservableObject{
     
     func deconnexion(){
         self.token = nil
+        UserDefaults.standard.set(nil, forKey: "token")
     }
     
     func memeId(idUtilisateur : Int) -> Bool {

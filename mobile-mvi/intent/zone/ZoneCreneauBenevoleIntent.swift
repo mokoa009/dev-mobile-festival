@@ -151,6 +151,55 @@ struct ZoneCreneauBenevoleIntent {
         }
     }
     
+    func affecterCreneauBenevole(idUtilisateur : Int, token : String?) async {
+        self.model.state = .affectationBenevole
+        
+        if(token != nil){
+            guard let url = URL(string: "https://dev-festival-api.cluster-ig4.igpolytech.fr/affectationBC/create") else {
+                debugPrint("bad url getUser")
+                self.model.state = .error
+                return
+            }
+            do{
+                var requete = URLRequest(url: url)
+                requete.httpMethod = "POST"
+                //append a value to a field
+                requete.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                requete.addValue("Bearer "+token!,forHTTPHeaderField:"Authorization")
+                requete.addValue("*/*",forHTTPHeaderField: "Accept")
+                
+                let body = [
+                    "idCreneau" : self.model.idCreneau,
+                    "idUtilisateur": idUtilisateur,
+                    "idZone": self.model.idZone,
+                    "idJour": self.model.idJour
+                ]
+                
+                guard let encoded = await JSONHelper.encode(data: body) else {
+                    print("pb encodage")
+                    return
+                }
+                requete.httpBody = encoded
+                let (_, response) = try await URLSession.shared.data(for: requete)
+
+                let httpresponse = response as! HTTPURLResponse
+                if httpresponse.statusCode == 200{
+                    model.state = .benevoleNonAdminAffected(await getUserById(id: idUtilisateur, token: token))
+                    model.state = .ready
+                }
+                else{
+                    debugPrint("error \(httpresponse.statusCode):\(HTTPURLResponse.localizedString(forStatusCode: httpresponse.statusCode))")
+                }
+            }
+            catch{
+                debugPrint("bad request")
+            }
+        }else{
+            debugPrint("vous n'êtes pas co")
+            model.state = .error
+        }
+    }
+    
     func getBenevolesNonAffect() async {
         self.model.state = .loadingBenevolesNonAffect
         
@@ -184,5 +233,44 @@ struct ZoneCreneauBenevoleIntent {
             debugPrint("bad request")
             self.model.state = .error
         }
+    }
+    
+    func getUserById(id: Int, token : String?) async  -> User?{
+        if(token != nil){
+            guard let url = URL(string:"https://dev-festival-api.cluster-ig4.igpolytech.fr/utilisateurs/profil/"+String(id)) else {
+                debugPrint("bad url getUser")
+                return nil
+            }
+            do{
+                var requete = URLRequest(url: url)
+                requete.httpMethod = "GET"
+                requete.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                requete.addValue("Bearer "+token!,forHTTPHeaderField:"Authorization")
+                requete.addValue("*/*",forHTTPHeaderField: "Accept")
+                
+                let (data, response) = try await URLSession.shared.data(for: requete)
+                let httpresponse = response as! HTTPURLResponse
+                if httpresponse.statusCode == 200{
+                    guard let decoded : [UserDTO] = await JSONHelper.decode(data: data) else{
+                        debugPrint("mauvaise récup données")
+                        self.model.state = .error
+                        return nil
+                    }
+                    return decoded[0].convertToUser()
+                }
+                else{
+                    debugPrint("error \(httpresponse.statusCode):\(HTTPURLResponse.localizedString(forStatusCode: httpresponse.statusCode))")
+                    self.model.state = .error
+                }
+            }
+            catch{
+                debugPrint("bad request")
+                self.model.state = .error
+            }
+        }else{
+            debugPrint("vous n'êtes pas connecté")
+            model.state = .error
+        }
+        return nil
     }
 }

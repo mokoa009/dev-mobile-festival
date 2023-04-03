@@ -47,6 +47,15 @@ class ZoneCreneauBenevoleListViewModel : ObservableObject{//, UserModelObserver 
                 debugPrint("demande affectation benevole creneau")
             case .benevoleAffected(let newBenevole):
                 updateBenevoles(benevoleSelect: newBenevole)
+            case .benevoleNonAdminAffected(let newBenevole):
+                if(newBenevole != nil){
+                    let benevole = UserViewModel(id: newBenevole!.idUtilisateur, nom:newBenevole!.nom, prenom: newBenevole!.prenom, email: newBenevole!.email)
+                    if(!self.benevoles.contains(benevole)){
+                        self.benevoles.append(benevole)
+                    }else{
+                        debugPrint("Vous êtes déjà affecté à ce créneau")
+                    }
+                }
             case .error:
                 debugPrint("error")
                 self.state = .ready
