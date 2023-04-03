@@ -32,6 +32,14 @@ Voici une liste exhaustives de toutes les fonctionnalités implémentées :
     - Supprimer une zone
     - Supprimer un compte bénévole
 
+Pour se connecter en tant qu'admin , voici un profil test : 
+    - Email : Admin
+    - mdp : 
+(Pas de mdp )
+Pour se connecter en tant que simple bénévole : 
+    - Email : Emma
+    - mdp : Emma ou emma
+
 ## Dépendances
 
 L'application utilise le module JWR Decode 3.0.1 pour gérer le token lors de la connexion d'un utilisateur.
